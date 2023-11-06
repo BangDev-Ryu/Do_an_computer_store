@@ -55,20 +55,19 @@ public class diaChi {
         tenDuong = sc.nextLine();
         System.out.println("Nhap ten quan: ");
         tenQuan = sc.nextLine();
-        System.out.println("Nhập ten tinh");
+        System.out.println("Nhap ten tinh: ");
+        tenTinh = sc.nextLine();
     }
     public void xuat(){
-        System.out.println(soNha+", duong "+tenDuong+", quan "+tenQuan+", tinh "+tenTinh);
+        System.out.println(soNha+", "+tenDuong+", Q"+tenQuan+", "+tenTinh);
     }
     @Override
     public String toString() {
-        return
-                "soNha=" + soNha + '\'' +
-                ", tenDuong='" + tenDuong + '\'' +
-                ", tenQuan='" + tenQuan + '\'' +
-                ", tenTinh='" + tenTinh + '\''
-
-                ;
+        return 
+            soNha + ", " +
+            tenDuong + ", Q" +
+            tenQuan + ", " +
+            tenTinh;
     }
 
     public static void main(String[] args) {
