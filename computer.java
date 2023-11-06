@@ -7,7 +7,6 @@ public class computer {
         public String BrandName;
         public int Price;
         public int ComQty;
-        public int ComQtyCopy;
 
         Scanner input = new Scanner(System.in);
 
@@ -27,6 +26,5 @@ public class computer {
 
                 System.out.println("Nhập số lượng:");
                 this.ComQty = input.nextInt();
-                ComQtyCopy = this.ComQty;
         }
 }
