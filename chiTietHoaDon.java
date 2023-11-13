@@ -3,7 +3,7 @@ public class chiTietHoaDon {
     private String idHoaDon;
     private String maSp;
     private int soLuong;
-    private int giaTien;
+    private double giaTien;
     Scanner sc = new Scanner(System.in);
     public String getIdHoaDon() {
         return idHoaDon;
@@ -23,10 +23,10 @@ public class chiTietHoaDon {
     public void setSoLuong(int soLuong) {
         this.soLuong = soLuong;
     }
-    public int getGiaTien() {
+    public double getGiaTien() {
         return giaTien;
     }
-    public void setGiaTien(int giaTien) {
+    public void setGiaTien(double giaTien) {
         this.giaTien = giaTien;
     }
     

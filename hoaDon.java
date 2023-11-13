@@ -4,9 +4,13 @@ public class hoaDon {
     private String idKhach;
     private String idHoaDon;
     private date ngayMua;
-    private int tongTien;
+    private double tongTien;
     ArrayList<chiTietHoaDon> chiTietHD = new  ArrayList<>();
     Scanner sc = new Scanner(System.in);
+
+    public hoaDon() {
+
+    }
     
     public String getIdKhach() {
         return idKhach;
@@ -32,15 +36,15 @@ public class hoaDon {
     public void setChiTietHD(ArrayList<chiTietHoaDon> chiTietHD) {
         this.chiTietHD = chiTietHD;
     }
-    public int getTongTien() {
+    public double getTongTien() {
         return tongTien;
     }
-    public void setTongTien(int tongTien) {
+    public void setTongTien(double tongTien) {
         this.tongTien = tongTien;
     }
 
     
-    public hoaDon(String idKhach, String idHoaDon, date ngayMua, int tongTien, ArrayList<chiTietHoaDon> chiTietHD,
+    public hoaDon(String idKhach, String idHoaDon, date ngayMua, double tongTien, ArrayList<chiTietHoaDon> chiTietHD,
             khachHang khachMua) {
         this.idKhach = idKhach;
         this.idHoaDon = idHoaDon;
@@ -48,8 +52,8 @@ public class hoaDon {
         this.tongTien = tongTien;
         this.chiTietHD = chiTietHD;
     }
-    public hoaDon() {
-    }
+   
+
     public void nhapHD(){
         int choice;
         System.out.println("Nhap id khach hang: ");
@@ -82,10 +86,28 @@ public class hoaDon {
         }while(choice != 0);
     }
     public void xuatHD(){
-        System.out.println(idHoaDon +" "+ idKhach +" "+ ngayMua);
-        for(chiTietHoaDon ct:chiTietHD){
-            System.out.println(ct);
+        String mahd_format = "| Ma hoa don: %-6s | %n";
+        String date_format = "| Ngay mua: %-8s | %n";   
+        String khach_format = "| ID khach: %-8s |%n";
+        System.out.println("+--------------------+");
+        System.out.format(mahd_format, idHoaDon);
+        System.out.format(date_format, ngayMua);
+        System.out.format(khach_format, idKhach);
+        System.out.println("+--------------------+");
+
+        System.out.println("+--------------------+----------+--------------+");
+        System.out.println("|      San pham      | So luong |   Gia tien   |");
+        System.out.println("+--------------------+----------+--------------+");
+
+        String cthd_format = "| %-18s | %-8s | %-12.2f | %n";
+        for (chiTietHoaDon ct : chiTietHD) {
+            System.out.format(cthd_format, ct.getMaSp(), ct.getSoLuong(), ct.getGiaTien());
         }
+        System.out.println("+--------------------+----------+--------------+");
+        String tongtien_format = "| Tong tien: %-34.2f| %n";
+        System.out.format(tongtien_format, tongTien);
+        System.out.println("+--------------------+----------+--------------+");
+
     }
     public static void main(String[] args) {
         hoaDon hd = new hoaDon();

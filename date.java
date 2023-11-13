@@ -54,7 +54,7 @@ public class date {
     }
 
     public String toString() {
-        return ngay + "-" + thang + "-" + nam + ",";
+        return ngay + "-" + thang + "-" + nam;
     }
 
 }
