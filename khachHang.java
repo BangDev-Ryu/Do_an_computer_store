@@ -12,6 +12,9 @@ public class khachHang {
         this.sdt = sdt;
         this.dc = dc;
     }
+    
+    public khachHang() {
+    }
 
     public String getTenKhach() {
         return tenKhach;
@@ -45,6 +48,7 @@ public class khachHang {
         this.dc = dc;
     }
     public void nhap(){
+        dc = new diaChi();
         System.out.println("Nhap id khach hang");
         idKhach = sc.nextLine();
         System.out.println("Nhap ten khach hang");
