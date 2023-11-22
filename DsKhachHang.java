@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Iterator;
 public class DsKhachHang {
     ArrayList<khachHang> dskhachHang = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
@@ -31,6 +32,57 @@ public class DsKhachHang {
         dskhachHang.add(tmp);
     }
     public void xoa_kh(){
-        System.out.
+        System.out.println("Nhap id khach hang can xoa: ");
+        String id = sc.nextLine();
+
+        Iterator<khachHang> it = dskhachHang.iterator();
+        while(it.hasNext()){
+            khachHang kh = it.next();
+            if(kh.getidKhach().equals(id)){
+                dskhachHang.remove(kh);
+                return;
+            }
+        }
+        System.out.println("Khach hang can xoa khong ton tai!");
+    }
+    public void sua_kh(){
+        System.out.println("Nhap id khach hang can sua: ");
+        String id = sc.nextLine();
+
+        Iterator<khachHang> it = dskhachHang.iterator();
+        if(it.hasNext()){
+            khachHang kh = it.next();
+            if(kh.getidKhach().equals(id)){
+                kh.nhap();
+            }
+        }
+        System.out.println("Khach hang can sua khong ton tai! ");
+    }
+
+    public void timkiem_kh(){
+        System.out.println("Nhap id khach hang can tim kiem: ");
+        String id = sc.nextLine();
+        
+        Iterator<khachHang> it = dskhachHang.iterator();
+        while(it.hasNext()){
+            khachHang kh = it.next();
+            if(kh.getidKhach().equals(id)){
+                kh.xuat();
+            }
+        }
+        System.out.println("Khach hang can tim khong ton tai!");
+    }
+    public void xuat_ds(){
+        System.out.println("Xuat danh sach khach hang: ");
+        for(khachHang kh : dskhachHang){
+            kh.xuat();
+        }
+    }
+    public static void main(String[] args) {
+        DsKhachHang ds = new DsKhachHang();
+        ds.nhap_dskh();
+        ds.xoa_kh();
+        ds.sua_kh();
+        ds.timkiem_kh();
     }
 }
