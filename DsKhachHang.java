@@ -16,6 +16,7 @@ public class DsKhachHang {
         for (int i = 0; i<n; i++){
             System.out.println("Nhap khach hang thu "+(i+1) +": ");
             khachHang tmp = new khachHang();
+            diaChi dc = new diaChi(); 
             tmp.nhap();
             dskhachHang.add(tmp);
         }
@@ -50,7 +51,7 @@ public class DsKhachHang {
         String id = sc.nextLine();
 
         Iterator<khachHang> it = dskhachHang.iterator();
-        if(it.hasNext()){
+        while(it.hasNext()){
             khachHang kh = it.next();
             if(kh.getidKhach().equals(id)){
                 kh.nhap();
