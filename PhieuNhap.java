@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class PhieuNhap {
+public class phieuNhap {
     private String idPhieu;
     private date ngaynhappn;
     private nhacungcap ncc;
@@ -9,11 +9,11 @@ public class PhieuNhap {
     ArrayList<chiTietPhieuNhap> chiTietPN = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
-    public PhieuNhap() {
+    public phieuNhap() {
 
     }
 
-    public PhieuNhap(String idPhieu, date ngaynhappn, nhacungcap ncc, double tongTien,
+    public phieuNhap(String idPhieu, date ngaynhappn, nhacungcap ncc, double tongTien,
             ArrayList<chiTietPhieuNhap> chiTietPN) {
         this.idPhieu = idPhieu;
         this.ngaynhappn = ngaynhappn;
@@ -105,7 +105,7 @@ public class PhieuNhap {
     }
 
     public static void main(String[] args) {
-        PhieuNhap pn = new PhieuNhap();
+        phieuNhap pn = new phieuNhap();
         pn.nhapPN();
         pn.xuat();
     }

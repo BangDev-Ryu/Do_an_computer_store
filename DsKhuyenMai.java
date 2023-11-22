@@ -4,11 +4,11 @@ package doan;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class DsKhuyenMai {
+public class dsKhuyenMai {
     public int n;
     khuyenMai [] arr;
     Scanner sc=new Scanner(System.in);
-    public DsKhuyenMai()
+    public dsKhuyenMai()
     {
         arr=null;
         n=0;
@@ -91,7 +91,7 @@ public void nhapds()
     }
     
     public static void main(String[] args) {
-        DsKhuyenMai mang=new DsKhuyenMai();
+        dsKhuyenMai mang=new dsKhuyenMai();
         
         mang.nhapds();
         

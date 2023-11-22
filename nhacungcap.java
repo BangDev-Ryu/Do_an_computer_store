@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class nhacungcap {
+public class nhaCungCap {
 
     private String idNCC;
     private String tenNCC;
@@ -9,11 +9,11 @@ public class nhacungcap {
 
     Scanner sc = new Scanner(System.in);
 
-    public nhacungcap() {
+    public nhaCungCap() {
 
     }
 
-    public nhacungcap(String idNCC, String tenNCC, String sdt, String email) {
+    public nhaCungCap(String idNCC, String tenNCC, String sdt, String email) {
         this.idNCC = idNCC;
         this.tenNCC = tenNCC;
         this.sdt = sdt;
@@ -81,7 +81,7 @@ public class nhacungcap {
     }
 
     public static void main(String[] args) {
-        nhacungcap a = new nhacungcap();
+        nhaCungCap a = new nhaCungCap();
         a.nhap();
         System.out.println(a);
     }

@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Iterator;
-public class DsKhachHang {
+public class dsKhachHang {
     ArrayList<khachHang> dskhachHang = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
-    public DsKhachHang() {
+    public dsKhachHang() {
     }
 
-    public DsKhachHang(ArrayList<khachHang> dskhachHang) {
+    public dsKhachHang(ArrayList<khachHang> dskhachHang) {
         this.dskhachHang = dskhachHang;
     }
     public void nhap_dskh(){
@@ -80,7 +80,7 @@ public class DsKhachHang {
         }
     }
     public static void main(String[] args) {
-        DsKhachHang ds = new DsKhachHang();
+        dsKhachHang ds = new dsKhachHang();
         ds.nhap_dskh();
         ds.xoa_kh();
         ds.sua_kh();
