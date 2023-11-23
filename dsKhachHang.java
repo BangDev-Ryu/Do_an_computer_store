@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Iterator;
+import java.util.ListIterator;
 public class dsKhachHang {
     ArrayList<khachHang> dskhachHang = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
@@ -13,10 +14,10 @@ public class dsKhachHang {
     public void nhap_dskh(){
         System.out.println("Nhap vao so luong khach hang: ");
         int n = sc.nextInt();
+        sc.nextLine();
         for (int i = 0; i<n; i++){
             System.out.println("Nhap khach hang thu "+(i+1) +": ");
             khachHang tmp = new khachHang();
-            diaChi dc = new diaChi(); 
             tmp.nhap();
             dskhachHang.add(tmp);
         }
@@ -55,6 +56,7 @@ public class dsKhachHang {
             khachHang kh = it.next();
             if(kh.getidKhach().equals(id)){
                 kh.nhap();
+                return;
             }
         }
         System.out.println("Khach hang can sua khong ton tai! ");
@@ -69,6 +71,7 @@ public class dsKhachHang {
             khachHang kh = it.next();
             if(kh.getidKhach().equals(id)){
                 kh.xuat();
+                return;
             }
         }
         System.out.println("Khach hang can tim khong ton tai!");
@@ -83,7 +86,9 @@ public class dsKhachHang {
         dsKhachHang ds = new dsKhachHang();
         ds.nhap_dskh();
         ds.xoa_kh();
+        ds.xuat_ds();
         ds.sua_kh();
+        ds.xuat_ds();
         ds.timkiem_kh();
     }
 }
