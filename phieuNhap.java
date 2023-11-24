@@ -1,113 +1,55 @@
-import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class phieuNhap {
-    private String idPhieu;
-    private date ngaynhappn;
-    private nhacungcap ncc;
-    private double tongTien;
-    ArrayList<chiTietPhieuNhap> chiTietPN = new ArrayList<>();
-    Scanner sc = new Scanner(System.in);
+    private String idphieu;
+    private date ngaynhap;
+    private nhaCungCap nhacungcap;
+    private chiTietPhieuNhap chitietphieu;
 
-    public phieuNhap() {
-
+    public phieuNhap(String idphieu, date ngaynhap, nhaCungCap nhacungcap, chiTietPhieuNhap chitietphieu) {
+        this.idphieu = idphieu;
+        this.ngaynhap = ngaynhap;
+        this.nhacungcap = nhacungcap;
+        this.chitietphieu = chitietphieu;
     }
 
-    public phieuNhap(String idPhieu, date ngaynhappn, nhacungcap ncc, double tongTien,
-            ArrayList<chiTietPhieuNhap> chiTietPN) {
-        this.idPhieu = idPhieu;
-        this.ngaynhappn = ngaynhappn;
-        this.ncc = ncc;
-        this.tongTien = tongTien;
-        this.chiTietPN = chiTietPN;
+    public String getIdphieu() {
+        return idphieu;
     }
 
-    public String getIdPhieu() {
-        return idPhieu;
+    public void setIdphieu(String idphieu) {
+        this.idphieu = idphieu;
     }
 
-    public void setIdPhieu(String idPhieu) {
-        this.idPhieu = idPhieu;
+    public date getNgaynhap() {
+        return ngaynhap;
     }
 
-    public date getNgaynhappn() {
-        return ngaynhappn;
+    public void setNgaynhap(date ngaynhap) {
+        this.ngaynhap = ngaynhap;
     }
 
-    public void setNgaynhappn(date ngaynhappn) {
-        this.ngaynhappn = ngaynhappn;
+    public nhaCungCap getNhacungcap() {
+        return nhacungcap;
     }
 
-    public nhacungcap getNcc() {
-        return ncc;
+    public void setNhacungcap(nhaCungCap nhacungcap) {
+        this.nhacungcap = nhacungcap;
     }
 
-    public void setNcc(nhacungcap ncc) {
-        this.ncc = ncc;
+    public chiTietPhieuNhap getChitietphieu() {
+        return chitietphieu;
     }
 
-    public double getTongTien() {
-        return tongTien;
+    public void setChitietphieu(chiTietPhieuNhap chitietphieu) {
+        this.chitietphieu = chitietphieu;
     }
 
-    public void setTongTien(double tongTien) {
-        this.tongTien = tongTien;
-    }
-
-    public ArrayList<chiTietPhieuNhap> getChiTietPN() {
-        return chiTietPN;
-    }
-
-    public void setChiTietPN(ArrayList<chiTietPhieuNhap> chiTietPN) {
-        this.chiTietPN = chiTietPN;
-    }
-
-    public void nhapPN() {
-        int choice;
-        System.out.println("nhap ma phieu:");
-        idPhieu = sc.nextLine();
-        System.out.println("nhap ngay nhap hang");
-        ngaynhappn = new date();
-        ngaynhappn.nhap();
-        System.out.println("nhap id nha cung cap");
-        ncc = new nhacungcap();
-        ncc.setIdNCC(sc.nextLine());
-        do {
-
-            System.out.println("1.nhap san pham:");
-            System.out.println("0.thoat");
-            System.out.println("nhap lua chon:");
-            choice = sc.nextInt();
-            switch (choice) {
-                case 0:
-                    System.out.println("thoat");
-                    break;
-                case 1:
-                    chiTietPhieuNhap a = new chiTietPhieuNhap();
-                    a.setIdPhieu(idPhieu);
-                    a.nhap();
-                    chiTietPN.add(a);
-                    break;
-
-                default:
-                    System.out.println("nhap lai");
-                    break;
-            }
-        } while (choice != 0);
-    }
-
-    public void xuat() {
-        System.out.println(
-                "ma phieu nhap:" + idPhieu + ",ma nha cung cap:" + ncc.getIdNCC() + ",ngay nhap hang:" + ngaynhappn);
-        for (chiTietPhieuNhap pn : chiTietPN) {
-            System.out.println(pn);
-        }
-    }
-
-    public static void main(String[] args) {
-        phieuNhap pn = new phieuNhap();
-        pn.nhapPN();
-        pn.xuat();
+    @Override
+    public String toString() {
+        return "id phieu=" + idphieu + ", ngay nhap:" + ngaynhap + ", nha cung cap:" + nhacungcap
+                + chitietphieu;
     }
 
 }
