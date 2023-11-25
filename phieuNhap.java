@@ -6,12 +6,15 @@ public class phieuNhap {
     private date ngaynhap;
     private nhaCungCap nhacungcap;
     private chiTietPhieuNhap chitietphieu;
+    private double tongTien;
 
-    public phieuNhap(String idphieu, date ngaynhap, nhaCungCap nhacungcap, chiTietPhieuNhap chitietphieu) {
+    public phieuNhap(String idphieu, date ngaynhap, nhaCungCap nhacungcap, chiTietPhieuNhap chitietphieu,
+            double tongTien) {
         this.idphieu = idphieu;
         this.ngaynhap = ngaynhap;
         this.nhacungcap = nhacungcap;
         this.chitietphieu = chitietphieu;
+        this.tongTien = tongTien;
     }
 
     public String getIdphieu() {
@@ -46,10 +49,18 @@ public class phieuNhap {
         this.chitietphieu = chitietphieu;
     }
 
+    public void setTongTien(double tongTien) {
+        this.tongTien = tongTien;
+    }
+
+    public double getTongTien() {
+        return chitietphieu.getGiaTien() * chitietphieu.getSoLuong();
+    }
+
     @Override
     public String toString() {
         return "id phieu=" + idphieu + ", ngay nhap:" + ngaynhap + ", nha cung cap:" + nhacungcap
-                + chitietphieu;
+                + chitietphieu + ",tong tien=" + tongTien;
     }
 
 }

@@ -20,7 +20,6 @@ public class test {
                     sc.nextLine();
                     String idpn = sc.nextLine();
                     System.out.println("Nhap ngay nhap hang:");
-
                     System.out.println("Nhap ngay:");
                     int ngaynhap = sc.nextInt();
                     System.out.println("Nhap thang:");
@@ -32,6 +31,7 @@ public class test {
                     sc.nextLine();
                     String idncc = sc.nextLine();
                     System.out.println("nhap ten nha cung cap:");
+                    sc.nextLine();
                     String tenncc = sc.nextLine();
                     System.out.println("nhap so dien thoai nha cung cap:");
                     String sdtncc = sc.nextLine();
@@ -44,15 +44,15 @@ public class test {
                     int slsp = sc.nextInt();
                     System.out.println("nhap gia tien:");
                     double gt = sc.nextDouble();
+                    double tongtienhap = slsp * gt;
                     chiTietPhieuNhap ctpn = new chiTietPhieuNhap(idsp, slsp, gt);
-                    phieuNhap pn = new phieuNhap(idpn, nn, ncc, ctpn);
+                    phieuNhap pn = new phieuNhap(idpn, nn, ncc, ctpn, tongtienhap);
                     dspn.themphieunhap(pn);
                     break;
                 case 2:
                     System.out.println("danh sach phieu nhap");
                     dspn.xuatdsphieunhap();
                     break;
-
                 case 3:
                     System.out.println("nhap id phieu nhap can xoa:");
                     sc.nextLine();
