@@ -2,54 +2,49 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class phieuNhap {
-    private String idphieu;
-    private date ngaynhap;
-    private nhaCungCap nhacungcap;
-    private chiTietPhieuNhap chitietphieu;
+    Scanner sc = new Scanner(System.in);
 
-    public phieuNhap(String idphieu, date ngaynhap, nhaCungCap nhacungcap, chiTietPhieuNhap chitietphieu) {
-        this.idphieu = idphieu;
-        this.ngaynhap = ngaynhap;
-        this.nhacungcap = nhacungcap;
-        this.chitietphieu = chitietphieu;
+    private String idPhieuNhap;
+    private String idNCC;
+    private date ngayNhap;
+    private double tongTien;
+    private ArrayList<chiTietPhieuNhap> chiTietPN = new ArrayList<chiTietPhieuNhap>();
+    private static int cntIdPN = 0;
+
+    public phieuNhap() {
+        idPhieuNhap = "PN" + cntIdPN;
+        cntIdPN++;
     }
 
-    public String getIdphieu() {
-        return idphieu;
+    public void setIdPhieuNhap(String id) {
+        idPhieuNhap = id;
     }
 
-    public void setIdphieu(String idphieu) {
-        this.idphieu = idphieu;
+    public String getIdPhieuNhap() {
+        return idPhieuNhap;
     }
 
-    public date getNgaynhap() {
-        return ngaynhap;
+    public void setIdNCC(String id) {
+        idNCC = id;
     }
 
-    public void setNgaynhap(date ngaynhap) {
-        this.ngaynhap = ngaynhap;
+    public String getIdNCC() {
+        return idNCC;
     }
 
-    public nhaCungCap getNhacungcap() {
-        return nhacungcap;
+    public void setNgayNhap(date ngay) {
+        ngayNhap = ngay; 
     }
 
-    public void setNhacungcap(nhaCungCap nhacungcap) {
-        this.nhacungcap = nhacungcap;
+    public date getNgayNhap() {
+        return ngayNhap;
     }
 
-    public chiTietPhieuNhap getChitietphieu() {
-        return chitietphieu;
+    public void setTongTien(double tien) {
+        tongTien = tien;
     }
 
-    public void setChitietphieu(chiTietPhieuNhap chitietphieu) {
-        this.chitietphieu = chitietphieu;
+    public double getTongTien() {
+        return tongTien;
     }
-
-    @Override
-    public String toString() {
-        return "id phieu=" + idphieu + ", ngay nhap:" + ngaynhap + ", nha cung cap:" + nhacungcap
-                + chitietphieu;
-    }
-
 }

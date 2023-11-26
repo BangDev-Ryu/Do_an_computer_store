@@ -34,14 +34,11 @@ public class dsHoaDon {
         for (hoaDon hd : arr_hd) {
             System.out.format(hd_format, hd.getIdHoaDon(), hd.getIdKhach(), hd.getNgayMua());
         }
-        System.out.println("+-----------------------------------------+");
+        System.out.println("+----------------------------------------+");
     }
 
     public hoaDon getLastHD() {
         return arr_hd.get(arr_hd.size()-1);
     }
 
-    public void removeLastHD() {
-        arr_hd.remove(arr_hd.size()-1);
-    }
 }

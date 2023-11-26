@@ -5,6 +5,7 @@ public class menu {
     dsHoaDon menuHD = new dsHoaDon();
     //dsChiTietHoaDon menuCTHD = new dsChiTietHoaDon();
 
+    // Menu san pham
     public void menuSanPham() {
         int choice;
 
@@ -35,6 +36,7 @@ public class menu {
         } while (choice != 0);
     }
 
+    //Menu khach hang
     public void menuKhachHang() {
         int choice;
 
@@ -68,6 +70,7 @@ public class menu {
         } while (choice != 0);        
     }
 
+    //Menu hoa don
     public void menuHoaDon_2() {
         int choice;
 
@@ -142,6 +145,7 @@ public class menu {
         
     }
 
+    //Menu phieu nhap
     public void menuPhieuNhap() {
         int choice;
 
@@ -175,6 +179,7 @@ public class menu {
         } while (choice != 0);
     }
 
+    //Menu bao hanh
     public void menuBaoHanh() {
         int choice;
 
@@ -208,6 +213,7 @@ public class menu {
         } while (choice != 0);
     }
 
+    //Menu bao hiem
     public void menuBaoHiem() {
         int choice;
 
@@ -241,6 +247,7 @@ public class menu {
         } while (choice != 0);
     }
 
+    //Menu main
     public void menuMain() {
         int choice;
 

@@ -1,36 +1,20 @@
-import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class hoaDon {
     Scanner sc = new Scanner(System.in);
     
-    private String idKhach;
     private String idHoaDon;
+    private String idKhach;
     private date ngayMua = new date();
     private double tongTien;
-    private ArrayList<chiTietHoaDon> chiTietHD = new ArrayList<>();
-    private static int cnt_id = 0;
+    private ArrayList<chiTietHoaDon> chiTietHD = new ArrayList<chiTietHoaDon>();
+    private static int cntIdHD = 0;
+    dsChiTietHoaDon dsct = new dsChiTietHoaDon();
 
     public hoaDon() {
-        idHoaDon = "HD" + cnt_id;
-        cnt_id++;
-    }
-
-    public hoaDon(String idKhach, String idHoaDon, date ngayMua, double tongTien, ArrayList<chiTietHoaDon> chiTietHD,
-            khachHang khachMua) {
-        this.idKhach = idKhach;
-        this.idHoaDon = idHoaDon;
-        this.ngayMua = ngayMua;
-        this.tongTien = tongTien;
-        this.chiTietHD = chiTietHD;
-    }
-    
-    public String getIdKhach() {
-        return idKhach;
-    }
-
-    public void setIdKhach(String idKhach) {
-        this.idKhach = idKhach;
+        idHoaDon = "HD" + cntIdHD;
+        cntIdHD++;
     }
 
     public String getIdHoaDon() {
@@ -41,20 +25,20 @@ public class hoaDon {
         this.idHoaDon = idHoaDon;
     }
 
+    public String getIdKhach() {
+        return idKhach;
+    }
+
+    public void setIdKhach(String idKhach) {
+        this.idKhach = idKhach;
+    }
+    
     public date getNgayMua() {
         return ngayMua;
     }
 
     public void setNgayMua(date ngayMua) {
         this.ngayMua = ngayMua;
-    }
-
-    public ArrayList<chiTietHoaDon> getChiTietHD() {
-        return chiTietHD;
-    }
-
-    public void setChiTietHD(ArrayList<chiTietHoaDon> chiTietHD) {
-        this.chiTietHD = chiTietHD;
     }
 
     public double getTongTien() {
@@ -85,6 +69,7 @@ public class hoaDon {
                     tmp.setIdHoaDon(idHoaDon);
                     tmp.nhapCT();
                     chiTietHD.add(tmp);
+                    dsct.arr_cthd.add(tmp);
                     break;
                 case 0:
                     System.out.println("Thoat");
