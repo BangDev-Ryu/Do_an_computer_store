@@ -15,7 +15,6 @@ public class phieuNhap {
         idPhieuNhap = "PN" + cntIdPN;
         cntIdPN++;
     }
-
     public void setIdPhieuNhap(String id) {
         idPhieuNhap = id;
     }
@@ -47,4 +46,5 @@ public class phieuNhap {
     public double getTongTien() {
         return tongTien;
     }
+
 }
