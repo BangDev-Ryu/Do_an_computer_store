@@ -2,48 +2,12 @@ import java.util.Scanner;
 
 public class menu {
     Scanner sc = new Scanner(System.in);
-
-    dsSanPham menuSP = new dsSanPham();
     dsHoaDon menuHD = new dsHoaDon();
-    dsChiTietHoaDon menuCTHD = new dsChiTietHoaDon();
-    dsPhieuNhap dspn = new dsPhieuNhap();
+    // dsChiTietHoaDon menuCTHD = new dsChiTietHoaDon();
+    dsPhieuNhap menuPN = new dsPhieuNhap();
     dsNhaCungCap dsncc = new dsNhaCungCap();
 
     // Menu san pham
-
-    public void menuSanPham_2() {
-        int choice;
-
-        do {
-            System.out.println("+---------------------------+");
-            System.out.println("|       Menu san pham       |");
-            System.out.println("+---------------------------+");
-            System.out.println("|1. Thay doi ten.           |");
-            System.out.println("|2. Thay doi so luong.      |");
-            System.out.println("|3. Thay doi gia tien.      |");
-            System.out.println("|0. Thoat chuong trinh.     |");
-            System.out.println("+---------------------------+");
-            System.out.println("Moi ban nhap lua chon: ");
-            choice = sc.nextInt();
-            System.out.println("===================================================");
-
-            switch (choice) {
-                case 1:
-                    
-                    break;
-                case 2:
-
-                    break;
-                case 0:
-                    System.out.println("Exit...");
-                    break;
-                default:
-                    System.out.println("Lua chon khong hop le!");
-                    break;
-            }
-        } while (choice != 0);
-    }
-
     public void menuSanPham() {
         int choice;
 
@@ -61,11 +25,8 @@ public class menu {
 
             switch (choice) {
                 case 1:
-                    menuSP.xuatDsDesktop();
-                    menuSP.xuatDsLaptop();
                     break;
                 case 2:
-
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -112,7 +73,7 @@ public class menu {
     }
 
     // Menu hoa don
-    public void menuHoaDon_3() {
+    public void menuHoaDon_2() {
         int choice;
 
         menuHD.taoHD();
@@ -120,6 +81,8 @@ public class menu {
         menuHD.getLastHD().xuatHD();
 
         do {
+            System.out.println("1. Luu va in hoa don.");
+            System.out.println("2. Huy hoa don.");
             System.out.println("+-----------------------------+");
             System.out.println("|         Menu hoa don        |");
             System.out.println("+-----------------------------+");
@@ -171,7 +134,7 @@ public class menu {
                     menuHD.timHD();
                     break;
                 case 3:
-                    menuHoaDon_3();
+                    menuHoaDon_2();
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -184,36 +147,70 @@ public class menu {
 
     }
 
-    // Menu phieu nhap
-    public void menuPhieuNhap() {
+    public void menuPhieuNhap_2() {
         int choice;
 
+        menuPN.taoPN();
+        System.out.println("Day la phieu nhap vua tao: ");
+        menuPN.getLastPN().xuatPN();
+
         do {
+            System.out.println("1. Luu va in phieu nhap.");
+            System.out.println("2. Huy phieu nhap.");
             System.out.println("+-----------------------------+");
-            System.out.println("|       Menu phieu nhap       |");
+            System.out.println("|        Menu phieu nhap      |");
             System.out.println("+-----------------------------+");
-            System.out.println("|1. Xem danh sach phieu nhap. |");
-            System.out.println("|2. Tim phieu nhap.           |");
-            System.out.println("|3. Tao phieu nhap.           |");
-            System.out.println("|4. Xoa phieu nhap            |");
-            System.out.println("|0. Thoat chuong trinh.       |");
+            System.out.println("|1. Luu va in phieu nhap.     |");
+            System.out.println("|2. Huy phieu nhap.           |");
             System.out.println("+-----------------------------+");
-            System.out.println("Moi ban nhap lua chon: ");
+            System.out.print("Moi ban nhap lua chon: ");
             choice = sc.nextInt();
             System.out.println("===================================================");
 
             switch (choice) {
                 case 1:
-                    dspn.xuatdsphieunhap();
+                    System.out.println("Dang in phieu nhap...");
+                    menuPN.getLastPN().xuatPN();
+                    choice = 0;
                     break;
                 case 2:
-                    dspn.timkiemphieunhap();
+                    System.out.println("Da huy phieu nhap vua tao.");
+                    choice = 0;
+                    break;
+                default:
+                    System.out.println("Lua chon khong hop le!");
+                    break;
+            }
+        } while (choice != 0);
+    }
+
+    // Menu phieu nhap
+    public void menuPhieuNhap() {
+        int lc;
+
+        do {
+            System.out.println("+-----------------------------+");
+            System.out.println("|         Menu phieu nhap     |");
+            System.out.println("+-----------------------------+");
+            System.out.println("|1. Xem danh sach phieu nhap. |");
+            System.out.println("|2. Tim phieu nhap.           |");
+            System.out.println("|3. Tao phieu nhap.           |");
+            System.out.println("|0. Thoat chuong trinh.       |");
+            System.out.println("+-----------------------------+");
+            System.out.println("Moi ban nhap lua chon: ");
+            lc = sc.nextInt();
+            System.out.println("===================================================");
+
+            switch (lc) {
+                case 1:
+                    menuPN.xuatDSPN();
+                    break;
+                case 2:
+                    menuPN.timPN();
                     break;
                 case 3:
-                    dspn.themphieunhap();
+                    menuPhieuNhap_2();
                     break;
-                case 4:
-                    dspn.xoaphieunhap();
                 case 0:
                     System.out.println("Exit...");
                     break;
@@ -221,7 +218,7 @@ public class menu {
                     System.out.println("Lua chon khong hop le!");
                     break;
             }
-        } while (choice != 0);
+        } while (lc != 0);
     }
 
     public void menuNhaCungCap() {
@@ -381,6 +378,7 @@ public class menu {
                     System.out.println("Lua chon khong hop le!");
                     break;
             }
+
         } while (choice != 0);
     }
 
