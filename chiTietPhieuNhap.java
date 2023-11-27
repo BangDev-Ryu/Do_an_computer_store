@@ -1,30 +1,21 @@
 import java.util.Scanner;
 
 public class chiTietPhieuNhap {
-    private String idPhieu;A
+    private String idPhieu;
     private String maSp;
     private int soLuong;
     private double giaTien;
-    private double tongTien;
     Scanner sc = new Scanner(System.in);
 
     public chiTietPhieuNhap() {
 
     }
 
-    public chiTietPhieuNhap(String idPhieu, String maSp, int soLuong, double giaTien, double tongTien) {
+    public chiTietPhieuNhap(String idPhieu, String maSp, int soLuong, double giaTien) {
         this.idPhieu = idPhieu;
         this.maSp = maSp;
         this.soLuong = soLuong;
         this.giaTien = giaTien;
-    }
-
-    public void setTongTien(double tongTien) {
-        this.tongTien = tongTien;
-    }
-
-    public double getTongTien() {
-        return soLuong * giaTien;
     }
 
     public void setIdPhieuNhap(String idPhieu) {
@@ -59,6 +50,10 @@ public class chiTietPhieuNhap {
         this.giaTien = giaTien;
     }
 
+    public double tongTien() {
+        return giaTien * soLuong;
+    }
+
     public void nhap() {
         System.out.println("Nhap ma san pham:");
         this.maSp = sc.nextLine();
@@ -70,7 +65,7 @@ public class chiTietPhieuNhap {
 
     @Override
     public String toString() {
-        return "maSp=" + maSp + ", soLuong=" + soLuong + ", giaTien=" + giaTien + "tong tien=" + tongTien;
+        return "maSp=" + maSp + ", soLuong=" + soLuong + ", giaTien=" + giaTien;
     }
 
 }

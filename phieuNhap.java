@@ -97,18 +97,17 @@ public class phieuNhap {
         System.out.println("+----------------------+");
 
         System.out.println("+--------------------+----------+--------------+--------------+");
-        System.out.println("|      San pham      | So luong |   Gia tien   |   Tong tien  |");
+        System.out.println("|      San pham      | So luong |   Gia tien   |   Thanh tien |");
         System.out.println("+--------------------+----------+--------------+--------------+");
 
-        String ctpn_format = "| %-18s | %-8s | %-12.2f | %-12.2f|%n";
+        String ctpn_format = "| %-18s | %-8s | %-12.2f | %-13f|%n";
 
         for (chiTietPhieuNhap ct : chiTietPN) {
-            System.out.format(ctpn_format, ct.getMaSp(), ct.getSoLuong(), ct.getGiaTien(), ct.getTongTien());
-            tongTien += ct.getTongTien();
-
+            System.out.format(ctpn_format, ct.getMaSp(), ct.getSoLuong(), ct.getGiaTien(), ct.tongTien());
+            tongTien += ct.tongTien();
         }
         System.out.println("+--------------------+----------+--------------+--------------+");
-        String tongtien_format = "| Tong tien: %-34.2f| %n";
+        String tongtien_format = "| Tong tien: %-49.2f| %n";
         System.out.format(tongtien_format, tongTien);
         System.out.println("+--------------------+----------+--------------+--------------+");
         tongTien = 0;
