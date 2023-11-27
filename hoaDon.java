@@ -91,18 +91,18 @@ public class hoaDon {
         System.out.format(khach_format, idKhach);
         System.out.println("+----------------------+");
 
-        System.out.println("+--------------------+----------+--------------+");
-        System.out.println("|      San pham      | So luong |   Gia tien   |");
-        System.out.println("+--------------------+----------+--------------+");
+        System.out.println("+--------------------+----------+--------------+--------------+");
+        System.out.println("|      San pham      | So luong |    Don gia   |  Thanh tien  |");
+        System.out.println("+--------------------+----------+--------------+--------------+");
 
-        String cthd_format = "| %-18s | %-8s | %-12.2f | %n";
+        String cthd_format = "| %-18s | %-8s | %-12.2f | %-12.2f | %n";
         for (chiTietHoaDon ct : chiTietHD) {
-            System.out.format(cthd_format, ct.getMaSp(), ct.getSoLuong(), ct.getGiaTien());
+            System.out.format(cthd_format, ct.getMaSp(), ct.getSoLuong(), ct.getGiaTien(), ct.getThanhtien());
         }
-        System.out.println("+--------------------+----------+--------------+");
-        String tongtien_format = "| Tong tien: %-34.2f| %n";
+        System.out.println("+--------------------+----------+--------------+--------------+");
+        String tongtien_format = "| Tong tien: %-48.2f | %n";
         System.out.format(tongtien_format, tongTien);
-        System.out.println("+--------------------+----------+--------------+");
+        System.out.println("+--------------------+----------+--------------+--------------+");
 
     }
 }

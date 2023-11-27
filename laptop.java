@@ -1,12 +1,15 @@
 public class laptop extends sanPham {
-    private baoHanh bHanh = new baoHanh();
 
     public laptop() {
         
     }
 
+    public laptop(String id, int sl) {
+        super("LA"+id, sl);
+    }
+
     public laptop(String id, String ten, int sl, double tien) {
-        super(id, ten, sl, tien);
+        super("LA"+id, ten, sl, tien);
     }
 
     @Override

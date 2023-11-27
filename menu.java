@@ -73,7 +73,7 @@ public class menu {
     }
 
     // Menu hoa don
-    public void menuHoaDon_2() {
+    public void menuHoaDon_3() {
         int choice;
 
         menuHD.taoHD();
@@ -81,8 +81,6 @@ public class menu {
         menuHD.getLastHD().xuatHD();
 
         do {
-            System.out.println("1. Luu va in hoa don.");
-            System.out.println("2. Huy hoa don.");
             System.out.println("+-----------------------------+");
             System.out.println("|         Menu hoa don        |");
             System.out.println("+-----------------------------+");
@@ -134,7 +132,7 @@ public class menu {
                     menuHD.timHD();
                     break;
                 case 3:
-                    menuHoaDon_2();
+                    menuHoaDon_3();
                     break;
                 case 0:
                     System.out.println("Exit...");

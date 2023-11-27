@@ -50,6 +50,10 @@ public class chiTietHoaDon {
     public void setGiaTien(double giaTien) {
         this.giaTien = giaTien;
     }
+
+    public double getThanhtien() {
+        return giaTien*soLuong;
+    }
     
     public void nhapCT(){
         System.out.println("Nhap ma san pham: ");

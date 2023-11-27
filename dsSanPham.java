@@ -7,16 +7,71 @@ public class dsSanPham {
 
     }
 
+    public boolean tonTaiDesktop(String id) {
+        for (sanPham sp : arr_sp) {
+            if (sp instanceof desktop && sp.getIdSp().equals(id)) {
+                return true;
+            } 
+        }
+        return false;
+    }
+
+    public void themDesktop(desktop desk) {
+        if (tonTaiDesktop(desk.getIdSp())) {
+            for (sanPham sp : arr_sp) {
+                if (sp instanceof desktop && sp.getIdSp().equals(desk.getIdSp())) {
+                    sp.setSoLuong(sp.getSoLuong()+desk.getSoLuong());
+                    return;
+                } 
+            }
+        }
+        else {
+            // desktop tmp = new desktop(idDesk, sl);
+            // tmp.nhapSp();
+            // desk.nhapSp();
+            arr_sp.add(desk);
+            return;
+        }
+    }
+
+    public boolean tonTaiLaptop(String id) {
+        for (sanPham sp : arr_sp) {
+            if (sp instanceof laptop && sp.getIdSp().equals(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void themLaptop(laptop lap) {
+        if (tonTaiLaptop(lap.getIdSp())) {
+            for (sanPham sp : arr_sp) {
+                if (sp instanceof laptop && sp.getIdSp().equals(lap.getIdSp())) {
+                    sp.setSoLuong(sp.getSoLuong()+lap.getSoLuong());
+                    return;
+                }
+            }
+        }
+        else {
+            // laptop tmp = new laptop(idLap, sl);
+            // tmp.nhapSp();
+            // lap.nhapSp();
+            arr_sp.add(lap);
+            return;
+        }
+    }
+
     public void taoDsCoSan() {
-        desktop d0 = new desktop("desk0", 10000);
-        arr_sp.add(d0);
-        desktop d1 = new desktop("desk1", 15000);
-        arr_sp.add(d1);
-        laptop l0 = new laptop("lap0", 7000);
-        arr_sp.add(l0);
-        desktop d2 = new desktop("desk2", 19000);
-        arr_sp.add(d2);
-        laptop l1 = new laptop("lap1", 12000); 
+        desktop s0 = new desktop("001", "desk1", 1, 2000);
+        desktop s1 = new desktop("002", "desk2", 2, 3000);
+        laptop s2 = new laptop("001", "lap1", 1, 2000);
+        desktop s3 = new desktop("001", 3);
+        laptop s4 = new laptop("001", 2);
+        themDesktop(s0);
+        themDesktop(s1);
+        themDesktop(s3);
+        themLaptop(s2);
+        themLaptop(s4);
     }
 
     public void xuatDsDesktop() {
@@ -50,9 +105,9 @@ public class dsSanPham {
     }
 
     public static void main(String[] args) {
-        dsSanPham test = new dsSanPham();
-        test.taoDsCoSan();
-        test.xuatDsDesktop();
-        test.xuatDsLaptop();
+        dsSanPham tmp = new dsSanPham();
+        tmp.taoDsCoSan();
+        tmp.xuatDsDesktop();
+        tmp.xuatDsLaptop();
     }
 }

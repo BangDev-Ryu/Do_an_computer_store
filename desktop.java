@@ -1,12 +1,15 @@
 public class desktop extends sanPham {
-    private baoHiem bHiem = new baoHiem();
 
     public desktop() {
         
     }
 
+    public desktop(String id, int sl) {
+        super("DE"+id, sl);
+    }
+
     public desktop(String id, String ten, int sl, double tien) {
-        super(id, ten, sl, tien);
+        super("DE"+id, ten, sl, tien);
     }
 
     @Override
