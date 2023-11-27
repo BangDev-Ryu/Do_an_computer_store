@@ -7,6 +7,49 @@ public class dsSanPham {
 
     }
 
+    // public desktop getSanPham(String id) {
+    //     for (sanPham sp : arr_sp) {
+    //         if (sp instanceof desktop && sp.getIdSp().equals(id)) {
+    //             return sp;
+    //         }
+    //     }
+    //     return null;
+    // }
+
+    // public laptop getSanPham(String id) {
+    //     for (sanPham sp : arr_sp) {
+    //         if (sp instanceof laptop && sp.getIdSp().equals(id)) {
+    //             return sp;
+    //         }
+    //     }
+    //     return null;
+    // }
+
+    public void timSanPham(String id) {
+        for (sanPham sp : arr_sp) {
+            if (sp instanceof desktop && sp.getIdSp().equals(id)) {
+                System.out.println("+------------------------------------------------------+");
+                System.out.println("|                       Desktop                        |");
+                System.out.println("+------------------------------------------------------+");
+                System.out.println("|    ID    |   Ten desktop   | So luong |   Gia tien   |");
+                System.out.println("+------------------------------------------------------+");
+                sp.xuatSp();
+                System.out.println("+------------------------------------------------------+");
+                return;
+            }
+            else if (sp instanceof laptop && sp.getIdSp().equals(id)) {
+                System.out.println("+------------------------------------------------------+");
+                System.out.println("|                        Laptop                        |");
+                System.out.println("+------------------------------------------------------+");
+                System.out.println("|    ID    |   Ten desktop   | So luong |   Gia tien   |");
+                System.out.println("+------------------------------------------------------+");
+                sp.xuatSp();
+                System.out.println("+------------------------------------------------------+");
+                return;
+            }
+        }
+    }
+
     public boolean tonTaiDesktop(String id) {
         for (sanPham sp : arr_sp) {
             if (sp instanceof desktop && sp.getIdSp().equals(id)) {

@@ -9,9 +9,49 @@ public class menu {
     dsPhieuNhap dspn = new dsPhieuNhap();
     dsNhaCungCap dsncc = new dsNhaCungCap();
 
-    // Menu san pham
+    public String menuChonSP() {
+        int choice;
+        String ma = "";
 
+        do {
+            System.out.println("+---------------------------+");
+            System.out.println("|    Chon loai san pham     |");
+            System.out.println("+---------------------------+");
+            System.out.println("|1. Desktop.                |");
+            System.out.println("|2. Laptop.                 |");
+            System.out.println("+---------------------------+");
+            System.out.println("Moi ban nhap lua chon: ");
+            choice = sc.nextInt();
+            System.out.println("===================================================");
+
+            switch (choice) {
+                case 1:
+                    ma = "DE";
+                    choice = 0;
+                    break;
+                case 2:
+                    ma = "LA";
+                    choice = 0;
+                    break;
+                default:
+                    System.out.println("Lua chon khong hop le!");
+                    break;
+            }
+        } while (choice != 0);
+
+        return ma;
+    }
+
+    // Menu san pham
     public void menuSanPham_2() {
+        String maLoai = menuChonSP();
+        System.out.println("Nhap id san pham ban muon tim (3 so): ");
+        String tmp = sc.nextLine();
+        String id = sc.nextLine();
+        id = maLoai + id;
+
+        menuSP.timSanPham(id);
+
         int choice;
 
         do {
@@ -46,6 +86,7 @@ public class menu {
 
     public void menuSanPham() {
         int choice;
+        menuSP.taoDsCoSan();
 
         do {
             System.out.println("+---------------------------+");
@@ -65,7 +106,7 @@ public class menu {
                     menuSP.xuatDsLaptop();
                     break;
                 case 2:
-
+                    menuSanPham_2();
                     break;
                 case 0:
                     System.out.println("Exit...");
