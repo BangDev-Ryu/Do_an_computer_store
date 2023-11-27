@@ -36,10 +36,10 @@ public class check {
         String dauvao;
         while (true) {
             dauvao = scanner.nextLine();
-            if (dauvao.matches("^[LD]{1}\\d{4}$")) {
+            if (dauvao.matches("^d{3}$")) {
                 return dauvao;
             } else {
-                System.out.println("Sai định dạng mã sản phẩm. Ví dụ: L0001");
+                System.out.println("Sai định dạng mã sản phẩm. Ví dụ: 001");
             }
             System.out.println("Nhập lại mã sản phẩm:");
         }
@@ -83,10 +83,10 @@ public class check {
         String dauvao;
         while (true) {
             dauvao = scanner.nextLine();
-            if (dauvao.matches("^d{4}$")) {
+            if (dauvao.matches("^d{3}$")) {
                 return dauvao;
             } else {
-                System.out.println("Sai định dạng mã khách hàng. Ví dụ: 0001");
+                System.out.println("Sai định dạng mã khách hàng. Ví dụ: 001");
             }
             System.out.println("Nhập lại mã khách hàng:");
         }
