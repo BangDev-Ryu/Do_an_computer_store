@@ -2,12 +2,48 @@ import java.util.Scanner;
 
 public class menu {
     Scanner sc = new Scanner(System.in);
+
+    dsSanPham menuSP = new dsSanPham();
     dsHoaDon menuHD = new dsHoaDon();
-    // dsChiTietHoaDon menuCTHD = new dsChiTietHoaDon();
+    dsChiTietHoaDon menuCTHD = new dsChiTietHoaDon();
     dsPhieuNhap dspn = new dsPhieuNhap();
     dsNhaCungCap dsncc = new dsNhaCungCap();
 
     // Menu san pham
+
+    public void menuSanPham_2() {
+        int choice;
+
+        do {
+            System.out.println("+---------------------------+");
+            System.out.println("|       Menu san pham       |");
+            System.out.println("+---------------------------+");
+            System.out.println("|1. Thay doi ten.           |");
+            System.out.println("|2. Thay doi so luong.      |");
+            System.out.println("|3. Thay doi gia tien.      |");
+            System.out.println("|0. Thoat chuong trinh.     |");
+            System.out.println("+---------------------------+");
+            System.out.println("Moi ban nhap lua chon: ");
+            choice = sc.nextInt();
+            System.out.println("===================================================");
+
+            switch (choice) {
+                case 1:
+                    
+                    break;
+                case 2:
+
+                    break;
+                case 0:
+                    System.out.println("Exit...");
+                    break;
+                default:
+                    System.out.println("Lua chon khong hop le!");
+                    break;
+            }
+        } while (choice != 0);
+    }
+
     public void menuSanPham() {
         int choice;
 
@@ -25,8 +61,11 @@ public class menu {
 
             switch (choice) {
                 case 1:
+                    menuSP.xuatDsDesktop();
+                    menuSP.xuatDsLaptop();
                     break;
                 case 2:
+
                     break;
                 case 0:
                     System.out.println("Exit...");
