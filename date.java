@@ -68,26 +68,29 @@ public class date {
     }
 
     public void nhap() {
-        System.out.println("Nhap ngay:");
-        ngay = sc.nextInt();
-        if (ktngay(ngay) == 0) {
-            System.out.println("nhap sai ngay");
-            return;
-        }
-        System.out.println("Nhap thang:");
-        if (ktthang(thang) == 0) {
-            System.out.println("nhap sai thang");
-            return;
-        }
-        thang = sc.nextInt();
-        ktthang(thang);
-        System.out.println("Nhap nam:");
-        if (ktnam(nam) == 0) {
-            System.out.println("nhap sai nam");
-            return;
-        }
-        ktnam(nam);
-        nam = sc.nextInt();
+        do {
+            System.out.println("Nhap ngay:");
+            ngay = sc.nextInt();
+            if (ktngay(ngay) == 0) {
+                System.out.println("nhap sai ngay");
+            }
+        } while (ktngay(ngay) == 0);
+
+        do {
+            System.out.println("Nhap thang:");
+            thang = sc.nextInt();
+            if (ktthang(thang) == 0) {
+                System.out.println("nhap sai thang");
+            }
+        } while (ktthang(thang) == 0);
+
+        do {
+            System.out.println("Nhap nam:");
+            nam = sc.nextInt();
+            if (ktnam(nam) == 0) {
+                System.out.println("nhap sai nam");
+            }
+        } while (ktnam(nam) == 0);
     }
 
     public void xuat() {
