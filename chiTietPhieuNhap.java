@@ -1,8 +1,15 @@
+import java.util.Scanner;
+
 public class chiTietPhieuNhap {
 
     private String maSp;
     private int soLuong;
     private double giaTien;
+    Scanner sc = new Scanner(System.in);
+
+    public chiTietPhieuNhap() {
+
+    }
 
     public chiTietPhieuNhap(String maSp, int soLuong, double giaTien) {
         this.maSp = maSp;
@@ -32,6 +39,15 @@ public class chiTietPhieuNhap {
 
     public void setGiaTien(double giaTien) {
         this.giaTien = giaTien;
+    }
+
+    public void nhap() {
+        System.out.println("Nhap ma san pham:");
+        this.maSp = sc.nextLine();
+        System.out.println("Nhap so luong:");
+        this.soLuong = sc.nextInt();
+        System.out.println("Nhap gia tien:");
+        this.giaTien = sc.nextDouble();
     }
 
     @Override

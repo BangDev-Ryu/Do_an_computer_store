@@ -2,49 +2,80 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class phieuNhap {
+    private String idphieu;
+    private date ngaynhap;
+    private String idncc;
+    private chiTietPhieuNhap chitietphieu = new chiTietPhieuNhap();
+    private double tongTien;
     Scanner sc = new Scanner(System.in);
 
-    private String idPhieuNhap;
-    private String idNCC;
-    private date ngayNhap;
-    private double tongTien;
-    private ArrayList<chiTietPhieuNhap> chiTietPN = new ArrayList<chiTietPhieuNhap>();
-    private static int cntIdPN = 0;
-
     public phieuNhap() {
-        idPhieuNhap = "PN" + cntIdPN;
-        cntIdPN++;
-    }
-    public void setIdPhieuNhap(String id) {
-        idPhieuNhap = id;
     }
 
-    public String getIdPhieuNhap() {
-        return idPhieuNhap;
+    public phieuNhap(String idphieu, date ngaynhap, String idncc, chiTietPhieuNhap chitietphieu, double tongTien) {
+        this.idphieu = idphieu;
+        this.ngaynhap = ngaynhap;
+        this.idncc = idncc;
+        this.chitietphieu = chitietphieu;
+        this.tongTien = tongTien;
     }
 
-    public void setIdNCC(String id) {
-        idNCC = id;
+    public String getIdphieu() {
+        return idphieu;
     }
 
-    public String getIdNCC() {
-        return idNCC;
+    public void setIdphieu(String idphieu) {
+        this.idphieu = idphieu;
     }
 
-    public void setNgayNhap(date ngay) {
-        ngayNhap = ngay; 
+    public date getNgaynhap() {
+        return ngaynhap;
     }
 
-    public date getNgayNhap() {
-        return ngayNhap;
+    public void setNgaynhap(date ngaynhap) {
+        this.ngaynhap = ngaynhap;
     }
 
-    public void setTongTien(double tien) {
-        tongTien = tien;
+    public String getIdncc() {
+        return idncc;
+    }
+
+    public void setIdncc(String idncc) {
+        this.idncc = idncc;
+    }
+
+    public chiTietPhieuNhap getChitietphieu() {
+        return chitietphieu;
+    }
+
+    public void setChitietphieu(chiTietPhieuNhap chitietphieu) {
+        this.chitietphieu = chitietphieu;
     }
 
     public double getTongTien() {
-        return tongTien;
+        return chitietphieu.getSoLuong() * chitietphieu.getGiaTien();
+    }
+
+    public void setTongTien(double tongTien) {
+        this.tongTien = tongTien;
+    }
+
+    public void nhap() {
+        System.out.println("Nhap id phieu nhap:");
+        setIdphieu(sc.nextLine());
+        System.out.println("Nhap ngay nhap hang:");
+        date nn = new date();
+        nn.nhap();
+        setNgaynhap(nn);
+        System.out.println("Nhap id nha cung cap:");
+        setIdncc(sc.nextLine());
+        this.chitietphieu.nhap();
+    }
+
+    @Override
+    public String toString() {
+        return "phieuNhap [idphieu=" + idphieu + ", ngaynhap=" + ngaynhap + ", idncc=" + idncc + ", chitietphieu="
+                + chitietphieu + ", tongTien=" + tongTien + "]";
     }
 
 }

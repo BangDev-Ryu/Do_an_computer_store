@@ -63,26 +63,9 @@ public class nhaCungCap {
         email = sc.nextLine();
     }
 
-    public void xuat() {
-        System.out.println("id nha cung cap:" + idNCC);
-
-        System.out.println("ten nha cung cap:" + tenNCC);
-
-        System.out.println("so dien thoai nha cung cap:" + sdt);
-
-        System.out.println("email nha cung cap:" + email);
-
-    }
-
     @Override
     public String toString() {
         return "id nha cung cap:" + idNCC + ", ten nha cung cap:" + tenNCC + ", so dien thoai nha cung cap:" + sdt
                 + ", email nha cung cap:" + email + ",";
-    }
-
-    public static void main(String[] args) {
-        nhaCungCap a = new nhaCungCap();
-        a.nhap();
-        System.out.println(a);
     }
 }

@@ -40,12 +40,53 @@ public class date {
         this.nam = nam;
     }
 
+    public int ktngay(int n) {
+
+        if (n < 1 || n > 31) {
+            return 0;
+        }
+        return 1;
+
+    }
+
+    public int ktthang(int n) {
+
+        if (n < 1 || n > 12) {
+            return 0;
+        }
+        return 1;
+
+    }
+
+    public int ktnam(int n) {
+
+        if (n < 1 || n > 9999) {
+            return 0;
+        }
+        return 1;
+
+    }
+
     public void nhap() {
         System.out.println("Nhap ngay:");
         ngay = sc.nextInt();
+        if (ktngay(ngay) == 0) {
+            System.out.println("nhap sai ngay");
+            return;
+        }
         System.out.println("Nhap thang:");
+        if (ktthang(thang) == 0) {
+            System.out.println("nhap sai thang");
+            return;
+        }
         thang = sc.nextInt();
+        ktthang(thang);
         System.out.println("Nhap nam:");
+        if (ktnam(nam) == 0) {
+            System.out.println("nhap sai nam");
+            return;
+        }
+        ktnam(nam);
         nam = sc.nextInt();
     }
 
