@@ -120,4 +120,17 @@ public class check {
         }
     }
 
+    public String kiemtraluachon() {
+        String dauvao;
+        while (true) {
+            dauvao = scanner.nextLine();
+            if (dauvao.matches("^d{1}$")) {
+                return dauvao;
+            } else {
+                System.out.println("Sai lệnh. Ví dụ: 1");
+            }
+            System.out.println("Nhập lại lệnh:");
+        }
+    }
+
 }
