@@ -1,18 +1,21 @@
 public abstract class sanPham {
     private String idSp;
     private String tenSp;
+    private int soLuong;
     private double giaTien;
 
     public sanPham() {
 
     }
 
-    public abstract void xuatSp();
-
-    public sanPham(String ten, double tien) {
+    public sanPham(String id, String ten, int sl, double tien) {
+        idSp = id;
         tenSp = ten;
+        soLuong = sl;
         giaTien = tien;
     }
+
+    public abstract void xuatSp();
 
     public void setIdSp(String id) {
         idSp = id;
@@ -28,6 +31,14 @@ public abstract class sanPham {
 
     public String getTenSp() {
         return tenSp;
+    }
+
+    public void setSoLuong(int sl) {
+        soLuong = sl;
+    }
+
+    public void getSoLuong() {
+        return soLuong;
     }
 
     public void setGiaTien(double tien) {

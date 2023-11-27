@@ -1,20 +1,17 @@
 public class desktop extends sanPham {
-    private static int cntIdDesktop = 0;
+    private baoHiem bHiem = new baoHiem();
 
     public desktop() {
-        setIdSp("DESK" + cntIdDesktop);
-        cntIdDesktop++;
+        
     }
 
-    public desktop(String ten, double tien) {
-        super(ten, tien);
-        setIdSp("DESK" + cntIdDesktop);
-        cntIdDesktop++;
+    public desktop(String id, String ten, int sl, double tien) {
+        super(id, ten, sl, tien);
     }
 
     @Override
     public void xuatSp() {
         String desktop_format = "| %-8s | %-15s | %-8s | %-12.2f | %n";
-        System.out.format(desktop_format, getIdSp(), getTenSp(), 1, getGiaTien());
+        System.out.format(desktop_format, getIdSp(), getTenSp(), getSoLuong(), getGiaTien());
     }
 }
