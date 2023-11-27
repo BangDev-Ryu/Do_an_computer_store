@@ -3,21 +3,19 @@ import java.util.ArrayList;
 
 public class phieuNhap {
     private String idphieu;
-    private date ngaynhap;
+    private date ngaynhap = new date();
     private String idncc;
-    private chiTietPhieuNhap chitietphieu = new chiTietPhieuNhap();
-    private double tongTien;
+    private double tongTien = 0;
+    private static int cnIdPN = 0;
+    dsChiTietPhieuNhap dsct = new dsChiTietPhieuNhap();
+    chiTietPhieuNhap ctpn = new chiTietPhieuNhap();
+    ArrayList<chiTietPhieuNhap> chiTietPN = new ArrayList<chiTietPhieuNhap>();
+
     Scanner sc = new Scanner(System.in);
 
     public phieuNhap() {
-    }
-
-    public phieuNhap(String idphieu, date ngaynhap, String idncc, chiTietPhieuNhap chitietphieu, double tongTien) {
-        this.idphieu = idphieu;
-        this.ngaynhap = ngaynhap;
-        this.idncc = idncc;
-        this.chitietphieu = chitietphieu;
-        this.tongTien = tongTien;
+        idphieu = "PN" + cnIdPN;
+        cnIdPN++;
     }
 
     public String getIdphieu() {
@@ -44,38 +42,76 @@ public class phieuNhap {
         this.idncc = idncc;
     }
 
-    public chiTietPhieuNhap getChitietphieu() {
-        return chitietphieu;
-    }
-
-    public void setChitietphieu(chiTietPhieuNhap chitietphieu) {
-        this.chitietphieu = chitietphieu;
-    }
-
     public double getTongTien() {
-        return chitietphieu.getSoLuong() * chitietphieu.getGiaTien();
+        return ctpn.getGiaTien() * ctpn.getSoLuong();
     }
 
     public void setTongTien(double tongTien) {
         this.tongTien = tongTien;
     }
 
-    public void nhap() {
-        System.out.println("Nhap id phieu nhap:");
-        setIdphieu(sc.nextLine());
-        System.out.println("Nhap ngay nhap hang:");
-        date nn = new date();
-        nn.nhap();
-        setNgaynhap(nn);
-        System.out.println("Nhap id nha cung cap:");
-        setIdncc(sc.nextLine());
-        this.chitietphieu.nhap();
+    public void nhapPN() {
+
+        int choice;
+        System.out.println("nhap id nha cung cap:");
+        idncc = sc.nextLine();
+        System.out.println("Nhap ngay mua:");
+        ngaynhap.nhap();
+        System.out.println();
+
+        do {
+            System.out.println("--------------------------------------------------");
+            System.out.println("1. Nhap san pham.");
+            System.out.println("0. Xong.");
+            System.out.println("Nhap lua chon: ");
+            choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    chiTietPhieuNhap tmp = new chiTietPhieuNhap();
+                    tmp.setIdPhieuNhap(idphieu);
+                    tmp.nhap();
+
+                    chiTietPN.add(tmp);
+                    dsct.arr_ctpn.add(tmp);
+                    break;
+                case 0:
+                    System.out.println("Thoat");
+                    break;
+                default:
+                    System.out.println("Chon khong hop le!");
+                    break;
+            }
+        } while (choice != 0);
     }
 
-    @Override
-    public String toString() {
-        return "phieuNhap [idphieu=" + idphieu + ", ngaynhap=" + ngaynhap + ", idncc=" + idncc + ", chitietphieu="
-                + chitietphieu + ", tongTien=" + tongTien + "]";
+    public void xuatPN() {
+        String mapn_format = "| Ma phieu nhap: %-8s | %n";
+        String date_format = "| Ngay nhap   : %-10s | %n";
+        String nhacungcap_format = "| ID nha cung cap: %-10s |%n";
+
+        System.out.println("+----------------------+");
+        System.out.format(mapn_format, idphieu);
+        System.out.format(date_format, ngaynhap);
+        System.out.format(nhacungcap_format, idncc);
+
+        System.out.println("+----------------------+");
+
+        System.out.println("+--------------------+----------+--------------+--------------+");
+        System.out.println("|      San pham      | So luong |   Gia tien   |   Thanh tien |");
+        System.out.println("+--------------------+----------+--------------+--------------+");
+
+        String ctpn_format = "| %-18s | %-8s | %-12.2f | %-13f|%n";
+
+        for (chiTietPhieuNhap ct : chiTietPN) {
+            System.out.format(ctpn_format, ct.getMaSp(), ct.getSoLuong(), ct.getGiaTien(), ct.tongTien());
+            tongTien += ct.tongTien();
+        }
+        System.out.println("+--------------------+----------+--------------+--------------+");
+        String tongtien_format = "| Tong tien: %-49.2f| %n";
+        System.out.format(tongtien_format, tongTien);
+        System.out.println("+--------------------+----------+--------------+--------------+");
+        tongTien = 0;
+
     }
 
 }

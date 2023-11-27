@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class chiTietPhieuNhap {
-
+    private String idPhieu;
     private String maSp;
     private int soLuong;
     private double giaTien;
@@ -11,10 +11,19 @@ public class chiTietPhieuNhap {
 
     }
 
-    public chiTietPhieuNhap(String maSp, int soLuong, double giaTien) {
+    public chiTietPhieuNhap(String idPhieu, String maSp, int soLuong, double giaTien) {
+        this.idPhieu = idPhieu;
         this.maSp = maSp;
         this.soLuong = soLuong;
         this.giaTien = giaTien;
+    }
+
+    public void setIdPhieuNhap(String idPhieu) {
+        this.idPhieu = idPhieu;
+    }
+
+    public String getIdPhieuNhap() {
+        return idPhieu;
     }
 
     public String getMaSp() {
@@ -39,6 +48,10 @@ public class chiTietPhieuNhap {
 
     public void setGiaTien(double giaTien) {
         this.giaTien = giaTien;
+    }
+
+    public double tongTien() {
+        return giaTien * soLuong;
     }
 
     public void nhap() {
