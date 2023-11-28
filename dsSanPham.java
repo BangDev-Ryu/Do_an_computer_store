@@ -1,6 +1,9 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
-public class dsSanPham {    
+public class dsSanPham {  
+    Scanner sc = new Scanner(System.in);
+
     ArrayList<sanPham> arr_sp = new ArrayList<>();
 
     public dsSanPham() {
@@ -50,59 +53,115 @@ public class dsSanPham {
         }
     }
 
-    public boolean tonTaiDesktop(String id) {
+    public void doiTenSanPham(String id) {
+        System.out.println("Nhap ten muon sua thanh: ");
+        String tenSpMoi = sc.nextLine();
+
+        for (sanPham sp : arr_sp) {
+            if (sp.getIdSp().equals(id)) {
+                sp.setTenSp(tenSpMoi);
+                return;
+            }
+        }
+    }
+
+    public void doiSoLuongSanPham(String id) {
+        System.out.println("Nhap so luong muon sua: ");
+        int soLuongMoi = sc.nextInt();
+
+        for (sanPham sp : arr_sp) {
+            if (sp.getIdSp().equals(id)) {
+                sp.setSoLuong(soLuongMoi);
+                return;
+            }
+        }
+    }
+
+    public void doiGiaTienSanPham(String id) {
+        System.out.println("Nhap gia tien muon doi: ");
+        double giaTienMoi = sc.nextDouble();
+
+        for (sanPham sp : arr_sp) {
+            if (sp.getIdSp().equals(id)) {
+                sp.setGiaTien(giaTienMoi);
+                return;
+            }
+        }
+    }
+
+    public boolean tonTaiSanPham(String id) {
         for (sanPham sp : arr_sp) {
             if (sp instanceof desktop && sp.getIdSp().equals(id)) {
                 return true;
             } 
-        }
-        return false;
-    }
-
-    public void themDesktop(desktop desk) {
-        if (tonTaiDesktop(desk.getIdSp())) {
-            for (sanPham sp : arr_sp) {
-                if (sp instanceof desktop && sp.getIdSp().equals(desk.getIdSp())) {
-                    sp.setSoLuong(sp.getSoLuong()+desk.getSoLuong());
-                    return;
-                } 
-            }
-        }
-        else {
-            // desktop tmp = new desktop(idDesk, sl);
-            // tmp.nhapSp();
-            // desk.nhapSp();
-            arr_sp.add(desk);
-            return;
-        }
-    }
-
-    public boolean tonTaiLaptop(String id) {
-        for (sanPham sp : arr_sp) {
-            if (sp instanceof laptop && sp.getIdSp().equals(id)) {
+            else if (sp instanceof laptop && sp.getIdSp().equals(id)) {
                 return true;
             }
         }
         return false;
     }
 
-    public void themLaptop(laptop lap) {
-        if (tonTaiLaptop(lap.getIdSp())) {
+    public void themSanPhamTuPhieuNhap(sanPham sPham) {
+        if (tonTaiSanPham(sPham.getIdSp())) {
             for (sanPham sp : arr_sp) {
-                if (sp instanceof laptop && sp.getIdSp().equals(lap.getIdSp())) {
-                    sp.setSoLuong(sp.getSoLuong()+lap.getSoLuong());
+                if (sp.getIdSp().equals(sPham.getIdSp())) {
+                    sp.setSoLuong(sp.getSoLuong() + sPham.getSoLuong());
                     return;
                 }
             }
         }
         else {
-            // laptop tmp = new laptop(idLap, sl);
-            // tmp.nhapSp();
-            // lap.nhapSp();
-            arr_sp.add(lap);
-            return;
+            arr_sp.add(sPham);
         }
     }
+
+    // public boolean tonTaiDesktop(String id) {
+    //     for (sanPham sp : arr_sp) {
+    //         if (sp instanceof desktop && sp.getIdSp().equals(id)) {
+    //             return true;
+    //         } 
+    //     }
+    //     return false;
+    // }
+
+    // public void themDesktop(desktop desk) {
+    //     if (tonTaiDesktop(desk.getIdSp())) {
+    //         for (sanPham sp : arr_sp) {
+    //             if (sp instanceof desktop && sp.getIdSp().equals(desk.getIdSp())) {
+    //                 sp.setSoLuong(sp.getSoLuong()+desk.getSoLuong());
+    //                 return;
+    //             } 
+    //         }
+    //     }
+    //     else {
+    //         arr_sp.add(desk);
+    //         return;
+    //     }
+    // }
+
+    // public boolean tonTaiLaptop(String id) {
+    //     for (sanPham sp : arr_sp) {
+    //         if (sp instanceof laptop && sp.getIdSp().equals(id)) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
+
+    // public void themLaptop(laptop lap) {
+    //     if (tonTaiLaptop(lap.getIdSp())) {
+    //         for (sanPham sp : arr_sp) {
+    //             if (sp instanceof laptop && sp.getIdSp().equals(lap.getIdSp())) {
+    //                 sp.setSoLuong(sp.getSoLuong()+lap.getSoLuong());
+    //                 return;
+    //             }
+    //         }
+    //     }
+    //     else {
+    //         arr_sp.add(lap);
+    //         return;
+    //     }
+    // }
 
     public void taoDsCoSan() {
         desktop s0 = new desktop("001", "desk1", 1, 2000);
@@ -110,11 +169,11 @@ public class dsSanPham {
         laptop s2 = new laptop("001", "lap1", 1, 2000);
         desktop s3 = new desktop("001", 3);
         laptop s4 = new laptop("001", 2);
-        themDesktop(s0);
-        themDesktop(s1);
-        themDesktop(s3);
-        themLaptop(s2);
-        themLaptop(s4);
+        themSanPhamTuPhieuNhap(s0);
+        themSanPhamTuPhieuNhap(s1);
+        themSanPhamTuPhieuNhap(s3);
+        themSanPhamTuPhieuNhap(s2);
+        themSanPhamTuPhieuNhap(s4);
     }
 
     public void xuatDsDesktop() {
