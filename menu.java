@@ -2,6 +2,9 @@ import java.util.Scanner;
 
 public class menu {
     Scanner sc = new Scanner(System.in);
+
+    dsSanPham menuSP = new dsSanPham();
+    ds
     dsHoaDon menuHD = new dsHoaDon();
     // dsChiTietHoaDon menuCTHD = new dsChiTietHoaDon();
     dsPhieuNhap menuPN = new dsPhieuNhap();
@@ -43,16 +46,27 @@ public class menu {
     // Menu san pham
     public void menuSanPham_2() {
         String maLoai = menuChonSP();
-        System.out.println("Nhap id san pham ban muon tim (3 so): ");
         String tmp = sc.nextLine();
-        String id = sc.nextLine();
-        id = maLoai + id;
+        String id;
 
-        menuSP.timSanPham(id);
-
+        while (true) {
+            System.out.println("Nhap id san pham ban muon tim (3 so): ");
+            id = sc.nextLine();
+            id = maLoai+id;
+            if (menuSP.tonTaiSanPham(id)) {
+                break;
+            }
+            else {
+                System.out.println("San pham nay khong ton tai!");
+                System.out.println("===================================================");
+                return;
+            }
+        }
+        
         int choice;
 
         do {
+            menuSP.timSanPham(id);
             System.out.println("+---------------------------+");
             System.out.println("|       Menu san pham       |");
             System.out.println("+---------------------------+");
@@ -67,10 +81,13 @@ public class menu {
 
             switch (choice) {
                 case 1:
-                    
+                    menuSP.doiTenSanPham(id);
                     break;
                 case 2:
-
+                    menuSP.doiSoLuongSanPham(id);
+                    break;
+                case 3:
+                    menuSP.doiGiaTienSanPham(id);
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -100,6 +117,8 @@ public class menu {
 
             switch (choice) {
                 case 1:
+                    menuSP.xuatDsDesktop();
+                    menuSP.xuatDsLaptop();
                     break;
                 case 2:
                     menuSanPham_2();
