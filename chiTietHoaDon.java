@@ -4,7 +4,7 @@ public class chiTietHoaDon {
     Scanner sc = new Scanner(System.in);
     
     private String idHoaDon;
-    private String maSp;
+    private String idSp;
     private int soLuong;
     private double giaTien;
 
@@ -12,9 +12,9 @@ public class chiTietHoaDon {
 
     }
 
-    public chiTietHoaDon(String idHoaDon, String maSp, int soLuong, int giaTien) {
+    public chiTietHoaDon(String idHoaDon, String idSp, int soLuong, int giaTien) {
         this.idHoaDon = idHoaDon;
-        this.maSp = maSp;
+        this.idSp = idSp;
         this.soLuong = soLuong;
         this.giaTien = giaTien;
     }
@@ -27,12 +27,12 @@ public class chiTietHoaDon {
         this.idHoaDon = idHoaDon;
     }
     
-    public String getMaSp() {
-        return maSp;
+    public String getIdSp() {
+        return idSp;
     }
     
-    public void setMaSp(String maSp) {
-        this.maSp = maSp;
+    public void setIdSp(String idSp) {
+        this.idSp = idSp;
     }
     
     public int getSoLuong() {
@@ -55,15 +55,15 @@ public class chiTietHoaDon {
         return giaTien*soLuong;
     }
     
-    public void nhapCT(){
-        System.out.println("Nhap ma san pham: ");
-        maSp = sc.nextLine();
+    public void nhapCTHD(){
+        System.out.println("Nhap ma san pham (3 so): ");
+        idSp = sc.nextLine();
         System.out.println("Nhap so luong san pham");
         soLuong = sc.nextInt();
     }
 
-    public String toString() {
-        return "chiTietHoaDon [idHoaDon=" + idHoaDon + ", maSp=" + maSp + ", soLuong=" + soLuong + ", giaTien="
-                + giaTien + "]";
+    public void xuatCTHD() {
+        String cthd_format = "| %-18s | %-8s | %-12.2f | %-12.2f | %n";
+        System.out.format(cthd_format, idSp, soLuong, giaTien, getThanhtien());
     }
 }

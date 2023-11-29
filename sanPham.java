@@ -64,10 +64,10 @@ public abstract class sanPham {
         return giaTien;
     }
 
-    public void nhapSp() {
+    public void nhapSpMoi() {
         System.out.println("Nhap ten san pham: ");
         tenSp = sc.nextLine();
-        System.out.println("Nhap ten gia tien: ");
+        System.out.println("Nhap gia tien: ");
         giaTien = sc.nextDouble();
     }
 }

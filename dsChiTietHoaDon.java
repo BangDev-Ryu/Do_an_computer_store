@@ -6,10 +6,4 @@ public class dsChiTietHoaDon {
     public dsChiTietHoaDon() {
 
     }
-
-    public void xuatDSCTHD() {
-        for (chiTietHoaDon ct : arr_cthd) {
-            System.out.println(ct);
-        }
-    }
 }

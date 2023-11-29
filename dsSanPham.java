@@ -10,24 +10,7 @@ public class dsSanPham {
 
     }
 
-    // public desktop getSanPham(String id) {
-    //     for (sanPham sp : arr_sp) {
-    //         if (sp instanceof desktop && sp.getIdSp().equals(id)) {
-    //             return sp;
-    //         }
-    //     }
-    //     return null;
-    // }
-
-    // public laptop getSanPham(String id) {
-    //     for (sanPham sp : arr_sp) {
-    //         if (sp instanceof laptop && sp.getIdSp().equals(id)) {
-    //             return sp;
-    //         }
-    //     }
-    //     return null;
-    // }
-
+    // tim san pham theo id
     public void timSanPham(String id) {
         for (sanPham sp : arr_sp) {
             if (sp instanceof desktop && sp.getIdSp().equals(id)) {
@@ -52,6 +35,26 @@ public class dsSanPham {
             }
         }
     }
+
+    public sanPham getSanPham(String id) {
+        for (sanPham sp : arr_sp) {
+            if (sp instanceof desktop && sp.getIdSp().equals(id)) {
+                return sp;
+            }
+            else if (sp instanceof laptop && sp.getIdSp().equals(id)) {
+                return sp;
+            }
+        }
+        return null;
+    }
+
+    // public laptop getSanPham(String id) {
+    //     for (sanPham sp : arr_sp) {
+    //         if (sp instanceof laptop && sp.getIdSp().equals(id)) {
+    //             return sp;
+    //         }
+    //     }
+    // }
 
     public void doiTenSanPham(String id) {
         System.out.println("Nhap ten muon sua thanh: ");
@@ -89,12 +92,19 @@ public class dsSanPham {
         }
     }
 
+    // check xem san pham co ton tai trong danh sach san pham hay khong
     public boolean tonTaiSanPham(String id) {
         for (sanPham sp : arr_sp) {
-            if (sp instanceof desktop && sp.getIdSp().equals(id)) {
+            if (sp.getIdSp().equals(id)) {
                 return true;
-            } 
-            else if (sp instanceof laptop && sp.getIdSp().equals(id)) {
+            }
+        }
+        return false;
+    }
+
+    public boolean duSoLuongSanPham(String id, int sl) {
+        for (sanPham sp : arr_sp) {
+            if (sp.getIdSp().equals(id) && sp.getSoLuong() >= sl) {
                 return true;
             }
         }
@@ -115,53 +125,59 @@ public class dsSanPham {
         }
     }
 
-    // public boolean tonTaiDesktop(String id) {
-    //     for (sanPham sp : arr_sp) {
-    //         if (sp instanceof desktop && sp.getIdSp().equals(id)) {
-    //             return true;
-    //         } 
-    //     }
-    //     return false;
-    // }
+    public void themSanPhamTuPhieuNhap(String id, int sl) {
+        if (tonTaiSanPham(id)) {
+            for (sanPham sp : arr_sp) {
+                if (sp.getIdSp().equals(id)) {
+                    sp.setSoLuong(sp.getSoLuong() + sl);
+                    return;
+                }
+            }
+        }
+        else {
+            arr_sp.add(getSanPham(id));
+        }
+    }
 
-    // public void themDesktop(desktop desk) {
-    //     if (tonTaiDesktop(desk.getIdSp())) {
-    //         for (sanPham sp : arr_sp) {
-    //             if (sp instanceof desktop && sp.getIdSp().equals(desk.getIdSp())) {
-    //                 sp.setSoLuong(sp.getSoLuong()+desk.getSoLuong());
-    //                 return;
-    //             } 
-    //         }
-    //     }
-    //     else {
-    //         arr_sp.add(desk);
-    //         return;
-    //     }
-    // }
+    public void xoaSanPhamTuHoaDon(sanPham sPham) {
+        if (tonTaiSanPham(sPham.getIdSp())) {
+            for (sanPham sp : arr_sp) {
+                if (sp.getIdSp().equals(sPham.getIdSp())) {
+                    if (sp.getSoLuong() < sPham.getSoLuong()) {
+                        System.out.println("San pham hien tai khong du so luong");
+                        return;
+                    }
+                    else {
+                        sp.setSoLuong(sp.getSoLuong() - sPham.getSoLuong());
+                        return;
+                    }
+                }
+            }
+        }
+        else {
+            System.out.println("San pham khong ton tai!");
+        }
+    }
 
-    // public boolean tonTaiLaptop(String id) {
-    //     for (sanPham sp : arr_sp) {
-    //         if (sp instanceof laptop && sp.getIdSp().equals(id)) {
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
-
-    // public void themLaptop(laptop lap) {
-    //     if (tonTaiLaptop(lap.getIdSp())) {
-    //         for (sanPham sp : arr_sp) {
-    //             if (sp instanceof laptop && sp.getIdSp().equals(lap.getIdSp())) {
-    //                 sp.setSoLuong(sp.getSoLuong()+lap.getSoLuong());
-    //                 return;
-    //             }
-    //         }
-    //     }
-    //     else {
-    //         arr_sp.add(lap);
-    //         return;
-    //     }
-    // }
+    public void xoaSanPhamTuHoaDon(String id, int sl) {
+        if (tonTaiSanPham(id)) {
+            for (sanPham sp : arr_sp) {
+                if (sp.getIdSp().equals(id)) {
+                    if (sp.getSoLuong() < sl) {
+                        System.out.println("San pham hien tai khong du so luong");
+                        return;
+                    }
+                    else {
+                        sp.setSoLuong(sp.getSoLuong() - sl);
+                        return;
+                    }
+                }
+            }
+        }
+        else {
+            System.out.println("San pham khong ton tai!");
+        }
+    }
 
     public void taoDsCoSan() {
         desktop s0 = new desktop("001", "desk1", 1, 2000);
@@ -204,12 +220,5 @@ public class dsSanPham {
             }
         }
         System.out.println("+------------------------------------------------------+");
-    }
-
-    public static void main(String[] args) {
-        dsSanPham tmp = new dsSanPham();
-        tmp.taoDsCoSan();
-        tmp.xuatDsDesktop();
-        tmp.xuatDsLaptop();
     }
 }

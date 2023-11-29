@@ -8,12 +8,14 @@ public class hoaDon {
     private String idKhach;
     private date ngayMua = new date();
     private double tongTien;
-    private ArrayList<chiTietHoaDon> chiTietHD = new ArrayList<chiTietHoaDon>();
-    private static int cntIdHD = 0;
-    dsChiTietHoaDon dsct = new dsChiTietHoaDon();
+    // private ArrayList<chiTietHoaDon> chiTietHD = new ArrayList<chiTietHoaDon>();
+    private static int cntIdHD = 1;
 
     public hoaDon() {
-        idHoaDon = "HD" + cntIdHD;
+        String cnt;
+        if (cntIdHD < 10) idHoaDon = "HD00" + cntIdHD;
+        else if (cntIdHD < 100) idHoaDon = "HD0" + cntIdHD;
+        else idHoaDon = "HD" + cntIdHD;
         cntIdHD++;
     }
 
@@ -49,37 +51,80 @@ public class hoaDon {
         this.tongTien = tongTien;
     }
 
-    public void nhapHD(){
-        int choice;
+    public void nhapHD() {
+        // se them phan check xem khach hang nhap vao co ton tai chua
+        // neu chua ton tai goi ham nhap thong tin khach
+        // neu da ton tai thi tiep tuc binh thuong
         System.out.println("Nhap id khach hang: ");
         idKhach = sc.nextLine();
-        System.out.println("Nhap ngay mua: ");
+        System.out.println("Nhap ngay xuat hoa don (dd-mm-yyyy): ");
         ngayMua.nhap();
-        System.out.println();
-        
-        do {
-            System.out.println("--------------------------------------------------");
-            System.out.println("1. Nhap san pham.");
-            System.out.println("0. Xong.");
-            System.out.println("Nhap lua chon: ");
-            choice = sc.nextInt();
-            switch(choice){
-                case 1:
-                    chiTietHoaDon tmp = new chiTietHoaDon();
-                    tmp.setIdHoaDon(idHoaDon);
-                    tmp.nhapCT();
-                    chiTietHD.add(tmp);
-                    dsct.arr_cthd.add(tmp);
-                    break;
-                case 0:
-                    System.out.println("Thoat");
-                    break;
-                default:
-                    System.out.println("Chon khong hop le!");
-                    break;
-            }
-        } while(choice != 0);
     }
+
+    // public void nhapHD(){
+    //     int choice;
+    //     System.out.println("Nhap id khach hang: ");
+    //     idKhach = sc.nextLine();
+
+    //     System.out.println("Nhap ngay mua: ");
+    //     ngayMua.nhap();
+    //     System.out.println();
+        
+    //     do {
+    //         System.out.println("+-----------------------------+");
+    //         System.out.println("|         Menu hoa don        |");
+    //         System.out.println("+-----------------------------+");
+    //         System.out.println("|1. Nhap san pham.            |");
+    //         System.out.println("|0. Hoan thanh.               |");
+    //         System.out.println("+-----------------------------+");
+    //         System.out.print("Moi ban nhap lua chon: ");
+    //         choice = sc.nextInt();
+    //         System.out.println("===================================================");
+
+    //         switch(choice){
+    //             case 1:
+    //                 chiTietHoaDon tmp = new chiTietHoaDon();
+    //                 tmp.setIdHoaDon(idHoaDon);
+
+    //                 tmp.nhapCTHD();
+
+    //                 dsCT.arr_cthd.add(tmp);
+    //                 break;
+    //             case 0:
+    //                 System.out.println("Exit...");
+    //                 break;
+    //             default:
+    //                 System.out.println("Lua chon khong hop le!");
+    //                 break;
+    //         }
+    //     } while(choice != 0);
+    // }
+
+    // public void xuatHD(){
+    //     String mahd_format = "| Ma hoa don: %-8s | %n";
+    //     String date_format = "| Ngay mua: %-10s | %n";   
+    //     String khach_format = "| ID khach: %-10s |%n";
+    //     System.out.println("+----------------------+");
+    //     System.out.format(mahd_format, idHoaDon);
+    //     System.out.format(date_format, ngayMua);
+    //     System.out.format(khach_format, idKhach);
+    //     System.out.println("+----------------------+");
+
+    //     System.out.println("+--------------------+----------+--------------+--------------+");
+    //     System.out.println("|      San pham      | So luong |    Don gia   |  Thanh tien  |");
+    //     System.out.println("+--------------------+----------+--------------+--------------+");
+
+    //     // String cthd_format = "| %-18s | %-8s | %-12.2f | %-12.2f | %n";
+    //     for (chiTietHoaDon ct : dsCT.arr_cthd) {
+    //         // System.out.format(cthd_format, ct.getMaSp(), ct.getSoLuong(), ct.getGiaTien(), ct.getThanhtien());
+    //         ct.xuatCTHD();
+    //     }
+    //     System.out.println("+--------------------+----------+--------------+--------------+");
+    //     String tongtien_format = "| Tong tien: %-48.2f | %n";
+    //     System.out.format(tongtien_format, tongTien);
+    //     System.out.println("+--------------------+----------+--------------+--------------+");
+
+    // }
 
     public void xuatHD(){
         String mahd_format = "| Ma hoa don: %-8s | %n";
@@ -90,19 +135,6 @@ public class hoaDon {
         System.out.format(date_format, ngayMua);
         System.out.format(khach_format, idKhach);
         System.out.println("+----------------------+");
-
-        System.out.println("+--------------------+----------+--------------+--------------+");
-        System.out.println("|      San pham      | So luong |    Don gia   |  Thanh tien  |");
-        System.out.println("+--------------------+----------+--------------+--------------+");
-
-        String cthd_format = "| %-18s | %-8s | %-12.2f | %-12.2f | %n";
-        for (chiTietHoaDon ct : chiTietHD) {
-            System.out.format(cthd_format, ct.getMaSp(), ct.getSoLuong(), ct.getGiaTien(), ct.getThanhtien());
-        }
-        System.out.println("+--------------------+----------+--------------+--------------+");
-        String tongtien_format = "| Tong tien: %-48.2f | %n";
-        System.out.format(tongtien_format, tongTien);
-        System.out.println("+--------------------+----------+--------------+--------------+");
 
     }
 }
