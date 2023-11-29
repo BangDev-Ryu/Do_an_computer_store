@@ -12,7 +12,7 @@ public class chiTietHoaDon {
 
     }
 
-    public chiTietHoaDon(String idHoaDon, String idSp, int soLuong, int giaTien) {
+    public chiTietHoaDon(String idHoaDon, String idSp, int soLuong, double giaTien) {
         this.idHoaDon = idHoaDon;
         this.idSp = idSp;
         this.soLuong = soLuong;
@@ -56,7 +56,7 @@ public class chiTietHoaDon {
     }
     
     public void nhapCTHD(){
-        System.out.println("Nhap ma san pham (3 so): ");
+        System.out.println("Nhap id san pham (LAXXX/DEXXX): ");
         idSp = sc.nextLine();
         System.out.println("Nhap so luong san pham");
         soLuong = sc.nextInt();

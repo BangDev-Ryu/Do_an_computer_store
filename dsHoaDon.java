@@ -11,29 +11,18 @@ public class dsHoaDon {
         arr_hd.add(tmp);
     }
 
-    // public void timHD() {
-    //     System.out.print("Nhap id hoa don can tim: ");
-    //     String id_tim = sc.nextLine();
+    public void timHoaDon() {
+        System.out.print("Nhap id hoa don can tim: ");
+        String id_tim = sc.nextLine();
         
-    //     for (hoaDon hd : arr_hd) {
-    //         if (hd.getIdHoaDon().equals(id_tim)) {
-    //             hd.xuatHD();
-    //             return;
-    //         }
-    //     }
-
-    //     System.out.println("Ma hoa don can tim khong ton tai!");
-    // }
-
-    public void timHoaDon(String id) {
         for (hoaDon hd : arr_hd) {
-            if (hd.getIdHoaDon().equals(id)) {
-                System.out.println("+----------------------------------------+");
-                System.out.println("| Ma hoa don |  ID Khach  |   Ngay mua   |");
-                System.out.println("+----------------------------------------+");
-                
+            if (hd.getIdHoaDon().equals(id_tim)) {
+                hd.xuatHD();
+                return;
             }
         }
+
+        System.out.println("Ma hoa don can tim khong ton tai!");
     }
 
     public void xuatDSHD() {

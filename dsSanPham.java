@@ -48,14 +48,6 @@ public class dsSanPham {
         return null;
     }
 
-    // public laptop getSanPham(String id) {
-    //     for (sanPham sp : arr_sp) {
-    //         if (sp instanceof laptop && sp.getIdSp().equals(id)) {
-    //             return sp;
-    //         }
-    //     }
-    // }
-
     public void doiTenSanPham(String id) {
         System.out.println("Nhap ten muon sua thanh: ");
         String tenSpMoi = sc.nextLine();
@@ -111,7 +103,7 @@ public class dsSanPham {
         return false;
     }
 
-    public void themSanPhamTuPhieuNhap(sanPham sPham) {
+    public void themSoLuongSanPham(sanPham sPham) {
         if (tonTaiSanPham(sPham.getIdSp())) {
             for (sanPham sp : arr_sp) {
                 if (sp.getIdSp().equals(sPham.getIdSp())) {
@@ -125,7 +117,7 @@ public class dsSanPham {
         }
     }
 
-    public void themSanPhamTuPhieuNhap(String id, int sl) {
+    public void themSoLuongSanPham(String id, int sl) {
         if (tonTaiSanPham(id)) {
             for (sanPham sp : arr_sp) {
                 if (sp.getIdSp().equals(id)) {
@@ -139,7 +131,7 @@ public class dsSanPham {
         }
     }
 
-    public void xoaSanPhamTuHoaDon(sanPham sPham) {
+    public void giamSoLuongSanPham(sanPham sPham) {
         if (tonTaiSanPham(sPham.getIdSp())) {
             for (sanPham sp : arr_sp) {
                 if (sp.getIdSp().equals(sPham.getIdSp())) {
@@ -159,7 +151,7 @@ public class dsSanPham {
         }
     }
 
-    public void xoaSanPhamTuHoaDon(String id, int sl) {
+    public void giamSoLuongSanPham(String id, int sl) {
         if (tonTaiSanPham(id)) {
             for (sanPham sp : arr_sp) {
                 if (sp.getIdSp().equals(id)) {
@@ -179,17 +171,36 @@ public class dsSanPham {
         }
     }
 
+    public double getDonGia(String id) {
+        for (sanPham sp : arr_sp) {
+            if (sp.getIdSp().equals(id)) {
+                return sp.getGiaTien();
+            }
+        }
+        return 0;
+    }
+
     public void taoDsCoSan() {
-        desktop s0 = new desktop("001", "desk1", 1, 2000);
-        desktop s1 = new desktop("002", "desk2", 2, 3000);
-        laptop s2 = new laptop("001", "lap1", 1, 2000);
-        desktop s3 = new desktop("001", 3);
-        laptop s4 = new laptop("001", 2);
-        themSanPhamTuPhieuNhap(s0);
-        themSanPhamTuPhieuNhap(s1);
-        themSanPhamTuPhieuNhap(s3);
-        themSanPhamTuPhieuNhap(s2);
-        themSanPhamTuPhieuNhap(s4);
+        desktop d1 = new desktop("001", "desk1", 10, 2000);
+        desktop d2 = new desktop("002", "desk2", 7, 3000);
+        desktop d3 = new desktop("003", "desk3", 2, 13000);
+        desktop d4 = new desktop("004", "desk4", 5, 7000);
+        desktop d5 = new desktop("005", "desk5", 15, 1000);
+        laptop l1 = new laptop("001", "lap1", 4, 3000);
+        laptop l2 = new laptop("002", "lap2", 9, 10000);
+        laptop l3 = new laptop("003", "lap3", 12, 2000);
+        laptop l4 = new laptop("004", "lap4", 10, 13000);
+        laptop l5 = new laptop("005", "lap5", 7, 7000);
+        themSoLuongSanPham(d1);
+        themSoLuongSanPham(d2);
+        themSoLuongSanPham(d3);
+        themSoLuongSanPham(d4);
+        themSoLuongSanPham(d5);
+        themSoLuongSanPham(l1);
+        themSoLuongSanPham(l2);
+        themSoLuongSanPham(l3);
+        themSoLuongSanPham(l4);
+        themSoLuongSanPham(l5);
     }
 
     public void xuatDsDesktop() {
