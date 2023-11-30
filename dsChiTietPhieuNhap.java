@@ -6,12 +6,4 @@ public class dsChiTietPhieuNhap {
     public dsChiTietPhieuNhap() {
 
     }
-
-    public void xuatDSCTPN() {
-        for (chiTietPhieuNhap ct : arr_ctpn) {
-            System.out.println(ct);
-
-        }
-    }
-
 }

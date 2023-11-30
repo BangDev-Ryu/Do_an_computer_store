@@ -32,6 +32,10 @@ public class dsNhaCungCap {
         }
     }
 
+    public void themNcc(nhaCungCap ncc) {
+        dsnhacungcap.add(ncc);
+    }
+
     public void xuatdsncc() {
         System.out.println("+---------------------------------------------------------------------------------------+");
         System.out.println("|   Ma NCC   |          Ten NCC          |     SDT     |             Email              |");
@@ -130,6 +134,15 @@ public class dsNhaCungCap {
             }
         }
         return 1;
+    }
+
+    public boolean kiemtratontai(String id) {
+        for (nhaCungCap ncc : dsnhacungcap) {
+            if (ncc.getIdNCC().equals(id)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

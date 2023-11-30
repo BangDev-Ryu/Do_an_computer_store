@@ -18,11 +18,11 @@ public class chiTietPhieuNhap {
         this.giaTien = giaTien;
     }
 
-    public void setIdPhieuNhap(String idPhieu) {
+    public void setIdPhieu(String idPhieu) {
         this.idPhieu = idPhieu;
     }
 
-    public String getIdPhieuNhap() {
+    public String getIdPhieu() {
         return idPhieu;
     }
 
@@ -50,17 +50,20 @@ public class chiTietPhieuNhap {
         this.giaTien = giaTien;
     }
 
-    public double tongTien() {
+    public double getThanhtien() {
         return giaTien * soLuong;
     }
 
-    public void nhap() {
-        System.out.println("Nhap ma san pham:");
+    public void nhapCTPN() {
+        System.out.println("Nhap id san pham (LAXXX/DEXXX):");
         this.maSp = sc.nextLine();
         System.out.println("Nhap so luong:");
         this.soLuong = sc.nextInt();
-        System.out.println("Nhap gia tien:");
-        this.giaTien = sc.nextDouble();
+    }
+
+    public void xuatCTPN() {
+        String ctpn_format = "| %-18s | %-8s | %-12.2f | %-12.2f | %n";
+        System.out.format(ctpn_format, maSp, soLuong, giaTien, getThanhtien());
     }
 
     @Override

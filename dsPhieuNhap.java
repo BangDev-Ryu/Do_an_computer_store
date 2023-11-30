@@ -22,20 +22,19 @@ public class dsPhieuNhap {
                 return;
             }
         }
-
         System.out.println("Ma hoa don can tim khong ton tai!");
     }
 
     public void xuatDSPN() {
-        System.out.println("+----------------------------------------+");
+        System.out.println("+--------------------------------------------------+");
         System.out.println("| Ma phieu nhap |  ID nha cung cap  |   Ngay mua   |");
-        System.out.println("+----------------------------------------+");
+        System.out.println("+--------------------------------------------------+");
 
-        String pn_format = "| %-10s | %-10s | %-12s | %n";
+        String pn_format = "| %-13s | %-17s | %-12s | %n";
         for (phieuNhap pn : arr_pn) {
             System.out.format(pn_format, pn.getIdphieu(), pn.getIdncc(), pn.getNgaynhap());
         }
-        System.out.println("+----------------------------------------+");
+        System.out.println("+--------------------------------------------------+");
     }
 
     public phieuNhap getLastPN() {
