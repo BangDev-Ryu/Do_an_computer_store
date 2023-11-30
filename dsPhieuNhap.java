@@ -27,7 +27,7 @@ public class dsPhieuNhap {
 
     public void xuatDSPN() {
         System.out.println("+--------------------------------------------------+");
-        System.out.println("| Ma phieu nhap |  ID nha cung cap  |   Ngay mua   |");
+        System.out.println("| Ma phieu nhap |  ID nha cung cap  |   Ngay nhap  |");
         System.out.println("+--------------------------------------------------+");
 
         String pn_format = "| %-13s | %-17s | %-12s | %n";
