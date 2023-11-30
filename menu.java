@@ -367,6 +367,8 @@ public class menu {
                     sumMoney += tmp.getThanhtien();
                     tmp.setIdPhieu(menuPN.getLastPN().getIdphieu());
                     menuCTPN.arr_ctpn.add(tmp);
+                    menuPN.getLastPN().chiTietPN.add(tmp);
+
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -396,7 +398,6 @@ public class menu {
                 ct.xuatCTPN();
             }
         }
-
         System.out.println("+--------------------+----------+--------------+--------------+");
         String tongtien_format = "| Tong tien: %-48.2f | %n";
         System.out.format(tongtien_format, menuPN.getLastPN().getTongTien());

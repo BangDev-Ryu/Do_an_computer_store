@@ -100,6 +100,7 @@ public class phieuNhap {
 
         for (chiTietPhieuNhap ct : chiTietPN) {
             System.out.format(ctpn_format, ct.getMaSp(), ct.getSoLuong(), ct.getGiaTien(), ct.getThanhtien());
+            tongTien += ct.getThanhtien();
         }
         System.out.println("+--------------------+----------+--------------+--------------+");
         String tongtien_format = "| Tong tien: %-49.2f| %n";
