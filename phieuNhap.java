@@ -61,23 +61,21 @@ public class phieuNhap {
         System.out.println("nhap id nha cung cap:");
         idncc = sc.nextLine();
         sc.nextLine();
-        /*
-         * if (!dsncc.kiemtratontai(idncc)) {
-         * nhaCungCap ncc = new nhaCungCap();
-         * ncc.setIdNCC(idncc);
-         * System.out.println("Nhap ten nha cung cap:");
-         * ncc.setTenNCC(sc.nextLine());
-         * System.out.println("Nhap so dien thoai nha cung cap:");
-         * ncc.setSdt(sc.nextLine());
-         * System.out.println("Nhap email nha cung cap:");
-         * ncc.setEmail(sc.nextLine());
-         * dsncc.themNcc(ncc);
-         * 
-         * System.out.println("Nhap ngay mua:");
-         * ;
-         * }
-         */
-        ngaynhap.nhap();
+        if (dsncc.kiemtraid(idncc) == 1) {
+            ngaynhap.nhap();
+        } else {
+            nhaCungCap ncc = new nhaCungCap();
+            ncc.getIdNCC();
+            System.out.println("Nhap ten nha cung cap:");
+            ncc.setTenNCC(sc.nextLine());
+            System.out.println("Nhap so dien thoai nha cung cap:");
+            ncc.setSdt(sc.nextLine());
+            System.out.println("Nhap email nha cung cap:");
+            ncc.setEmail(sc.nextLine());
+            dsncc.themNcc(ncc);
+            ngaynhap.nhap();
+        }
+
     }
 
     public void xuatPN() {
