@@ -30,19 +30,34 @@ public class dsNhaCungCap {
         } else {
             System.out.println("id da ton tai");
         }
-
     }
 
     public void xuatdsncc() {
-        System.out.println("+-------------------------------------------------+");
-        System.out.println("|   Ma NCC   |   Ten NCC   |   SDT   |   Email   |");
-        System.out.println("+-------------------------------------------------+");
+        System.out.println("+---------------------------------------------------------------------------------------+");
+        System.out.println("|   Ma NCC   |          Ten NCC          |     SDT     |             Email              |");
+        System.out.println("+---------------------------------------------------------------------------------------+");
 
-        String ncc_format = "| %-10s | %-11s | %-7s | %-9s |%n";
+        String ncc_format = "| %-10s | %-25s | %-11s | %-30s |%n";
         for (nhaCungCap ncc : dsnhacungcap) {
             System.out.format(ncc_format, ncc.getIdNCC(), ncc.getTenNCC(), ncc.getSdt(), ncc.getEmail());
         }
-        System.out.println("+-------------------------------------------------+");
+        System.out.println("+---------------------------------------------------------------------------------------+");
+    }
+
+    public void xuat1ncc(nhaCungCap ncc) {
+        System.out.println(
+                "+---------------------------------------------------------------------------------------+");
+        System.out.println(
+                "|   Ma NCC   |          Ten NCC          |     SDT     |             Email              |");
+        System.out.println(
+                "+---------------------------------------------------------------------------------------+");
+
+        String ncc_format = "| %-10s | %-25s | %-11s | %-30s |%n";
+
+        System.out.format(ncc_format, ncc.getIdNCC(), ncc.getTenNCC(), ncc.getSdt(), ncc.getEmail());
+
+        System.out.println(
+                "+---------------------------------------------------------------------------------------+");
     }
 
     public void timkiemncc() {
@@ -52,7 +67,40 @@ public class dsNhaCungCap {
         while (tk.hasNext()) {
             nhaCungCap ncc = tk.next();
             if (ncc.getIdNCC().equals(id)) {
-                System.out.println(ncc);
+                xuat1ncc(ncc);
+                int choice;
+                do {
+                    System.out.println("+---------------------------+");
+                    System.out.println("|1. Sua nha cung cap.       |");
+                    System.out.println("|0. Thoat chuong trinh.     |");
+                    System.out.println("+---------------------------+");
+                    System.out.println("Moi ban nhap lua chon: ");
+                    choice = sc.nextInt();
+                    System.out.println("===================================================");
+
+                    switch (choice) {
+                        case 1:
+                            ncc.setIdNCC(id);
+                            System.out.println("Nhap ten nha cung cap:");
+                            sc.nextLine();
+                            ncc.setTenNCC(sc.nextLine());
+                            System.out.println("Nhap so dien thoai nha cung cap:");
+                            ncc.setSdt(sc.nextLine());
+                            System.out.println("Nhap email nha cung cap:");
+                            ncc.setEmail(sc.nextLine());
+                            System.out.println("nha cung cap sau khi sua");
+                            xuat1ncc(ncc);
+                            break;
+                        case 0:
+                            System.out.println("Exit...");
+                            break;
+                        default:
+                            System.out.println("Lua chon khong hop le!");
+                            break;
+                    }
+
+                } while (choice != 0);
+
                 return;
             }
         }
@@ -71,20 +119,6 @@ public class dsNhaCungCap {
             }
         }
         System.out.println("khong tim thay nha cung cap can xoa");
-    }
-
-    public void suancc() {
-        System.out.println("nhap id nha cung cap can sua:");
-        String id = sc.nextLine();
-        Iterator<nhaCungCap> sua = dsnhacungcap.iterator();
-        while (sua.hasNext()) {
-            nhaCungCap ncc = sua.next();
-            if (ncc.getIdNCC().equals(id)) {
-                ncc.nhap();
-                return;
-            }
-        }
-        System.out.println("Khong tim thay nha cung cap can sua");
     }
 
     public int kiemtraid(String id) {
