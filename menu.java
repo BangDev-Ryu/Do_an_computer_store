@@ -9,7 +9,7 @@ public class menu {
     dsPhieuNhap menuPN = new dsPhieuNhap();
     dsChiTietPhieuNhap menuCTPN = new dsChiTietPhieuNhap();
     dsNhaCungCap menuNCC = new dsNhaCungCap();
-
+    dsKhachHang menuKH = new dsKhachHang();
     // khong su dung
     public String menuChonLoaiSP() {
         int choice;
@@ -150,10 +150,13 @@ public class menu {
 
             switch (choice) {
                 case 1:
+                    menuKH.xuat_ds();
                     break;
                 case 2:
+                    menuKH.timkiem_kh();
                     break;
                 case 3:
+                    menuKH.them_kh();
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -318,7 +321,6 @@ public class menu {
     }
 
     // Menu chi tiet phieu nhap
-
     public void menuChiTIetPhieuNhap() {
         int choice;
         double sumMoney = 0;
@@ -331,31 +333,35 @@ public class menu {
             System.out.println("+-----------------------------+");
             System.out.print("Moi ban nhap lua chon: ");
             choice = checkLoi.checkLuaChon();
-
             System.out.println("===================================================");
 
             switch (choice) {
                 case 1:
                     chiTietPhieuNhap tmp = new chiTietPhieuNhap();
                     tmp.nhapCTPN();
+                    
                     if (menuSP.tonTaiSanPham(tmp.getMaSp())) {
                         // lay gia tiên cua san pham khi ton tai san pham
                         tmp.setGiaTien(menuSP.getDonGia(tmp.getMaSp()));
                     } else {
+
+                        System.out.println("nhap loai san pham(desktop/laptop):");
                         sc.nextLine();
+                        String loaisp = sc.nextLine().toLowerCase();
+                        System.out.println("loaisp: " + loaisp);
+
                         System.out.println("ten san pham:");
                         String tensp = sc.nextLine();
                         System.out.println("nhap gia tien:");
                         double gia = sc.nextDouble();
                         tmp.setGiaTien(gia);
-                        System.out.println("so luong :" + tmp.getSoLuong());
                         String masp = tmp.getMaSp().substring(2);
-                        if ("DE".equals(tmp.getMaSp().substring(0, 2))) {
+                        if ("desktop".equals(loaisp)) {
                             desktop desk = new desktop(masp, tensp, tmp.getSoLuong(), gia);
-                            menuSP.themSoLuongSanPham(desk);
-                        } else if ("LA".equals(tmp.getMaSp().substring(0, 2))) {
+                            menuSP.arr_sp.add(desk);
+                        } else if ("laptop".equals(loaisp)) {
                             laptop lap = new laptop(masp, tensp, tmp.getSoLuong(), gia);
-                            menuSP.themSoLuongSanPham(lap);
+                            menuSP.arr_sp.add(lap);
                         } else {
                             System.out.println("Nhap sai loai san pham");
                         }
@@ -365,6 +371,7 @@ public class menu {
                     tmp.setIdPhieu(menuPN.getLastPN().getIdphieu());
                     menuCTPN.arr_ctpn.add(tmp);
                     menuPN.getLastPN().chiTietPN.add(tmp);
+                    
 
                     break;
                 case 0:
@@ -395,7 +402,6 @@ public class menu {
                 ct.xuatCTPN();
             }
         }
-
         System.out.println("+--------------------+----------+--------------+--------------+");
         String tongtien_format = "| Tong tien: %-48.2f | %n";
         System.out.format(tongtien_format, menuPN.getLastPN().getTongTien());
@@ -424,17 +430,14 @@ public class menu {
                         // vua xuat chi tiet phieu nhap vua tang so luong o danh sach san pham
                         if (ct.getIdPhieu() != null && ct.getIdPhieu().equals(menuPN.getLastPN().getIdphieu())) {
                             ct.xuatCTPN();
+
                             menuSP.themSoLuongSanPham(ct.getMaSp(), ct.getSoLuong());
                         }
                     }
                     System.out.println("+--------------------+----------+--------------+--------------+");
-                    /*
-                     * System.out.println(
-                     * "+--------------------+----------+--------------+--------------+");
-                     * System.out.format(tongtien_format, menuPN.getLastPN().getTongTien());
-                     * System.out.println(
-                     * "+--------------------+----------+--------------+--------------+");
-                     */
+                    System.out.format(tongtien_format, menuPN.getLastPN().getTongTien());
+                    System.out.println("+--------------------+----------+--------------+--------------+");
+
                     choice = 0;
                     break;
                 case 2:
@@ -449,7 +452,7 @@ public class menu {
     }
 
     public void menuPhieuNhap() {
-        int choice;
+        int lc;
 
         do {
             System.out.println("+-----------------------------+");
@@ -461,10 +464,10 @@ public class menu {
             System.out.println("|0. Thoat chuong trinh.       |");
             System.out.println("+-----------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
-            choice = checkLoi.checkLuaChon();
+            lc = sc.nextInt();
             System.out.println("===================================================");
 
-            switch (choice) {
+            switch (lc) {
                 case 1:
                     menuPN.xuatDSPN();
                     break;
@@ -481,7 +484,7 @@ public class menu {
                     System.out.println("Lua chon khong hop le!");
                     break;
             }
-        } while (choice != 0);
+        } while (lc != 0);
     }
 
     // Menu bao hanh
@@ -545,7 +548,6 @@ public class menu {
                 case 3:
                     menuNCC.themNcc();
                     break;
-
                 case 0:
                     System.out.println("Exit...");
                     break;
