@@ -55,8 +55,14 @@ public class chiTietPhieuNhap {
     }
 
     public void nhapCTPN() {
-        System.out.println("Nhap id san pham (LAXXX/DEXXX):");
-        this.maSp = sc.nextLine();
+        do {
+            System.out.println("Nhap id san pham (LAXXX/DEXXX):");
+            maSp = sc.nextLine();
+            if (!maSp.matches("^[A-Za-z]{2}\\d{3}$")) {
+                System.out.println("Nhap sai id san pham");
+            }
+        } while (!maSp.matches("^[A-Za-z]{2}\\d{3}$"));
+
         System.out.println("Nhap so luong:");
         this.soLuong = sc.nextInt();
     }
@@ -70,5 +76,4 @@ public class chiTietPhieuNhap {
     public String toString() {
         return "maSp=" + maSp + ", soLuong=" + soLuong + ", giaTien=" + giaTien;
     }
-
 }
