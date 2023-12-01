@@ -348,38 +348,14 @@ public class menu {
                         tmp.setGiaTien(menuSP.getDonGia(tmp.getIdSp()));
                         menuSP.themSanPham(tmp.getIdSp(), tmp.getSoLuong());
                     } else {
-<<<<<<< HEAD
                         menuSP.themSanPhamMoi(tmp.getIdSp(), tmp.getSoLuong());
                         tmp.setGiaTien(menuSP.getDonGia(tmp.getIdSp()));
-=======
-                        sc.nextLine();
-                        System.out.println("ten san pham:");
-                        String tensp = sc.nextLine();
-                        System.out.println("nhap gia tien:");
-                        double gia = sc.nextDouble();
-                        tmp.setGiaTien(gia);
-                        System.out.println("so luong :" + tmp.getSoLuong());
-                        String masp = tmp.getMaSp().substring(2);
-                        if ("DE".equals(tmp.getMaSp().substring(0, 2))) {
-                            desktop desk = new desktop(masp, tensp, 0, gia);
-                            menuSP.themSoLuongSanPham(desk);
-                        } else if ("LA".equals(tmp.getMaSp().substring(0, 2))) {
-                            laptop lap = new laptop(masp, tensp, 0, gia);
-                            menuSP.themSoLuongSanPham(lap);
-                        } else {
-                            System.out.println("Nhap sai loai san pham");
-                        }
->>>>>>> 39a12b7ad780294246741a4719c86c5c71d59d30
+               
                     }
                     sumMoney += tmp.getThanhtien();
                     tmp.setIdPhieu(menuPN.getLastPN().getIdphieu());
                     menuCTPN.arr_ctpn.add(tmp);
-<<<<<<< HEAD
                     // menuPN.getLastPN().chiTietPN.add(tmp);
-=======
-                    menuPN.getLastPN().chiTietPN.add(tmp);
-
->>>>>>> 39a12b7ad780294246741a4719c86c5c71d59d30
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -438,11 +414,7 @@ public class menu {
                         // vua xuat chi tiet phieu nhap vua tang so luong o danh sach san pham
                         if (ct.getIdPhieu().equals(menuPN.getLastPN().getIdphieu())) {
                             ct.xuatCTPN();
-<<<<<<< HEAD
                             // menuSP.themSanPham(ct.getIdSp(), ct.getSoLuong());
-=======
-                            menuSP.themSoLuongSanPham(ct.getMaSp(), ct.getSoLuong());
->>>>>>> 39a12b7ad780294246741a4719c86c5c71d59d30
                         }
                     }
                     System.out.println("+--------------------+----------+--------------+--------------+");
