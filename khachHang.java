@@ -54,7 +54,7 @@ public class khachHang {
 
     public void nhap(){
         System.out.println("Nhap ten khach hang");
-        tenKhach = sc.nextLine();
+        tenKhach = checkLoi.checkTenKhachHang();
         System.out.println("Nhap sdt khach hang");
         sdt = sc.nextLine();
         System.out.println("Nhap dia chi khach hang");
@@ -62,11 +62,11 @@ public class khachHang {
     }
 
     public void xuatKH(){
-        System.out.println("+---------------------------------------------------+");
-        System.out.println("| ID khach |   Ho ten   |     SDT     |   Dia chi   |");
-        System.out.println("+---------------------------------------------------+");
+        System.out.println("+-------------------------------------------------------------------------------------+");
+        System.out.println("| ID khach |          Ho ten          |     SDT     |             Dia chi             |");
+        System.out.println("+-------------------------------------------------------------------------------------+");
 
-        String khach_format = "| %-8s | %-11s | %-11s | %-11s | %n";
+        String khach_format = "| %-8s | %-24s | %-11s | %-31s | %n";
         
     }
 
