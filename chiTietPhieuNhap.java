@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class chiTietPhieuNhap {
     private String idPhieu;
-    private String maSp;
+    private String idSp;
     private int soLuong;
     private double giaTien;
     Scanner sc = new Scanner(System.in);
@@ -11,9 +11,9 @@ public class chiTietPhieuNhap {
 
     }
 
-    public chiTietPhieuNhap(String idPhieu, String maSp, int soLuong, double giaTien) {
+    public chiTietPhieuNhap(String idPhieu, String idSp, int soLuong, double giaTien) {
         this.idPhieu = idPhieu;
-        this.maSp = maSp;
+        this.idSp = idSp;
         this.soLuong = soLuong;
         this.giaTien = giaTien;
     }
@@ -26,12 +26,12 @@ public class chiTietPhieuNhap {
         return idPhieu;
     }
 
-    public String getMaSp() {
-        return maSp;
+    public String getIdSp() {
+        return idSp;
     }
 
-    public void setMaSp(String maSp) {
-        this.maSp = maSp;
+    public void setIdSp(String idSp) {
+        this.idSp = idSp;
     }
 
     public int getSoLuong() {
@@ -55,25 +55,19 @@ public class chiTietPhieuNhap {
     }
 
     public void nhapCTPN() {
-        do {
-            System.out.println("Nhap id san pham (LAXXX/DEXXX):");
-            maSp = sc.nextLine();
-            if (!maSp.matches("^[A-Za-z]{2}\\d{3}$")) {
-                System.out.println("Nhap sai id san pham");
-            }
-        } while (!maSp.matches("^[A-Za-z]{2}\\d{3}$"));
-
+        System.out.println("Nhap id san pham: ");
+        idSp = checkLoi.checkIdSanPham();
         System.out.println("Nhap so luong:");
         this.soLuong = sc.nextInt();
     }
 
     public void xuatCTPN() {
         String ctpn_format = "| %-18s | %-8s | %-12.2f | %-12.2f | %n";
-        System.out.format(ctpn_format, maSp, soLuong, giaTien, getThanhtien());
+        System.out.format(ctpn_format, idSp, soLuong, giaTien, getThanhtien());
     }
 
     @Override
     public String toString() {
-        return "maSp=" + maSp + ", soLuong=" + soLuong + ", giaTien=" + giaTien;
+        return "idSp=" + idSp + ", soLuong=" + soLuong + ", giaTien=" + giaTien;
     }
 }

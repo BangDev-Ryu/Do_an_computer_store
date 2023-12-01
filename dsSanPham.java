@@ -103,7 +103,35 @@ public class dsSanPham {
         return false;
     }
 
-    public void themSoLuongSanPham(sanPham sPham) {
+    public void themSanPhamMoi(String id, int sl) {
+        if (id.substring(0,2).equals("DE")) {
+            desktop desk = new desktop(id, sl);
+            desk.setIdSp(desk.getIdSp().substring(2));
+            System.out.println("Nhap ten san pham: ");
+            String tenDesk = sc.nextLine();
+            System.out.println("Nhap gia tien: ");
+            double giaDesk = sc.nextDouble();
+            desk.setTenSp(tenDesk);
+            desk.setGiaTien(giaDesk);
+            arr_sp.add(desk);
+            return;
+        }
+        else if (id.substring(0,2).equals("LA")) {
+            laptop lap = new laptop(id, sl);
+            lap.setIdSp(lap.getIdSp().substring(2));
+            System.out.println("Nhap ten san pham: ");
+            String tenLap = sc.nextLine();
+            System.out.println("Nhap gia tien: ");
+            double giaLap = sc.nextDouble();
+            lap.setTenSp(tenLap);
+            lap.setGiaTien(giaLap);
+            arr_sp.add(lap);
+            return;
+        }
+        
+    }
+
+    public void themSanPham(sanPham sPham) {
         if (tonTaiSanPham(sPham.getIdSp())) {
             for (sanPham sp : arr_sp) {
                 if (sp.getIdSp().equals(sPham.getIdSp())) {
@@ -117,7 +145,7 @@ public class dsSanPham {
         }
     }
 
-    public void themSoLuongSanPham(String id, int sl) {
+    public void themSanPham(String id, int sl) {
         if (tonTaiSanPham(id)) {
             for (sanPham sp : arr_sp) {
                 if (sp.getIdSp().equals(id)) {
@@ -191,16 +219,16 @@ public class dsSanPham {
         laptop l3 = new laptop("003", "lap3", 12, 2000);
         laptop l4 = new laptop("004", "lap4", 10, 13000);
         laptop l5 = new laptop("005", "lap5", 7, 7000);
-        themSoLuongSanPham(d1);
-        themSoLuongSanPham(d2);
-        themSoLuongSanPham(d3);
-        themSoLuongSanPham(d4);
-        themSoLuongSanPham(d5);
-        themSoLuongSanPham(l1);
-        themSoLuongSanPham(l2);
-        themSoLuongSanPham(l3);
-        themSoLuongSanPham(l4);
-        themSoLuongSanPham(l5);
+        themSanPham(d1);
+        themSanPham(d2);
+        themSanPham(d3);
+        themSanPham(d4);
+        themSanPham(d5);
+        themSanPham(l1);
+        themSanPham(l2);
+        themSanPham(l3);
+        themSanPham(l4);
+        themSanPham(l5);
     }
 
     public void xuatDsDesktop() {
