@@ -9,7 +9,7 @@ public class menu {
     dsPhieuNhap menuPN = new dsPhieuNhap();
     dsChiTietPhieuNhap menuCTPN = new dsChiTietPhieuNhap();
     dsNhaCungCap menuNCC = new dsNhaCungCap();
-    dsKhachHang menuKH = new dsKhachHang();
+
     // khong su dung
     public String menuChonLoaiSP() {
         int choice;
@@ -150,13 +150,10 @@ public class menu {
 
             switch (choice) {
                 case 1:
-                    menuKH.xuat_ds();
                     break;
                 case 2:
-                    menuKH.timkiem_kh();
                     break;
                 case 3:
-                    menuKH.them_kh();
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -321,6 +318,7 @@ public class menu {
     }
 
     // Menu chi tiet phieu nhap
+
     public void menuChiTIetPhieuNhap() {
         int choice;
         double sumMoney = 0;
@@ -333,26 +331,55 @@ public class menu {
             System.out.println("+-----------------------------+");
             System.out.print("Moi ban nhap lua chon: ");
             choice = checkLoi.checkLuaChon();
+
             System.out.println("===================================================");
 
             switch (choice) {
                 case 1:
                     chiTietPhieuNhap tmp = new chiTietPhieuNhap();
                     tmp.nhapCTPN();
+<<<<<<< HEAD
                     
                     if (menuSP.tonTaiSanPham(tmp.getIdSp())) {
+=======
+                    if (menuSP.tonTaiSanPham(tmp.getMaSp())) {
+>>>>>>> 39a12b7ad780294246741a4719c86c5c71d59d30
                         // lay gia tiên cua san pham khi ton tai san pham
                         tmp.setGiaTien(menuSP.getDonGia(tmp.getIdSp()));
                         menuSP.themSanPham(tmp.getIdSp(), tmp.getSoLuong());
                     } else {
+<<<<<<< HEAD
                         menuSP.themSanPhamMoi(tmp.getIdSp(), tmp.getSoLuong());
                         tmp.setGiaTien(menuSP.getDonGia(tmp.getIdSp()));
+=======
+                        sc.nextLine();
+                        System.out.println("ten san pham:");
+                        String tensp = sc.nextLine();
+                        System.out.println("nhap gia tien:");
+                        double gia = sc.nextDouble();
+                        tmp.setGiaTien(gia);
+                        System.out.println("so luong :" + tmp.getSoLuong());
+                        String masp = tmp.getMaSp().substring(2);
+                        if ("DE".equals(tmp.getMaSp().substring(0, 2))) {
+                            desktop desk = new desktop(masp, tensp, 0, gia);
+                            menuSP.themSoLuongSanPham(desk);
+                        } else if ("LA".equals(tmp.getMaSp().substring(0, 2))) {
+                            laptop lap = new laptop(masp, tensp, 0, gia);
+                            menuSP.themSoLuongSanPham(lap);
+                        } else {
+                            System.out.println("Nhap sai loai san pham");
+                        }
+>>>>>>> 39a12b7ad780294246741a4719c86c5c71d59d30
                     }
-
                     sumMoney += tmp.getThanhtien();
                     tmp.setIdPhieu(menuPN.getLastPN().getIdphieu());
                     menuCTPN.arr_ctpn.add(tmp);
+<<<<<<< HEAD
                     // menuPN.getLastPN().chiTietPN.add(tmp);
+=======
+                    menuPN.getLastPN().chiTietPN.add(tmp);
+
+>>>>>>> 39a12b7ad780294246741a4719c86c5c71d59d30
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -382,6 +409,7 @@ public class menu {
                 ct.xuatCTPN();
             }
         }
+
         System.out.println("+--------------------+----------+--------------+--------------+");
         String tongtien_format = "| Tong tien: %-48.2f | %n";
         System.out.format(tongtien_format, menuPN.getLastPN().getTongTien());
@@ -410,13 +438,21 @@ public class menu {
                         // vua xuat chi tiet phieu nhap vua tang so luong o danh sach san pham
                         if (ct.getIdPhieu().equals(menuPN.getLastPN().getIdphieu())) {
                             ct.xuatCTPN();
+<<<<<<< HEAD
                             // menuSP.themSanPham(ct.getIdSp(), ct.getSoLuong());
+=======
+                            menuSP.themSoLuongSanPham(ct.getMaSp(), ct.getSoLuong());
+>>>>>>> 39a12b7ad780294246741a4719c86c5c71d59d30
                         }
                     }
                     System.out.println("+--------------------+----------+--------------+--------------+");
-                    System.out.format(tongtien_format, menuPN.getLastPN().getTongTien());
-                    System.out.println("+--------------------+----------+--------------+--------------+");
-
+                    /*
+                     * System.out.println(
+                     * "+--------------------+----------+--------------+--------------+");
+                     * System.out.format(tongtien_format, menuPN.getLastPN().getTongTien());
+                     * System.out.println(
+                     * "+--------------------+----------+--------------+--------------+");
+                     */
                     choice = 0;
                     break;
                 case 2:
@@ -533,6 +569,7 @@ public class menu {
                 case 3:
                     menuNCC.themNcc();
                     break;
+
                 case 0:
                     System.out.println("Exit...");
                     break;

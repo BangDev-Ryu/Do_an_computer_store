@@ -79,15 +79,15 @@ public class dsKhachHang {
     }
 
     public void xuat_ds(){
-        System.out.println("+---------------------------------------------------+");
-        System.out.println("| ID khach |   Ho ten   |     SDT     |   Dia chi   |");
-        System.out.println("+---------------------------------------------------+");
+        System.out.println("+-------------------------------------------------------------------------------------+");
+        System.out.println("| ID khach |          Ho ten          |     SDT     |             Dia chi             |");
+        System.out.println("+-------------------------------------------------------------------------------------+");
 
-        String khach_format = "| %-8s | %-11s | %-11s | %-11s | %n";
+        String khach_format = "| %-8s | %-24s | %-11s | %-31s | %n";
         for (khachHang kh : arr_kh) {
             System.out.format(khach_format, kh.getidKhach(), kh.getTenKhach(), kh.getSdt(), kh.getDc());
         }
-        System.out.println("+---------------------------------------------------+");
+        System.out.println("+-------------------------------------------------------------------------------------+");
     }
 
     public static void main(String[] args) {
