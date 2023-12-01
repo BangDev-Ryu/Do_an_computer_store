@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Iterator;
-import java.util.ListIterator;
-
 public class dsKhachHang {
     Scanner sc = new Scanner(System.in);
 
@@ -25,12 +23,6 @@ public class dsKhachHang {
             khachHang tmp = new khachHang();
             tmp.nhap();
             arr_kh.add(tmp);
-        }
-    }
-
-    public void xuat_dskh(){
-        for(khachHang kh : arr_kh){
-            kh.xuat();
         }
     }
 
@@ -79,7 +71,7 @@ public class dsKhachHang {
         while(it.hasNext()){
             khachHang kh = it.next();
             if(kh.getidKhach().equals(id)){
-                kh.xuat();
+                kh.xuatKH();
                 return;
             }
         }
