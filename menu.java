@@ -338,24 +338,19 @@ public class menu {
                 case 1:
                     chiTietPhieuNhap tmp = new chiTietPhieuNhap();
                     tmp.nhapCTPN();
-<<<<<<< HEAD
-                    
-                    if (menuSP.tonTaiSanPham(tmp.getIdSp())) {
-=======
+
                     if (menuSP.tonTaiSanPham(tmp.getMaSp())) {
->>>>>>> 39a12b7ad780294246741a4719c86c5c71d59d30
                         // lay gia tiên cua san pham khi ton tai san pham
                         tmp.setGiaTien(menuSP.getDonGia(tmp.getIdSp()));
                         menuSP.themSanPham(tmp.getIdSp(), tmp.getSoLuong());
                     } else {
                         menuSP.themSanPhamMoi(tmp.getIdSp(), tmp.getSoLuong());
                         tmp.setGiaTien(menuSP.getDonGia(tmp.getIdSp()));
-               
+
                     }
                     sumMoney += tmp.getThanhtien();
                     tmp.setIdPhieu(menuPN.getLastPN().getIdphieu());
                     menuCTPN.arr_ctpn.add(tmp);
-                    // menuPN.getLastPN().chiTietPN.add(tmp);
                     break;
                 case 0:
                     System.out.println("Exit...");
