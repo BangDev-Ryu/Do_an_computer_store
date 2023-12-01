@@ -9,7 +9,7 @@ public class menu {
     dsPhieuNhap menuPN = new dsPhieuNhap();
     dsChiTietPhieuNhap menuCTPN = new dsChiTietPhieuNhap();
     dsNhaCungCap menuNCC = new dsNhaCungCap();
-
+    dsKhachHang menuKH = new dsKhachHang();
     // khong su dung
     public String menuChonLoaiSP() {
         int choice;
@@ -150,10 +150,13 @@ public class menu {
 
             switch (choice) {
                 case 1:
+                    menuKH.xuat_ds();
                     break;
                 case 2:
+                    menuKH.timkiem_kh();
                     break;
                 case 3:
+                    menuKH.them_kh();
                     break;
                 case 0:
                     System.out.println("Exit...");
