@@ -23,7 +23,7 @@ public class menu {
             System.out.println("|2. Laptop.                 |");
             System.out.println("+---------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
-            choice = sc.nextInt();
+            choice = checkLoi.checkLuaChon();
             System.out.println("===================================================");
 
             switch (choice) {
@@ -72,7 +72,7 @@ public class menu {
             System.out.println("|0. Thoat chuong trinh.     |");
             System.out.println("+---------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
-            choice = sc.nextInt();
+            choice = checkLoi.checkLuaChon();
             System.out.println("===================================================");
 
             switch (choice) {
@@ -108,7 +108,7 @@ public class menu {
             System.out.println("|0. Thoat chuong trinh.     |");
             System.out.println("+---------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
-            choice = sc.nextInt();
+            choice = checkLoi.checkLuaChon();
             System.out.println("===================================================");
 
             switch (choice) {
@@ -145,7 +145,7 @@ public class menu {
             System.out.println("|0. Thoat chuong trinh.       |");
             System.out.println("+-----------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
-            choice = sc.nextInt();
+            choice = checkLoi.checkLuaChon();
             System.out.println("===================================================");
 
             switch (choice) {
@@ -178,7 +178,7 @@ public class menu {
             System.out.println("|0. Hoan thanh.               |");
             System.out.println("+-----------------------------+");
             System.out.print("Moi ban nhap lua chon: ");
-            choice = sc.nextInt();
+            choice = checkLoi.checkLuaChon();
             System.out.println("===================================================");
 
             switch (choice) {
@@ -243,7 +243,7 @@ public class menu {
             System.out.println("|2. Huy hoa don.              |");
             System.out.println("+-----------------------------+");
             System.out.print("Moi ban nhap lua chon: ");
-            choice = sc.nextInt();
+            choice = checkLoi.checkLuaChon();
             System.out.println("===================================================");
 
             switch (choice) {
@@ -293,7 +293,7 @@ public class menu {
             System.out.println("|0. Thoat chuong trinh.       |");
             System.out.println("+-----------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
-            choice = sc.nextInt();
+            choice = checkLoi.checkLuaChon();
             System.out.println("===================================================");
 
             switch (choice) {
@@ -330,7 +330,7 @@ public class menu {
             System.out.println("|0. Hoan thanh.               |");
             System.out.println("+-----------------------------+");
             System.out.print("Moi ban nhap lua chon: ");
-            choice = sc.nextInt();
+            choice = checkLoi.checkLuaChon();
 
             System.out.println("===================================================");
 
@@ -410,7 +410,7 @@ public class menu {
             System.out.println("|2. Huy phieu nhap.           |");
             System.out.println("+-----------------------------+");
             System.out.print("Moi ban nhap lua chon: ");
-            choice = sc.nextInt();
+            choice = checkLoi.checkLuaChon();
             System.out.println("===================================================");
 
             switch (choice) {
@@ -449,7 +449,7 @@ public class menu {
     }
 
     public void menuPhieuNhap() {
-        int lc;
+        int choice;
 
         do {
             System.out.println("+-----------------------------+");
@@ -461,10 +461,10 @@ public class menu {
             System.out.println("|0. Thoat chuong trinh.       |");
             System.out.println("+-----------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
-            lc = sc.nextInt();
+            choice = checkLoi.checkLuaChon();
             System.out.println("===================================================");
 
-            switch (lc) {
+            switch (choice) {
                 case 1:
                     menuPN.xuatDSPN();
                     break;
@@ -481,7 +481,7 @@ public class menu {
                     System.out.println("Lua chon khong hop le!");
                     break;
             }
-        } while (lc != 0);
+        } while (choice != 0);
     }
 
     // Menu bao hanh
@@ -498,7 +498,7 @@ public class menu {
             System.out.println("|0. Thoat chuong trinh.       |");
             System.out.println("+-----------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
-            choice = sc.nextInt();
+            choice = checkLoi.checkLuaChon();
             System.out.println("===================================================");
 
             switch (choice) {
@@ -532,7 +532,7 @@ public class menu {
             System.out.println("|0. Thoat chuong trinh.       |");
             System.out.println("+-----------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
-            choice = sc.nextInt();
+            choice = checkLoi.checkLuaChon();
             System.out.println("===================================================");
 
             switch (choice) {
@@ -573,7 +573,7 @@ public class menu {
             System.out.println("|0. Thoat chuong trinh.     |");
             System.out.println("+---------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
-            choice = sc.nextInt();
+            choice = checkLoi.checkLuaChon();
             System.out.println("===================================================");
 
             switch (choice) {

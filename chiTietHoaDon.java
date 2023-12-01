@@ -56,8 +56,8 @@ public class chiTietHoaDon {
     }
     
     public void nhapCTHD(){
-        System.out.println("Nhap id san pham (LAXXX/DEXXX): ");
-        idSp = sc.nextLine();
+        System.out.println("Nhap id san pham: ");
+        idSp = checkLoi.checkIdSanPham();
         System.out.println("Nhap so luong san pham");
         soLuong = sc.nextInt();
     }

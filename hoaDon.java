@@ -55,7 +55,7 @@ public class hoaDon {
         // neu chua ton tai goi ham nhap thong tin khach
         // neu da ton tai thi tiep tuc binh thuong
         System.out.println("Nhap id khach hang: ");
-        idKhach = sc.nextLine();
+        idKhach = checkLoi.checkIdKhachHang();
         System.out.println("Nhap ngay xuat hoa don (dd-mm-yyyy): ");
         ngayMua.nhap();
     }
