@@ -339,7 +339,7 @@ public class menu {
                     chiTietPhieuNhap tmp = new chiTietPhieuNhap();
                     tmp.nhapCTPN();
 
-                    if (menuSP.tonTaiSanPham(tmp.getMaSp())) {
+                    if (menuSP.tonTaiSanPham(tmp.getIdSp())) {
                         // lay gia tiên cua san pham khi ton tai san pham
                         tmp.setGiaTien(menuSP.getDonGia(tmp.getIdSp()));
                         menuSP.themSanPham(tmp.getIdSp(), tmp.getSoLuong());
@@ -381,8 +381,8 @@ public class menu {
             }
         }
 
-        System.out.println("+--------------------+----------+--------------+--------------+");
         String tongtien_format = "| Tong tien: %-48.2f | %n";
+        System.out.println("+--------------------+----------+--------------+--------------+");
         System.out.format(tongtien_format, menuPN.getLastPN().getTongTien());
         System.out.println("+--------------------+----------+--------------+--------------+");
 
@@ -413,13 +413,9 @@ public class menu {
                         }
                     }
                     System.out.println("+--------------------+----------+--------------+--------------+");
-                    /*
-                     * System.out.println(
-                     * "+--------------------+----------+--------------+--------------+");
-                     * System.out.format(tongtien_format, menuPN.getLastPN().getTongTien());
-                     * System.out.println(
-                     * "+--------------------+----------+--------------+--------------+");
-                     */
+                    System.out.format(tongtien_format, menuPN.getLastPN().getTongTien());
+                    System.out.println("+--------------------+----------+--------------+--------------+");                   
+                    
                     choice = 0;
                     break;
                 case 2:
