@@ -47,9 +47,9 @@ public class menu {
 
     // Menu san pham
     public void menuSanPham_2() {
-        System.out.println("Nhap id san pham ban muon tim (LAXXX/DEXXX): ");
-        String tmp = sc.nextLine();
-        String id = sc.nextLine();
+        System.out.println("Nhap id san pham ban muon tim: ");
+        // String tmp = sc.nextLine();
+        String id = checkLoi.checkIdSanPham();
 
         // check id san pham vua nhap khong ton tai thi thoat ra
         if (!menuSP.tonTaiSanPham(id)) {
@@ -70,6 +70,7 @@ public class menu {
             System.out.println("|1. Thay doi ten.           |");
             System.out.println("|2. Thay doi so luong.      |");
             System.out.println("|3. Thay doi gia tien.      |");
+            System.out.println("|4. Xoa san pham.           |");
             System.out.println("|0. Thoat chuong trinh.     |");
             System.out.println("+---------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
@@ -85,6 +86,11 @@ public class menu {
                     break;
                 case 3:
                     menuSP.doiGiaTienSanPham(id);
+                    break;
+                case 4:
+                    menuSP.xoaSanPham(id);
+                    System.out.println("Da xoa san pham!");
+                    choice = 0;
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -220,7 +226,15 @@ public class menu {
         int choice;
 
         // tao id hoa don, id khach va ngay xuat hoa don
-        menuHD.taoHD();
+        // menuHD.taoHD(); 
+        hoaDon tmp = new hoaDon();
+        tmp.nhapHD();
+        if (!menuKH.tonTaiKH(tmp.getIdKhach())) {
+            System.out.println("Khach hang khong ton tai, vui long them khach hang truoc!");
+            System.out.println("===================================================");
+            return;
+        }
+        menuHD.arr_hd.add(tmp);
         // goi menu chi tiet hoa don de nhap chi tiet
         menuChiTietHoaDon();
         // xuat ra hoa don vua tao
@@ -322,7 +336,6 @@ public class menu {
     }
 
     // Menu chi tiet phieu nhap
-
     public void menuChiTIetPhieuNhap() {
         int choice;
         double sumMoney = 0;
@@ -371,7 +384,15 @@ public class menu {
     public void menuPhieuNhap_3() {
         int choice;
 
-        menuPN.taoPN();
+        // menuPN.taoPN();
+        phieuNhap tmp = new phieuNhap();
+        tmp.nhapPN();
+        if (!menuNCC.tonTaiNCC(tmp.getIdncc())) {
+            System.out.println("Nha cung cap khong ton tai, vui long them nha cung cap truoc!");
+            System.out.println("===================================================");
+            return;
+        }
+        menuPN.arr_pn.add(tmp);
 
         menuChiTIetPhieuNhap();
 
@@ -510,6 +531,55 @@ public class menu {
     }
 
     // Menu nha cung cap
+    public void menuNhaCungCap_2() {
+        System.out.println("Nhap id nha cung cap can tim: ");
+        String id = checkLoi.checkIdNhaCungCap();
+
+        if (!menuNCC.tonTaiNCC(id)) {
+            System.out.println("Nha cung cap khong ton tai!");
+            System.out.println("===================================================");
+            return;
+        }
+
+        int choice;
+
+        do {
+            menuNCC.timNCC(id);
+
+            System.out.println("+---------------------------+");
+            System.out.println("|     Menu nha cung cap     |");
+            System.out.println("+---------------------------+");
+            System.out.println("|1. Thay doi ten.           |");
+            System.out.println("|2. Thay doi so dien thoai. |");
+            System.out.println("|3. Xoa nha cung cap        |");
+            System.out.println("|0. Thoat chuong trinh.     |");
+            System.out.println("+---------------------------+");
+            System.out.println("Moi ban nhap lua chon: ");
+            choice = checkLoi.checkLuaChon();
+            System.out.println("===================================================");
+
+            switch (choice) {
+                case 1:
+                    menuNCC.doiTen(id);
+                    break;
+                case 2:
+                    menuNCC.doiSDT(id);
+                    break;
+                case 3:
+                    menuNCC.xoancc(id);
+                    System.out.println("Da xoa nha cung cap!");
+                    choice = 0;
+                    break;
+                case 0:
+                    System.out.println("Exit...");
+                    break;
+                default:
+                    System.out.println("Lua chon khong hop le!");
+                    break;
+            }
+        } while (choice != 0);
+    }
+
     public void menuNhaCungCap() {
         int choice;
 
@@ -517,9 +587,9 @@ public class menu {
             System.out.println("+-----------------------------+");
             System.out.println("|       Menu nha cung cap     |");
             System.out.println("+-----------------------------+");
-            System.out.println("|1. Xem danh sach nha cung cap|");
-            System.out.println("|2. Tim nha cung cap          |");
-            System.out.println("|3. Tao nha cung cap          |");
+            System.out.println("|1. Xem danh sach.            |");
+            System.out.println("|2. Tim nha cung cap.         |");
+            System.out.println("|3. Them nha cung cap.        |");
             System.out.println("|0. Thoat chuong trinh.       |");
             System.out.println("+-----------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
@@ -531,12 +601,11 @@ public class menu {
                     menuNCC.xuatdsncc();
                     break;
                 case 2:
-                    menuNCC.timkiemncc();
+                    menuNhaCungCap_2();
                     break;
                 case 3:
                     menuNCC.themNcc();
                     break;
-
                 case 0:
                     System.out.println("Exit...");
                     break;

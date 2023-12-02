@@ -65,17 +65,23 @@ public class dsKhachHang {
 
     public void timkiem_kh(){
         System.out.println("Nhap id khach hang can tim kiem: ");
-        String id = sc.nextLine();
-        
-        Iterator<khachHang> it = arr_kh.iterator();
-        while(it.hasNext()){
-            khachHang kh = it.next();
-            if(kh.getidKhach().equals(id)){
+        String id = checkLoi.checkIdKhachHang();
+        for (khachHang kh : arr_kh) {
+            if (kh.getidKhach().equals(id)) {
                 kh.xuatKH();
                 return;
             }
         }
         System.out.println("Khach hang can tim khong ton tai!");
+    }
+
+    public boolean tonTaiKH(String id) {
+        for (khachHang kh : arr_kh) {
+            if (kh.getidKhach().equals(id)) {
+                return true;
+            } 
+        }
+        return false;
     }
 
     public void xuat_ds(){
@@ -88,10 +94,5 @@ public class dsKhachHang {
             System.out.format(khach_format, kh.getidKhach(), kh.getTenKhach(), kh.getSdt(), kh.getDc());
         }
         System.out.println("+-------------------------------------------------------------------------------------+");
-    }
-
-    public static void main(String[] args) {
-        dsKhachHang tmp = new dsKhachHang();
-           
     }
 }

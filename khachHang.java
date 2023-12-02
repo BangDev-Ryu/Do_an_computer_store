@@ -56,7 +56,7 @@ public class khachHang {
         System.out.println("Nhap ten khach hang");
         tenKhach = checkLoi.checkTenKhachHang();
         System.out.println("Nhap sdt khach hang");
-        sdt = sc.nextLine();
+        sdt = checkLoi.checkDiaChi();
         System.out.println("Nhap dia chi khach hang");
         dc.nhap();
     }

@@ -58,7 +58,7 @@ public class chiTietPhieuNhap {
         System.out.println("Nhap id san pham: ");
         idSp = checkLoi.checkIdSanPham();
         System.out.println("Nhap so luong:");
-        this.soLuong = sc.nextInt();
+        this.soLuong = checkLoi.checkSoLuong();
     }
 
     public void xuatCTPN() {

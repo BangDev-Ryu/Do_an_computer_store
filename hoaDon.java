@@ -54,10 +54,10 @@ public class hoaDon {
         // se them phan check xem khach hang nhap vao co ton tai chua
         // neu chua ton tai goi ham nhap thong tin khach
         // neu da ton tai thi tiep tuc binh thuong
+        System.out.println("Nhap ngay xuat hoa don: ");
+        ngayMua.nhap();
         System.out.println("Nhap id khach hang: ");
         idKhach = checkLoi.checkIdKhachHang();
-        System.out.println("Nhap ngay xuat hoa don (dd-mm-yyyy): ");
-        ngayMua.nhap();
     }
 
     public void xuatHD(){

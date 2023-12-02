@@ -63,9 +63,14 @@ public class nhaCungCap {
         System.out.println("Nhap ten nha cung cap:");
         tenNCC = checkLoi.checkTenNhaCungCap();
         System.out.println("Nhap so dien thoai nha cung cap:");
-        sdt = sc.nextLine();
+        sdt = checkLoi.checkSDT();
         System.out.println("Nhap email nha cung cap:");
-        email = sc.nextLine();
+        email = sc.nextLine();//checkLoi.checkEmail();
+    }
+
+    public void xuatNCC() {
+        String ncc_format = "| %-10s | %-25s | %-11s | %-30s |%n";
+        System.out.format(ncc_format, idNCC, tenNCC, sdt, email);
     }
 
     @Override

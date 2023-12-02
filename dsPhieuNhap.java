@@ -6,11 +6,11 @@ public class dsPhieuNhap {
     Scanner sc = new Scanner(System.in);
     ArrayList<phieuNhap> arr_pn = new ArrayList<phieuNhap>();
 
-    public void taoPN() {
-        phieuNhap tmp = new phieuNhap();
-        tmp.nhapPN();
-        arr_pn.add(tmp);
-    }
+    // public void taoPN() {
+    //     phieuNhap tmp = new phieuNhap();
+    //     tmp.nhapPN();
+    //     arr_pn.add(tmp);
+    // }
 
     public void timPN() {
         System.out.print("Nhap id phieu nhap can tim: ");

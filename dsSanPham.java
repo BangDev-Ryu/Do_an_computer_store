@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Iterator;
 
 public class dsSanPham {  
     Scanner sc = new Scanner(System.in);
@@ -62,7 +63,7 @@ public class dsSanPham {
 
     public void doiSoLuongSanPham(String id) {
         System.out.println("Nhap so luong muon sua: ");
-        int soLuongMoi = sc.nextInt();
+        int soLuongMoi = checkLoi.checkSoLuong();
 
         for (sanPham sp : arr_sp) {
             if (sp.getIdSp().equals(id)) {
@@ -74,11 +75,22 @@ public class dsSanPham {
 
     public void doiGiaTienSanPham(String id) {
         System.out.println("Nhap gia tien muon doi: ");
-        double giaTienMoi = sc.nextDouble();
+        double giaTienMoi = checkLoi.checkGiaTien();
 
         for (sanPham sp : arr_sp) {
             if (sp.getIdSp().equals(id)) {
                 sp.setGiaTien(giaTienMoi);
+                return;
+            }
+        }
+    }
+
+    public void xoaSanPham(String id) {
+        Iterator<sanPham> it = arr_sp.iterator();
+        while (it.hasNext()) {
+            sanPham sp = it.next();
+            if (sp.getIdSp().equals(id)) {
+                arr_sp.remove(sp);
                 return;
             }
         }
@@ -110,7 +122,7 @@ public class dsSanPham {
             System.out.println("Nhap ten san pham: ");
             String tenDesk = sc.nextLine();
             System.out.println("Nhap gia tien: ");
-            double giaDesk = sc.nextDouble();
+            double giaDesk = checkLoi.checkGiaTien();
             desk.setTenSp(tenDesk);
             desk.setGiaTien(giaDesk);
             arr_sp.add(desk);
@@ -122,7 +134,7 @@ public class dsSanPham {
             System.out.println("Nhap ten san pham: ");
             String tenLap = sc.nextLine();
             System.out.println("Nhap gia tien: ");
-            double giaLap = sc.nextDouble();
+            double giaLap = checkLoi.checkGiaTien();
             lap.setTenSp(tenLap);
             lap.setGiaTien(giaLap);
             arr_sp.add(lap);

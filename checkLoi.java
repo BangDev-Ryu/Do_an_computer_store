@@ -174,4 +174,64 @@ public class checkLoi {
             }
         }
     }
+
+    public static int checkSoNguyen() {
+        int input;
+        while (true) {
+            try {
+                input = Integer.parseInt(sc.nextLine());
+                return input;
+            } catch (NumberFormatException exception) {
+                System.out.println("Kieu du lieu khong hop le!");
+            }
+            System.out.println("Moi nhap lai: ");
+        }
+    }
+
+    public static double checkSoThapPhan() {
+        double input;
+        while (true) {
+            try {
+                input = Double.parseDouble(sc.nextLine());
+                return input;
+            } catch (NumberFormatException exception) {
+                System.out.println("Kieu du lieu khong hop le!");
+            }
+            System.out.println("Moi nhap lai: ");
+        }
+    }
+
+    public static int checkSoLuong() {
+        int input;
+        while (true) {
+            input = checkSoNguyen();
+            if (input <= 0) {
+                System.out.println("So luong khong hop le!");
+            }
+            else if (input >= 1000) {
+                System.out.println("So luong qua lon!");
+            }
+            else {
+                return input;
+            }
+            System.out.println("Moi nhap lai: ");
+        }
+    }
+
+    public static double checkGiaTien() {
+        double input;
+        while (true) {
+            input = checkSoThapPhan();
+            if (input <= 0) {
+                System.out.println("Gia tien khong hop le!");
+            }
+            else if (input >= 1000000) {
+                System.out.println("Gia tien qua lon!");
+            }
+            else {
+                return input;
+            }
+            System.out.println("Moi nhap lai: ");
+        }
+    }
 }

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public abstract class sanPham {
+public class sanPham implements ISanPham {
     Scanner sc = new Scanner(System.in);
 
     private String idSp;
@@ -8,19 +8,23 @@ public abstract class sanPham {
     private int soLuong;
     private double giaTien;
 
-    public sanPham() {
+    private static int slTonKho = 0;
 
+    public sanPham() {
+        slTonKho++;
     }
 
     public sanPham(String id, int sl) {
         idSp = id;
         soLuong = sl;
+        slTonKho++;
     }
 
     public sanPham(String ten, int sl, double tien) {
         tenSp = ten;
         soLuong = sl;
         giaTien = tien;
+        slTonKho++;
     }
 
     public sanPham(String id, String ten, int sl, double tien) {
@@ -28,9 +32,8 @@ public abstract class sanPham {
         tenSp = ten;
         soLuong = sl;
         giaTien = tien;
+        slTonKho++;
     }
-
-    public abstract void xuatSp();
 
     public void setIdSp(String id) {
         idSp = id;
@@ -62,6 +65,15 @@ public abstract class sanPham {
 
     public double getGiaTien() {
         return giaTien;
+    }
+
+    public void xuatSp() {
+        String sanPham_format = "| %-8s | %-15s | %-8s | %-12.2f | %n";
+        System.out.format(sanPham_format, idSp, tenSp, soLuong, giaTien);
+    }
+
+    public int getSlTonKho() {
+        return slTonKho;
     }
 
     public void nhapSpMoi() {

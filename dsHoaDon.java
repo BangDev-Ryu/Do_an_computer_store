@@ -5,11 +5,11 @@ public class dsHoaDon {
     Scanner sc = new Scanner(System.in);
     ArrayList<hoaDon> arr_hd = new ArrayList<hoaDon>();
 
-    public void taoHD() {
-        hoaDon tmp = new hoaDon();
-        tmp.nhapHD();
-        arr_hd.add(tmp);
-    }
+    // public void taoHD() {
+    //     hoaDon tmp = new hoaDon();
+    //     tmp.nhapHD();
+    //     arr_hd.add(tmp);
+    // }
 
     public void timHoaDon() {
         System.out.print("Nhap id hoa don can tim: ");
