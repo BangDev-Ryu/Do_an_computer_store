@@ -1,35 +1,25 @@
 import java.util.Scanner;
 
 public class baoHanh {
-    Scanner sc = new Scanner(System.in);
-
     public String idBH;
     public date ngayMua;
-    public String tgianBh;
-
+    public date ngayKt;
+    public int tgBh;
+     Scanner sc=new Scanner(System.in);
     
+
     public baoHanh() {
         this.idBH = null;
         this.ngayMua = new date();
-        this.tgianBh = null;
+        this.ngayKt = new date();
+        
     }
 
-    public baoHanh(String idBH, date ngayMua, String tgianBh) {
+    public baoHanh(String idBH, date ngayMua, date ngayKt, int tgBh) {
         this.idBH = idBH;
         this.ngayMua = ngayMua;
-        this.tgianBh = tgianBh;
-    }
-
-    public void Nhap() {
-        System.out.print("Nhap id bao hanh: ");
-        this.idBH=sc.nextLine();
-        System.out.println();
-        System.out.print("Nhap ngay mua san pham: ");
-        this.ngayMua.nhap();
-        System.out.println();
-        System.out.print("Nhap thoi gian bao hanh: ");
-        this.tgianBh=sc.nextLine();
-        System.out.println();
+        this.ngayKt = ngayKt;
+        this.tgBh = tgBh;
     }
 
     public String getIdBH() {
@@ -40,8 +30,8 @@ public class baoHanh {
         return ngayMua;
     }
 
-    public String getTgianBh() {
-        return tgianBh;
+    public date getNgayKt() {
+        return ngayKt;
     }
 
     public void setIdBH(String idBH) {
@@ -52,18 +42,71 @@ public class baoHanh {
         this.ngayMua = ngayMua;
     }
 
-    public void setTgianBh(String tgianBh) {
-        this.tgianBh = tgianBh;
+    public void setNgayKt(date ngayKt) {
+        this.ngayKt = ngayKt;
     }
 
+    public int getTgBh() {
+        return tgBh;
+    }
+
+    public void setTgBh(int tgBh) {
+        this.tgBh = tgBh;
+    }
+    
+    public void nhapBH() {
+        System.out.print("Nhap id bao hanh: ");
+        this.idBH=sc.nextLine();
+        System.out.print("\nNhap ngay mua san pham: \n");
+        this.ngayMua.nhap();
+        System.out.print("Nhap thoi gian bao hanh: ");
+        
+        System.out.println("Nhap vao 1: 12 thang");
+        System.out.println("Nhap vao 2: 24 thang");
+        System.out.println("Nhap vao 3: 36 thang");
+        int k;
+        do{
+            k=sc.nextInt();
+            switch(k){
+                case 1:{ 
+                    this.tgBh = 12;
+                    }  
+                case 2:{ 
+                    this.tgBh = 24;
+                    break;
+                }    
+                case 3:{ 
+                    this.tgBh = 36;
+                    break;
+                }    
+            } 
+        }
+        while(k<1 || k>3);
+        int y=this.ngayMua.getNam()+tgBh/12;
+        this.ngayKt.setNgay(this.ngayMua.getNgay());
+        this.ngayKt.setThang(this.ngayMua.getThang());
+        this.ngayKt.setNam(y);
+    }
+    
     @Override
     public String toString() {
-        return "baoHanh{" + "idBH=" + idBH + ", ngayMua=" + ngayMua + ", tgianBh=" + tgianBh + '}';
+        return "baoHanh{" + "idBH=" + idBH + ", ngayMua=" + ngayMua + ", ngayKt=" + ngayKt + '}';
     }
+    public void xuatBH(){
+        System.out.println("+------------------------------------------------------------------+");
+        System.out.println("| ID bao hanh | Ngay mua hang | Ngay ket thuc | Thoi gian bao hanh |");
+        System.out.println("+------------------------------------------------------------------+");
 
-    public void xuat(){
-        System.out.println("id bao hanh: "+this.idBH);
-        System.out.println("ngay mua san pham: "+this.ngayMua);
-        System.out.println("thoi gian bao hanh: "+this.tgianBh);
+        String bh_format = "|   %-8s  |    %-10s |   %-10s  |      %-2s thang      | %n";
+        
+            System.out.format(bh_format, this.getIdBH(), this.getNgayMua(), this.getNgayKt(), this.getTgBh());
+        
+        System.out.println("+------------------------------------------------------------------+");
+    }
+    
+    public static void main(String[] args){
+        baoHanh a=new baoHanh();
+        a.nhapBH();
+        a.xuatBH();
     }
 }
