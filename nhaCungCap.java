@@ -8,9 +8,16 @@ public class nhaCungCap {
     private String email;
     dsNhaCungCap dsncc = new dsNhaCungCap();
     Scanner sc = new Scanner(System.in);
+    private static int cntIdNCC = 1;
 
     public nhaCungCap() {
-
+        if (cntIdNCC < 10)
+            idNCC = "CC00" + cntIdNCC;
+        else if (cntIdNCC < 100)
+            idNCC = "CC0" + cntIdNCC;
+        else
+            idNCC = "CC" + cntIdNCC;
+        cntIdNCC++;
     }
 
     public nhaCungCap(String idNCC, String tenNCC, String sdt, String email) {
@@ -53,8 +60,6 @@ public class nhaCungCap {
     }
 
     public void nhap() {
-        System.out.println("Nhap id nha cung cap (CCXXX):");
-        idNCC = checkLoi.checkIdNhaCungCap();
         System.out.println("Nhap ten nha cung cap:");
         tenNCC = checkLoi.checkTenNhaCungCap();
         System.out.println("Nhap so dien thoai nha cung cap:");

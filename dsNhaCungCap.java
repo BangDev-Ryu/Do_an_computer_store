@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class dsNhaCungCap {
-    private ArrayList<nhaCungCap> dsnhacungcap = new ArrayList<nhaCungCap>();
+    ArrayList<nhaCungCap> dsnhacungcap = new ArrayList<nhaCungCap>();
     Scanner sc = new Scanner(System.in);
 
     public dsNhaCungCap() {
@@ -25,6 +25,15 @@ public class dsNhaCungCap {
         dsnhacungcap.add(ncc);
     }
 
+    public boolean tontaiid(String id) {
+        for (nhaCungCap ncc : dsnhacungcap) {
+            if (ncc.getIdNCC().equals(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void xuatdsncc() {
         System.out.println("+---------------------------------------------------------------------------------------+");
         System.out.println("|   Ma NCC   |          Ten NCC          |     SDT     |             Email              |");
@@ -37,7 +46,7 @@ public class dsNhaCungCap {
         System.out.println("+---------------------------------------------------------------------------------------+");
     }
 
-    public void xuat1ncc(nhaCungCap ncc) {
+    public void xuatdsncc(nhaCungCap ncc) {
         System.out.println(
                 "+---------------------------------------------------------------------------------------+");
         System.out.println(
@@ -55,12 +64,10 @@ public class dsNhaCungCap {
 
     public void timkiemncc() {
         System.out.println("Nhap id nha cung cap can tim:");
-        String id = sc.nextLine();
-        Iterator<nhaCungCap> tk = dsnhacungcap.iterator();
-        while (tk.hasNext()) {
-            nhaCungCap ncc = tk.next();
+        String id = checkLoi.checkIdNhaCungCap();
+        for (nhaCungCap ncc : dsnhacungcap) {
             if (ncc.getIdNCC().equals(id)) {
-                xuat1ncc(ncc);
+                xuatdsncc(ncc);
                 int choice;
                 do {
                     System.out.println("+---------------------------+");
@@ -83,10 +90,12 @@ public class dsNhaCungCap {
                             System.out.println("Nhap email nha cung cap:");
                             ncc.setEmail(sc.nextLine());
                             System.out.println("nha cung cap sau khi sua");
-                            xuat1ncc(ncc);
+                            xuatdsncc(ncc);
                             break;
                         case 2:
                             xoancc(id);
+
+                            return;
                         case 0:
                             System.out.println("Exit...");
                             break;
@@ -104,23 +113,15 @@ public class dsNhaCungCap {
     }
 
     public void xoancc(String id) {
-        Iterator<nhaCungCap> xoa = dsnhacungcap.iterator();
-        while (xoa.hasNext()) {
-            nhaCungCap ncc = xoa.next();
+
+        for (nhaCungCap ncc : dsnhacungcap) {
             if (ncc.getIdNCC().equals(id)) {
                 dsnhacungcap.remove(ncc);
+                System.out.println("Da xoa nha cung cap");
                 return;
             }
         }
         System.out.println("khong tim thay nha cung cap can xoa");
     }
 
-    public boolean tontaiid(String id) {
-        for (nhaCungCap ncc : dsnhacungcap) {
-            if (ncc.getIdNCC().equals(id)) {
-                return true;
-            }
-        }
-        return false;
-    }
 }
