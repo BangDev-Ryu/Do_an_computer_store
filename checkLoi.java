@@ -8,10 +8,9 @@ public class checkLoi {
         while (true) {
             input = sc.nextLine();
             input = input.toUpperCase();
-            if (input.matches("DE"+"[0-9]{3}") || input.matches("LA"+"[0-9]{3}")) {
+            if (input.matches("DE" + "[0-9]{3}") || input.matches("LA" + "[0-9]{3}")) {
                 return input;
-            }
-            else {
+            } else {
                 System.out.println("ID sai dinh dang DE/LA___. Vi du: LA001");
             }
             System.out.println("Moi nhap lai: ");
@@ -23,10 +22,9 @@ public class checkLoi {
         while (true) {
             input = sc.nextLine();
             input = input.toUpperCase();
-            if (input.matches("KH"+"[0-9]{3}")) {
+            if (input.matches("KH" + "[0-9]{3}")) {
                 return input;
-            }
-            else {
+            } else {
                 System.out.println("ID sai dinh dang KH___. Vi du: KH001");
             }
             System.out.println("Moi nhap lai: ");
@@ -38,11 +36,52 @@ public class checkLoi {
         while (true) {
             input = sc.nextLine();
             input = input.toUpperCase();
-            if (input.matches("CC"+"[0-9]{3}")) {
+            if (input.matches("CC" + "[0-9]{3}")) {
                 return input;
-            }
-            else {
+            } else {
                 System.out.println("ID sai dinh dang CC___. Vi du: CC001");
+            }
+            System.out.println("Moi nhap lai: ");
+        }
+    }
+
+    public static String checkSDT() {
+        String input;
+        while (true) {
+            input = sc.nextLine();
+            input = input.toUpperCase();
+            if (input.matches("0{1}[1-9]{1}[0-9]{8}$")) {
+                return input;
+            } else {
+                System.out.println("Sai dinh dang SDT");
+            }
+            System.out.println("Moi nhap lai: ");
+        }
+    }
+
+    public static String checkDiaChi() {
+        String input;
+        while (true) {
+            input = sc.nextLine();
+            input = input.toUpperCase();
+            if (input.matches("^[a-z0-9A-Z,]{20,200}$")) {
+                return input;
+            } else {
+                System.out.println("Sai dinh dang Dia chi. Phai co it nhat 20 ki tu va khong chua ki tu dac biet");
+            }
+            System.out.println("Moi nhap lai: ");
+        }
+    }
+
+    public static String checkEmail() {
+        String input;
+        while (true) {
+            input = sc.nextLine();
+            input = input.toUpperCase();
+            if (input.matches("^[a-z][a-z0-9_\\.]{5,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$")) {
+                return input;
+            } else {
+                System.out.println("Sai dinh dang email");
             }
             System.out.println("Moi nhap lai: ");
         }
@@ -53,10 +92,9 @@ public class checkLoi {
         while (true) {
             input = sc.nextLine();
             input = input.toUpperCase();
-            if (input.matches("HD"+"[0-9]{3}")) {
+            if (input.matches("HD" + "[0-9]{3}")) {
                 return input;
-            }
-            else {
+            } else {
                 System.out.println("ID sai dinh dang HD___. Vi du: HD001");
             }
             System.out.println("Moi nhap lai: ");
@@ -68,10 +106,9 @@ public class checkLoi {
         while (true) {
             input = sc.nextLine();
             input = input.toUpperCase();
-            if (input.matches("PN"+"[0-9]{3}")) {
+            if (input.matches("PN" + "[0-9]{3}")) {
                 return input;
-            }
-            else {
+            } else {
                 System.out.println("ID sai dinh dang PN___. Vi du: PN001");
             }
             System.out.println("Moi nhap lai: ");
