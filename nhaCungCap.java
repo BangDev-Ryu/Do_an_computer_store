@@ -6,7 +6,7 @@ public class nhaCungCap {
     private String tenNCC;
     private String sdt;
     private String email;
-
+    dsNhaCungCap dsncc = new dsNhaCungCap();
     Scanner sc = new Scanner(System.in);
 
     public nhaCungCap() {
@@ -53,10 +53,10 @@ public class nhaCungCap {
     }
 
     public void nhap() {
-        System.out.println("Nhap id nha cung cap:");
-        idNCC = sc.nextLine();
+        System.out.println("Nhap id nha cung cap (CCXXX):");
+        idNCC = checkLoi.checkIdNhaCungCap();
         System.out.println("Nhap ten nha cung cap:");
-        tenNCC = sc.nextLine();
+        tenNCC = checkLoi.checkTenNhaCungCap();
         System.out.println("Nhap so dien thoai nha cung cap:");
         sdt = sc.nextLine();
         System.out.println("Nhap email nha cung cap:");

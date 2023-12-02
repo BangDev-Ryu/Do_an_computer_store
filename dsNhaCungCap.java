@@ -3,29 +3,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class dsNhaCungCap {
-    private ArrayList<nhaCungCap> dsnhacungcap;
+    private ArrayList<nhaCungCap> dsnhacungcap = new ArrayList<nhaCungCap>();
     Scanner sc = new Scanner(System.in);
 
     public dsNhaCungCap() {
-        this.dsnhacungcap = new ArrayList<nhaCungCap>();
-    }
 
-    public dsNhaCungCap(ArrayList<nhaCungCap> dsnhacungcap) {
-        this.dsnhacungcap = dsnhacungcap;
-    }
-
-    public ArrayList<nhaCungCap> getDsnhacungcap() {
-        return dsnhacungcap;
-    }
-
-    public void setDsnhacungcap(ArrayList<nhaCungCap> dsnhacungcap) {
-        this.dsnhacungcap = dsnhacungcap;
     }
 
     public void themNcc() {
         nhaCungCap ncc = new nhaCungCap();
         ncc.nhap();
-        if (kiemtraid(ncc.getIdNCC()) == 1) {
+
+        if (!tontaiid(ncc.getIdNCC())) {
             dsnhacungcap.add(ncc);
         } else {
             System.out.println("id da ton tai");
@@ -76,7 +65,7 @@ public class dsNhaCungCap {
                 do {
                     System.out.println("+---------------------------+");
                     System.out.println("|1. Sua nha cung cap.       |");
-                    System.out.println("|2.xoa nha cung cap         |");
+                    System.out.println("|2. Xoa nha cung cap        |");
                     System.out.println("|0. Thoat chuong trinh.     |");
                     System.out.println("+---------------------------+");
                     System.out.println("Moi ban nhap lua chon: ");
@@ -126,18 +115,7 @@ public class dsNhaCungCap {
         System.out.println("khong tim thay nha cung cap can xoa");
     }
 
-    public int kiemtraid(String id) {
-        Iterator<nhaCungCap> kt = dsnhacungcap.iterator();
-        while (kt.hasNext()) {
-            nhaCungCap ncc = kt.next();
-            if (ncc.getIdNCC().indexOf(id) >= 0) {
-                return 0;
-            }
-        }
-        return 1;
-    }
-
-    public boolean kiemtratontai(String id) {
+    public boolean tontaiid(String id) {
         for (nhaCungCap ncc : dsnhacungcap) {
             if (ncc.getIdNCC().equals(id)) {
                 return true;
@@ -145,5 +123,4 @@ public class dsNhaCungCap {
         }
         return false;
     }
-
 }
