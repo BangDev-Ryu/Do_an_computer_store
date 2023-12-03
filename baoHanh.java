@@ -1,11 +1,12 @@
 import java.util.Scanner;
 
 public class baoHanh {
-    public String idBH;
-    public date ngayMua;
-    public date ngayKt;
-    public int tgBh;
-     Scanner sc=new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
+
+    private String idBH;
+    private date ngayMua;
+    private date ngayKt;
+    private int tgBh;
     
 
     public baoHanh() {
@@ -92,6 +93,7 @@ public class baoHanh {
     public String toString() {
         return "baoHanh{" + "idBH=" + idBH + ", ngayMua=" + ngayMua + ", ngayKt=" + ngayKt + '}';
     }
+    
     public void xuatBH(){
         System.out.println("+------------------------------------------------------------------+");
         System.out.println("| ID bao hanh | Ngay mua hang | Ngay ket thuc | Thoi gian bao hanh |");
@@ -102,11 +104,5 @@ public class baoHanh {
             System.out.format(bh_format, this.getIdBH(), this.getNgayMua(), this.getNgayKt(), this.getTgBh());
         
         System.out.println("+------------------------------------------------------------------+");
-    }
-    
-    public static void main(String[] args){
-        baoHanh a=new baoHanh();
-        a.nhapBH();
-        a.xuatBH();
     }
 }

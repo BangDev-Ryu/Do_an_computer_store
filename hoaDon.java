@@ -11,7 +11,6 @@ public class hoaDon {
     private static int cntIdHD = 1;
 
     public hoaDon() {
-        String cnt;
         if (cntIdHD < 10) idHoaDon = "HD00" + cntIdHD;
         else if (cntIdHD < 100) idHoaDon = "HD0" + cntIdHD;
         else idHoaDon = "HD" + cntIdHD;

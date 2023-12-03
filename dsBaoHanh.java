@@ -3,12 +3,13 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class DsBaoHanh {
-        ArrayList<baoHanh> arr = new ArrayList<baoHanh>();
     Scanner sc=new Scanner(System.in);
-    public DsBaoHanh()
-    {
+    ArrayList<baoHanh> arr = new ArrayList<baoHanh>();
+
+    public DsBaoHanh() {
 
     }
+    
     public void nhapds() {
         System.out.print("Nhap vao so luong phan tu: ");
         int n = sc.nextInt();

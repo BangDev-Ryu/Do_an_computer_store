@@ -139,6 +139,59 @@ public class menu {
     }
 
     // Menu khach hang
+    public void menuKhachHang_2() {
+        System.out.println("Nhap id khach hang ban muon tim: ");
+        String id = checkLoi.checkIdKhachHang();
+
+        if (!menuKH.tonTaiKH(id)) {
+            System.out.println("Khach hang khong ton tai!");
+            System.out.println("===================================================");
+            return;
+        }
+
+        int choice;
+
+        do {
+            menuKH.timKH(id);
+
+            System.out.println("+-----------------------------+");
+            System.out.println("|       Menu khach hang       |");
+            System.out.println("+-----------------------------+");
+            System.out.println("|1. Thay doi ten.             |");
+            System.out.println("|2. Thay doi so dien thoai.   |");
+            System.out.println("|3. Thay doi dia chi.         |");
+            System.out.println("|4. Xoa khach hang.           |");
+            System.out.println("|0. Thoat chuong trinh.       |");
+            System.out.println("+-----------------------------+");
+            System.out.println("Moi ban nhap lua chon: ");
+            choice = checkLoi.checkLuaChon();
+            System.out.println("===================================================");
+
+            switch (choice) {
+                case 1:
+                    menuKH.doiTenKH(id);
+                    break;
+                case 2:
+                    menuKH.doiSDTKH(id);
+                    break;
+                case 3:
+                    menuKH.doiDiaChiKH(id);
+                    break;
+                case 4:
+                    menuKH.xoaKH(id);
+                    System.out.println("Da xoa khach hang!");
+                    choice = 0;
+                    break;
+                case 0:
+                    System.out.println("Exit...");
+                    break;
+                default:
+                    System.out.println("Lua chon khong hop le!");
+                    break;
+            }
+        } while (choice != 0);
+    }
+
     public void menuKhachHang() {
         int choice;
 
@@ -160,7 +213,7 @@ public class menu {
                     menuKH.xuat_ds();
                     break;
                 case 2:
-                    menuKH.timkiem_kh();
+                    menuKhachHang_2();
                     break;
                 case 3:
                     menuKH.them_kh();

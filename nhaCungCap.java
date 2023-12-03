@@ -1,13 +1,12 @@
 import java.util.Scanner;
 
 public class nhaCungCap {
+    Scanner sc = new Scanner(System.in);
 
     private String idNCC;
     private String tenNCC;
     private String sdt;
     private String email;
-    dsNhaCungCap dsncc = new dsNhaCungCap();
-    Scanner sc = new Scanner(System.in);
     private static int cntIdNCC = 1;
 
     public nhaCungCap() {

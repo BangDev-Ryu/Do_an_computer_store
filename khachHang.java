@@ -6,10 +6,12 @@ public class khachHang {
     private String tenKhach;
     private String sdt;
     private diaChi dc = new diaChi();
-    private static int cntIdKH = 0;
+    private static int cntIdKH = 1;
 
     public khachHang() {
-        idKhach = "KH" + cntIdKH;
+        if (cntIdKH < 10) idHoaDon = "KH00" + cntIdKH;
+        else if (cntIdKH < 100) idHoaDon = "KH0" + cntIdKH;
+        else idHoaDon = "KH" + cntIdKH;
         cntIdKH++;
     }
 
@@ -56,7 +58,7 @@ public class khachHang {
         System.out.println("Nhap ten khach hang");
         tenKhach = checkLoi.checkTenKhachHang();
         System.out.println("Nhap sdt khach hang");
-        sdt = checkLoi.checkDiaChi();
+        sdt = checkLoi.checkSDT();
         System.out.println("Nhap dia chi khach hang");
         dc.nhap();
     }
@@ -67,6 +69,8 @@ public class khachHang {
         System.out.println("+-------------------------------------------------------------------------------------+");
 
         String khach_format = "| %-8s | %-24s | %-11s | %-31s | %n";
+        System.out.format(khach_format, idKhach, tenKhach, sdt, dc);
+        System.out.println("+-------------------------------------------------------------------------------------+");
         
     }
 

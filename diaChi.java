@@ -50,13 +50,13 @@ public class diaChi {
     }
     public void nhap(){
         System.out.println("Nhap so nha: ");
-        soNha = sc.nextLine();
+        soNha = checkLoi.checkDiaChi();
         System.out.println("Nhap ten duong: ");
-        tenDuong = sc.nextLine();
+        tenDuong = checkLoi.checkDiaChi();
         System.out.println("Nhap ten quan: ");
-        tenQuan = sc.nextLine();
+        tenQuan = checkLoi.checkDiaChi();
         System.out.println("Nhap ten tinh: ");
-        tenTinh = sc.nextLine();
+        tenTinh = checkLoi.checkDiaChi();
     }
     public void xuat(){
         System.out.println(soNha+", "+tenDuong+", Q"+tenQuan+", "+tenTinh);
@@ -68,12 +68,5 @@ public class diaChi {
             tenDuong + ", Q" +
             tenQuan + ", " +
             tenTinh;
-    }
-
-    public static void main(String[] args) {
-        diaChi dc = new diaChi();
-        dc.nhap();
-        dc.xuat();
-        System.out.println(dc);
     }
 }

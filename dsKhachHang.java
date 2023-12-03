@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Iterator;
+
 public class dsKhachHang {
     Scanner sc = new Scanner(System.in);
 
@@ -63,16 +64,12 @@ public class dsKhachHang {
         System.out.println("Khach hang can sua khong ton tai! ");
     }
 
-    public void timkiem_kh(){
-        System.out.println("Nhap id khach hang can tim kiem: ");
-        String id = checkLoi.checkIdKhachHang();
+    public void timKH(String id) {
         for (khachHang kh : arr_kh) {
             if (kh.getidKhach().equals(id)) {
                 kh.xuatKH();
-                return;
             }
         }
-        System.out.println("Khach hang can tim khong ton tai!");
     }
 
     public boolean tonTaiKH(String id) {
@@ -94,5 +91,53 @@ public class dsKhachHang {
             System.out.format(khach_format, kh.getidKhach(), kh.getTenKhach(), kh.getSdt(), kh.getDc());
         }
         System.out.println("+-------------------------------------------------------------------------------------+");
+    }
+
+    public void doiTenKH(String id) {
+        System.out.println("Nhap ten moi: ");
+        String tenMoi = checkLoi.checkTenKhachHang();
+
+        for (khachHang kh : arr_kh) {
+            if (kh.getidKhach().equals(id)) {
+                kh.setTenKhach(tenMoi);
+                return;
+            }
+        }
+    }
+
+    public void doiSDTKH(String id) {
+        System.out.println("Nhap SDT moi: ");
+        String sdtMoi = checkLoi.checkSDT();
+
+        for (khachHang kh : arr_kh) {
+            if (kh.getidKhach().equals(id)) {
+                kh.setSdt(sdtMoi);
+                return;
+            }
+        }
+    }
+
+    public void doiDiaChiKH(String id) {
+        System.out.println("Nhap dia chi moi: ");
+        diaChi dcMoi = new diaChi();
+        dcMoi.nhap();
+
+        for (khachHang kh : arr_kh) {
+            if (kh.getidKhach().equals(id)) {
+                kh.setDc(dcMoi);
+                return;
+            }
+        }
+    } 
+
+    public void xoaKH(String id) {
+        Iterator<khachHang> it = arr_kh.iterator();
+        while(it.hasNext()){
+            khachHang kh = it.next();
+            if(kh.getidKhach().equals(id)){
+                arr_kh.remove(kh);
+                return;
+            }
+        }
     }
 }

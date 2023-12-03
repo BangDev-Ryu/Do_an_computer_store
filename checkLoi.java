@@ -63,11 +63,11 @@ public class checkLoi {
         String input;
         while (true) {
             input = sc.nextLine();
-            input = input.toUpperCase();
-            if (input.matches("^[a-z0-9A-Z,]{20,200}$")) {
+            if (input.matches("^[a-zA-Z0-9\\s]+$")) {
                 return input;
-            } else {
-                System.out.println("Sai dinh dang Dia chi. Phai co it nhat 20 ki tu va khong chua ki tu dac biet");
+            }
+            else {
+                System.out.println("Khong duoc co ki tu dac biet!");
             }
             System.out.println("Moi nhap lai: ");
         }
@@ -133,7 +133,7 @@ public class checkLoi {
                 }
                 return input;
             } else {
-                System.out.print("Ten khach hang khong hop le.");
+                System.out.println("Ten khach hang khong hop le.");
             }
             System.out.println("Moi nhap lai: ");
         }
@@ -157,7 +157,7 @@ public class checkLoi {
                 }
                 return input;
             } else {
-                System.out.print("Ten nha cung cap khong hop le.");
+                System.out.println("Ten nha cung cap khong hop le.");
             }
             System.out.println("Moi nhap lai: ");
         }
