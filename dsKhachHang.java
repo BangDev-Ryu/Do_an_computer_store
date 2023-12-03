@@ -81,6 +81,14 @@ public class dsKhachHang {
         return false;
     }
 
+    public void taoDsCoSan() {
+        arr_kh.add(new khachHang("Vo Kim Bang", "0666999333", new diaChi("666", "Nguyen Trai", "5", "Tp HCM")));
+        arr_kh.add(new khachHang("Nguyen Hoang Anh", "0222222222", new diaChi("22", "Tran Hung Dao", "1", "Tp HCM")));
+        arr_kh.add(new khachHang("Nguyen Tran Cong Hau", "0123456789", new diaChi("45", "CMT 8", "3", "Tp HCM")));
+        arr_kh.add(new khachHang("Dang Tieu Long", "0987654321", new diaChi("91", "Pham Ngu Lao", "2", "Tp HCM")));
+        arr_kh.add(new khachHang("Nguyen Trong Phuc", "0246813579", new diaChi("73", "Ham Nghi", "11", "Tp HCM")));
+    }
+
     public void xuat_ds(){
         System.out.println("+-------------------------------------------------------------------------------------+");
         System.out.println("| ID khach |          Ho ten          |     SDT     |             Dia chi             |");

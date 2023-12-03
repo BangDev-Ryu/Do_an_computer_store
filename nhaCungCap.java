@@ -19,7 +19,14 @@ public class nhaCungCap {
         cntIdNCC++;
     }
 
-    public nhaCungCap(String idNCC, String tenNCC, String sdt, String email) {
+    public nhaCungCap(String tenNCC, String sdt, String email) {
+        if (cntIdNCC < 10)
+            idNCC = "CC00" + cntIdNCC;
+        else if (cntIdNCC < 100)
+            idNCC = "CC0" + cntIdNCC;
+        else
+            idNCC = "CC" + cntIdNCC;
+        cntIdNCC++;
         this.idNCC = idNCC;
         this.tenNCC = tenNCC;
         this.sdt = sdt;
@@ -64,7 +71,7 @@ public class nhaCungCap {
         System.out.println("Nhap so dien thoai nha cung cap:");
         sdt = checkLoi.checkSDT();
         System.out.println("Nhap email nha cung cap:");
-        email = sc.nextLine();//checkLoi.checkEmail();
+        email = checkLoi.checkEmail();
     }
 
     public void xuatNCC() {

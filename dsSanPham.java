@@ -49,6 +49,18 @@ public class dsSanPham {
         return null;
     }
 
+    public String getTenSanPham(String id) {
+        for (sanPham sp : arr_sp) {
+            if (sp instanceof desktop && sp.getIdSp().equals(id)) {
+                return sp.getTenSp();
+            }
+            else if (sp instanceof laptop && sp.getIdSp().equals(id)) {
+                return sp.getTenSp();
+            }
+        }
+        return null;
+    }
+
     public void doiTenSanPham(String id) {
         System.out.println("Nhap ten muon sua thanh: ");
         String tenSpMoi = sc.nextLine();

@@ -53,7 +53,7 @@ public class checkLoi {
             if (input.matches("0{1}[1-9]{1}[0-9]{8}$")) {
                 return input;
             } else {
-                System.out.println("Sai dinh dang SDT");
+                System.out.println("SDT khong hop le!");
             }
             System.out.println("Moi nhap lai: ");
         }
@@ -78,10 +78,10 @@ public class checkLoi {
         while (true) {
             input = sc.nextLine();
             input = input.toUpperCase();
-            if (input.matches("^[a-z][a-z0-9_\\.]{5,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$")) {
+            if (input.matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,6}$")) {
                 return input;
             } else {
-                System.out.println("Sai dinh dang email");
+                System.out.println("Email khong hop le!");
             }
             System.out.println("Moi nhap lai: ");
         }

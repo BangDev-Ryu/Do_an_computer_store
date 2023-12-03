@@ -4,20 +4,23 @@ public class baoHanh {
     Scanner sc = new Scanner(System.in);
 
     private String idBH;
-    private date ngayMua;
-    private date ngayKt;
+    private String idCTHD;
+    private date ngayMua = new date();
+    private date ngayKt = new date();
     private int tgBh;
-    
 
     public baoHanh() {
-        this.idBH = null;
-        this.ngayMua = new date();
-        this.ngayKt = new date();
         
     }
-
-    public baoHanh(String idBH, date ngayMua, date ngayKt, int tgBh) {
+    
+    public baoHanh(String idBH, int tgBh) {
         this.idBH = idBH;
+        this.tgBh = tgBh;
+    }
+
+    public baoHanh(String idBH, String idCTHD ,date ngayMua, date ngayKt, int tgBh) {
+        this.idBH = idBH;
+        this.idCTHD = idCTHD;
         this.ngayMua = ngayMua;
         this.ngayKt = ngayKt;
         this.tgBh = tgBh;
@@ -25,6 +28,10 @@ public class baoHanh {
 
     public String getIdBH() {
         return idBH;
+    }
+
+    public String getIdCTBH() {
+        return idCTHD;
     }
 
     public date getNgayMua() {
@@ -45,6 +52,10 @@ public class baoHanh {
 
     public void setNgayKt(date ngayKt) {
         this.ngayKt = ngayKt;
+    }
+
+    public void setIdCTHD(String id) {
+        idCTHD = id;
     }
 
     public int getTgBh() {

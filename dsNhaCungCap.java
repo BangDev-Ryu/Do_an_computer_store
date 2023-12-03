@@ -101,4 +101,10 @@ public class dsNhaCungCap {
         System.out.println("khong tim thay nha cung cap can xoa");
     }
 
+    public void taoDsCoSan() {
+        dsnhacungcap.add(new nhaCungCap("Nha Cung Cap Vippro", "0123451234", "nccvippro@gmail.com"));
+        dsnhacungcap.add(new nhaCungCap("Microhard", "0192837465", "microhard@gmail.com"));
+        dsnhacungcap.add(new nhaCungCap("MSY", "07777777777", "msyprovip@gmail.com"));
+    }
+
 }

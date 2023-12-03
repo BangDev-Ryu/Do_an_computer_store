@@ -60,7 +60,7 @@ public class date {
 
     public int ktnam(int n) {
 
-        if (n < 1 || n > 9999) {
+        if (n < 2000 || n > 2100) {
             return 0;
         }
         return 1;
@@ -69,28 +69,33 @@ public class date {
 
     public void nhap() {
         do {
-            System.out.println("Nhap ngay:");
-            ngay = sc.nextInt();
-            if (ktngay(ngay) == 0) {
-                System.out.println("nhap sai ngay");
+            System.out.println("Nhap nam:");
+            nam = checkLoi.checkSoNguyen();
+            if (ktnam(nam) == 0) {
+                System.out.println("Nam qua tre hoac qua som!");
             }
-        } while (ktngay(ngay) == 0);
+            System.out.println("Moi nhap lai: ");
+        } while (ktnam(nam) == 0);
 
         do {
             System.out.println("Nhap thang:");
-            thang = sc.nextInt();
+            thang = checkLoi.checkSoNguyen();
             if (ktthang(thang) == 0) {
-                System.out.println("nhap sai thang");
+                System.out.println("Thang khong hop le!");
             }
+            System.out.println("Moi nhap lai: ");
         } while (ktthang(thang) == 0);
 
         do {
-            System.out.println("Nhap nam:");
-            nam = sc.nextInt();
-            if (ktnam(nam) == 0) {
-                System.out.println("nhap sai nam");
+            System.out.println("Nhap ngay:");
+            ngay = checkLoi.checkSoNguyen();
+            if (ktngay(ngay) == 0) {
+                if ((thang == 4 || thang == 6 || thang == 9 || thang == 11) && ngay == 31) {
+                    System.out.println("Ngay khong hop li!");
+                }
             }
-        } while (ktnam(nam) == 0);
+            System.out.println("Moi nhap lai: ");
+        } while (ktngay(ngay) == 0);
     }
 
     public void xuat() {

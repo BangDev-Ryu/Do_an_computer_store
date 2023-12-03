@@ -6,6 +6,7 @@ public class chiTietHoaDon {
     private String idHoaDon;
     private String idSp;
     private int soLuong;
+    private String idBH;
     private double giaTien;
 
     public chiTietHoaDon() {
@@ -42,6 +43,14 @@ public class chiTietHoaDon {
     public void setSoLuong(int soLuong) {
         this.soLuong = soLuong;
     }
+
+    public String getIdBH() {
+        return idBH;
+    }
+
+    public void setIdBH(String idBH) {
+        this.idBH = idBH;
+    }
     
     public double getGiaTien() {
         return giaTien;
@@ -59,7 +68,7 @@ public class chiTietHoaDon {
         System.out.println("Nhap id san pham: ");
         idSp = checkLoi.checkIdSanPham();
         System.out.println("Nhap so luong san pham");
-        soLuong = sc.nextInt();
+        soLuong = checkLoi.checkSoLuong();
     }
 
     public void xuatCTHD() {

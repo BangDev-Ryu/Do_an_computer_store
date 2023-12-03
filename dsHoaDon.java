@@ -13,7 +13,7 @@ public class dsHoaDon {
 
     public void timHoaDon() {
         System.out.print("Nhap id hoa don can tim: ");
-        String id_tim = sc.nextLine();
+        String id_tim = checkLoi.checkIdHoaDon();
         
         for (hoaDon hd : arr_hd) {
             if (hd.getIdHoaDon().equals(id_tim)) {

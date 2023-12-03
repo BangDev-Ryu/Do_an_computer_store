@@ -9,14 +9,17 @@ public class khachHang {
     private static int cntIdKH = 1;
 
     public khachHang() {
-        if (cntIdKH < 10) idHoaDon = "KH00" + cntIdKH;
-        else if (cntIdKH < 100) idHoaDon = "KH0" + cntIdKH;
-        else idHoaDon = "KH" + cntIdKH;
+        if (cntIdKH < 10) idKhach = "KH00" + cntIdKH;
+        else if (cntIdKH < 100) idKhach = "KH0" + cntIdKH;
+        else idKhach = "KH" + cntIdKH;
         cntIdKH++;
     }
 
-    public khachHang(String idKhach, String tenKhach, String sdt, diaChi dc) {
-        this.idKhach = idKhach;
+    public khachHang(String tenKhach, String sdt, diaChi dc) {
+        if (cntIdKH < 10) idKhach = "KH00" + cntIdKH;
+        else if (cntIdKH < 100) idKhach = "KH0" + cntIdKH;
+        else idKhach = "KH" + cntIdKH;
+        cntIdKH++;
         this.tenKhach = tenKhach;
         this.sdt = sdt;
         this.dc = dc;
