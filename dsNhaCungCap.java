@@ -58,11 +58,15 @@ public class dsNhaCungCap {
     public void timNCC(String id) {
         for (nhaCungCap ncc : dsnhacungcap) {
             if (ncc.getIdNCC().equals(id)) {
-                System.out.println("+---------------------------------------------------------------------------------------+");
-                System.out.println("|   Ma NCC   |          Ten NCC          |     SDT     |             Email              |");
-                System.out.println("+---------------------------------------------------------------------------------------+");
+                System.out.println(
+                        "+---------------------------------------------------------------------------------------+");
+                System.out.println(
+                        "|   Ma NCC   |          Ten NCC          |     SDT     |             Email              |");
+                System.out.println(
+                        "+---------------------------------------------------------------------------------------+");
                 ncc.xuatNCC();
-                System.out.println("+---------------------------------------------------------------------------------------+");
+                System.out.println(
+                        "+---------------------------------------------------------------------------------------+");
             }
         }
     }
@@ -70,7 +74,7 @@ public class dsNhaCungCap {
     public void doiTen(String id) {
         System.out.println("Nhap ten moi: ");
         String tenMoi = checkLoi.checkTenNhaCungCap();
-        
+
         for (nhaCungCap ncc : dsnhacungcap) {
             if (ncc.getIdNCC().equals(id)) {
                 ncc.setTenNCC(tenMoi);
