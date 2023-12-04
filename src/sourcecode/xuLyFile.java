@@ -6,11 +6,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class xuLyFile {
-    private static String sanPhamFilePath = "C:/Workspace/School/OOP/DoAn_temp/src/sourcefile/sanPham.txt";
-    private static String khachHangFilePath = "C:/Workspace/School/OOP/DoAn_temp/src/sourcefile/khachHang.txt";
-    private static String nhaCungCapFilePath = "C:/Workspace/School/OOP/DoAn_temp/src/sourcefile/nhaCungCap.txt";
-    private static String hoaDonFilePath = "C:/Workspace/School/OOP/DoAn_temp/src/sourcefile/hoaDon.txt";
-    private static String phieuNhapFilePath = "C:/Workspace/School/OOP/DoAn_temp/src/sourcefile/phieuNhap.txt";
+    private static String sanPhamFilePath = "src/sourcefile/sanPham.txt";
+    private static String khachHangFilePath = "src/sourcefile/khachHang.txt";
+    private static String nhaCungCapFilePath = "src/sourcefile/nhaCungCap.txt";
+    private static String hoaDonFilePath = "src/sourcefile/hoaDon.txt";
+    private static String phieuNhapFilePath = "src/sourcefile/phieuNhap.txt";
 
     public static ArrayList<sanPham> readSanPham(ArrayList<sanPham> arr) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(sanPhamFilePath))) {
