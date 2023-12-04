@@ -3,11 +3,10 @@ import java.util.ArrayList;
 
 public class phieuNhap {
     private String idphieu;
-    private date ngaynhap = new date();
     private String idncc;
-    private static int cntIdPN = 1;
+    private date ngaynhap = new date();
     private double tongTien;
-    ArrayList<chiTietPhieuNhap> chiTietPN = new ArrayList<chiTietPhieuNhap>();
+    private static int cntIdPN = 1;
 
     Scanner sc = new Scanner(System.in);
 
@@ -20,6 +19,13 @@ public class phieuNhap {
         else
             idphieu = "PN" + cntIdPN;
         cntIdPN++;
+    }
+
+    public phieuNhap(String idphieu, String idncc, date ngaynhap, double tongTien) {
+        this.idphieu = idphieu;
+        this.idncc = idncc;
+        this.ngaynhap = ngaynhap;
+        this.tongTien = tongTien;
     }
 
     public String getIdphieu() {
@@ -72,5 +78,10 @@ public class phieuNhap {
         System.out.format(nhacungcap_format, idncc);
         System.out.println("+----------------------------+");
 
+    }
+
+    @Override
+    public String toString() {
+        return idphieu + ", " + idncc + ", " + ngaynhap + ", " + tongTien;
     }
 }

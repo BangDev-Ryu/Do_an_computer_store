@@ -33,6 +33,13 @@ public class nhaCungCap {
         this.email = email;
     }
 
+    public nhaCungCap(String idNCC, String tenNCC, String sdt, String email) {
+        this.idNCC = idNCC;
+        this.tenNCC = tenNCC;
+        this.sdt = sdt;
+        this.email = email;
+    }
+
     public String getIdNCC() {
         return idNCC;
     }
@@ -81,7 +88,6 @@ public class nhaCungCap {
 
     @Override
     public String toString() {
-        return "id nha cung cap:" + idNCC + ", ten nha cung cap:" + tenNCC + ", so dien thoai nha cung cap:" + sdt
-                + ", email nha cung cap:" + email + ",";
+        return idNCC + ", " + tenNCC + ", " + sdt + ", " + email;
     }
 }

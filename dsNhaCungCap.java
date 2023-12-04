@@ -12,6 +12,7 @@ public class dsNhaCungCap {
     public void themNcc() {
         nhaCungCap ncc = new nhaCungCap();
         ncc.nhap();
+        dsnhacungcap.add(ncc);
     }
 
     public void themNcc(nhaCungCap ncc) {

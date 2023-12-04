@@ -175,6 +175,19 @@ public class checkLoi {
         }
     }
 
+    public static String checkRong() {
+        String input;
+        while (true) {
+            input = sc.nextLine();
+            input = input.trim();
+            if (input != null) {
+                return input;
+            } else {
+                System.out.print("Ten khong duoc de trong!");
+            }
+        }
+    }
+
     public static int checkSoNguyen() {
         int input;
         while (true) {

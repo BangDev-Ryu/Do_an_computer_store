@@ -1,6 +1,7 @@
 import java.util.Scanner;
+import java.io.IOException;
 
-public class menu {
+public class menu implements IMenu {
     Scanner sc = new Scanner(System.in);
 
     dsSanPham menuSP = new dsSanPham();
@@ -71,7 +72,7 @@ public class menu {
 
     public void menuSanPham() {
         int choice;
-
+       
         do {
             System.out.println("+---------------------------+");
             System.out.println("|       Menu san pham       |");
@@ -79,6 +80,8 @@ public class menu {
             System.out.println("|1. Xem danh sach san pham. |");
             System.out.println("|2. Tim san pham.           |");
             System.out.println("|3. Tao danh sach co san.   |");
+            System.out.println("|4. Doc file san pham.      |");
+            System.out.println("|5. Ghi file san pham.      |");
             System.out.println("|0. Thoat chuong trinh.     |");
             System.out.println("+---------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
@@ -98,6 +101,22 @@ public class menu {
                         menuSP.taoDsCoSan();
                     }
                     else System.out.println("Danh sach dang khong rong!");
+                    break;
+                case 4:
+                    try {
+                        menuSP.arr_sp = xuLyFile.readSanPham(menuSP.arr_sp);
+                        System.out.println("Doc file thanh cong!");
+                    } catch (IOException e) {
+                        System.out.println(e);
+                    }
+                    break;
+                case 5:
+                    try {
+                        xuLyFile.writeSanPham(menuSP.arr_sp);
+                        System.out.println("Ghi file thanh cong!");
+                    } catch (IOException ex) {
+                        System.out.println(ex);
+                    }
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -201,6 +220,8 @@ public class menu {
             System.out.println("|2. Tim khach hang.           |");
             System.out.println("|3. Them khach hang.          |");
             System.out.println("|4. Tao san khach hang.       |");
+            System.out.println("|5. Doc file khach hang.      |");
+            System.out.println("|6. Ghi file khach hang.      |");
             System.out.println("|0. Thoat chuong trinh.       |");
             System.out.println("+-----------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
@@ -221,6 +242,22 @@ public class menu {
                     if (menuKH.arr_kh.size() == 0) {
                         menuKH.taoDsCoSan();
                     } else System.out.println("Danh sach khong rong!");
+                    break;
+                case 5:
+                    try {
+                        menuKH.arr_kh = xuLyFile.readKhachHang(menuKH.arr_kh);
+                        System.out.println("Doc file thanh cong!");
+                    } catch (IOException e) {
+                        System.out.println(e);
+                    }
+                    break;
+                case 6:
+                    try {
+                        xuLyFile.writeKhachHang(menuKH.arr_kh);
+                        System.out.println("Ghi file thanh cong!");
+                    } catch (IOException ex) {
+                        System.out.println(ex);
+                    }
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -404,6 +441,8 @@ public class menu {
             System.out.println("|1. Xem danh sach hoa don.    |");
             System.out.println("|2. Tim hoa don.              |");
             System.out.println("|3. Tao hoa don.              |");
+            System.out.println("|4. Doc file hoa don.         |");
+            System.out.println("|5. Ghi file hoa don.         |");
             System.out.println("|0. Thoat chuong trinh.       |");
             System.out.println("+-----------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
@@ -419,6 +458,22 @@ public class menu {
                     break;
                 case 3:
                     menuHoaDon_3();
+                    break;
+                case 4:
+                    try {
+                        menuHD.arr_hd = xuLyFile.readHoaDon(menuHD.arr_hd);
+                        System.out.println("Doc file thanh cong!");
+                    } catch (IOException e) {
+                        System.out.println(e);
+                    }
+                    break;
+                case 5:
+                    try {
+                        xuLyFile.writeHoaDon(menuHD.arr_hd);
+                        System.out.println("Ghi file thanh cong!");
+                    } catch (IOException ex) {
+                        System.out.println(ex);
+                    }
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -480,7 +535,6 @@ public class menu {
     public void menuPhieuNhap_3() {
         int choice;
 
-        // menuPN.taoPN();
         phieuNhap tmp = new phieuNhap();
         tmp.nhapPN();
         if (!menuNCC.tonTaiNCC(tmp.getIdncc())) {
@@ -530,7 +584,6 @@ public class menu {
                         // vua xuat chi tiet phieu nhap vua tang so luong o danh sach san pham
                         if (ct.getIdPhieu().equals(menuPN.getLastPN().getIdphieu())) {
                             ct.xuatCTPN();
-                            // menuSP.themSanPham(ct.getIdSp(), ct.getSoLuong());
                         }
                     }
                     System.out.println("+--------------------+----------+--------------+--------------+");
@@ -545,6 +598,7 @@ public class menu {
                             menuSP.giamSoLuongSanPham(ct.getIdSp(), ct.getSoLuong());
                         }
                     }
+                    menuPN.getLastPN().setTongTien(0);
                   
                     System.out.println("Da huy phieu nhap vua tao.");
                     choice = 0;
@@ -566,6 +620,8 @@ public class menu {
             System.out.println("|1. Xem danh sach phieu nhap. |");
             System.out.println("|2. Tim phieu nhap.           |");
             System.out.println("|3. Tao phieu nhap.           |");
+            System.out.println("|4. Doc file phieu nhap.      |");
+            System.out.println("|5. Ghi file phieu nhap.      |");
             System.out.println("|0. Thoat chuong trinh.       |");
             System.out.println("+-----------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
@@ -581,6 +637,22 @@ public class menu {
                     break;
                 case 3:
                     menuPhieuNhap_3();
+                    break;
+                case 4:
+                    try {
+                        menuPN.arr_pn = xuLyFile.readPhieuNhap(menuPN.arr_pn);
+                        System.out.println("Doc file thanh cong!");
+                    } catch (IOException e) {
+                        System.out.println(e);
+                    }
+                    break;
+                case 5:
+                    try {
+                        xuLyFile.writePhieuNhap(menuPN.arr_pn);
+                        System.out.println("Ghi file thanh cong!");
+                    } catch (IOException ex) {
+                        System.out.println(ex);
+                    }
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -653,6 +725,8 @@ public class menu {
             System.out.println("|2. Tim nha cung cap.         |");
             System.out.println("|3. Them nha cung cap.        |");
             System.out.println("|4. Tao san nha cung cap.     |");
+            System.out.println("|5. Doc file nha cung cap.    |");
+            System.out.println("|6. Ghi file nha cung cap.    |");
             System.out.println("|0. Thoat chuong trinh.       |");
             System.out.println("+-----------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
@@ -674,6 +748,22 @@ public class menu {
                         menuNCC.taoDsCoSan();
                     } else System.out.println("Danh sach khong rong!");
                     break;
+                case 5:
+                    try {
+                        menuNCC.dsnhacungcap = xuLyFile.readNhaCungCap(menuNCC.dsnhacungcap);
+                        System.out.println("Doc file thanh cong!");
+                    } catch (IOException e) {
+                        System.out.println(e);
+                    }
+                    break;
+                case 6:
+                    try {
+                        xuLyFile.writeNhaCungCap(menuNCC.dsnhacungcap);
+                        System.out.println("Ghi file thanh cong!");
+                    } catch (IOException ex) {
+                        System.out.println(ex);
+                    }
+                    break;
                 case 0:
                     System.out.println("Exit...");
                     break;
@@ -684,7 +774,22 @@ public class menu {
         } while (choice != 0);
     }
 
+    // Menu thong ke
+    public void thongKe() {
+        System.out.println("Tong so san pham dang co: " + menuSP.tongSanPham());
+        System.out.println("Tong so desktop dang co: " + menuSP.tongDesktop());
+        System.out.println("Tong so laptop dang co: " + menuSP.tongLaptop());
+        System.out.println();
+        System.out.println("Tong hoa don: " + menuHD.tongHoaDon());
+        System.out.println("Tong hoa don da ban: " + menuHD.tongHoaDonBan());
+        System.out.println("Tong hoa don da huy: " + menuHD.tongHoaDonHuy());
+        System.out.println();
+        System.out.println("Tong phieu nhap: " + menuPN.tongPhieuNhap());
+        System.out.println("Tong phieu nhap da nhap: " + menuPN.tongPhieuNhapNhap());
+        System.out.println("Tong phieu nhap da huy: " + menuPN.tongPhieuNhapHuy());
+        System.out.println("===================================================");
 
+    }
 
     // Menu main
     public void menuMain() {
@@ -723,7 +828,7 @@ public class menu {
                     menuNhaCungCap();
                     break;
                 case 6:
-
+                    thongKe();
                     break;
                 case 0:
                     System.out.println("Exit...");

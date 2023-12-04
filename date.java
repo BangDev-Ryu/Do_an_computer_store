@@ -40,9 +40,12 @@ public class date {
         this.nam = nam;
     }
 
-    public int ktngay(int n) {
+    public int ktngay(int n, int m) {
 
         if (n < 1 || n > 31) {
+            return 0;
+        }
+        else if (n == 31 && (m == 4 || m == 6 || m == 9 || m == 11)) {
             return 0;
         }
         return 1;
@@ -74,7 +77,6 @@ public class date {
             if (ktnam(nam) == 0) {
                 System.out.println("Nam qua tre hoac qua som!");
             }
-            System.out.println("Moi nhap lai: ");
         } while (ktnam(nam) == 0);
 
         do {
@@ -83,19 +85,15 @@ public class date {
             if (ktthang(thang) == 0) {
                 System.out.println("Thang khong hop le!");
             }
-            System.out.println("Moi nhap lai: ");
         } while (ktthang(thang) == 0);
 
         do {
             System.out.println("Nhap ngay:");
             ngay = checkLoi.checkSoNguyen();
-            if (ktngay(ngay) == 0) {
-                if ((thang == 4 || thang == 6 || thang == 9 || thang == 11) && ngay == 31) {
-                    System.out.println("Ngay khong hop li!");
-                }
+            if (ktngay(ngay, thang) == 0) {
+                System.out.println("Ngay khong hop li!");
             }
-            System.out.println("Moi nhap lai: ");
-        } while (ktngay(ngay) == 0);
+        } while (ktngay(ngay, thang) == 0);
     }
 
     public void xuat() {

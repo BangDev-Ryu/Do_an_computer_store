@@ -5,7 +5,7 @@ import java.util.Iterator;
 public class dsKhachHang {
     Scanner sc = new Scanner(System.in);
 
-    private ArrayList<khachHang> arr_kh = new ArrayList<khachHang>();
+    ArrayList<khachHang> arr_kh = new ArrayList<khachHang>();
     
     public dsKhachHang() {
 

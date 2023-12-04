@@ -41,4 +41,22 @@ public class dsHoaDon {
         return arr_hd.get(arr_hd.size()-1);
     }
 
+    public int tongHoaDon() {
+        return arr_hd.size();
+    }
+
+    public int tongHoaDonBan() {
+        int sum = 0;
+        for (hoaDon hd : arr_hd) {
+            if (hd.getTongTien() != 0) {
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    public int tongHoaDonHuy() {
+        return tongHoaDon() - tongHoaDonBan();
+    }
+
 }

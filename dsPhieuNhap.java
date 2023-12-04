@@ -40,4 +40,23 @@ public class dsPhieuNhap {
     public phieuNhap getLastPN() {
         return arr_pn.get(arr_pn.size() - 1);
     }
+
+    public int tongPhieuNhap() {
+        return arr_pn.size();
+    }
+
+    public int tongPhieuNhapNhap() {
+        int sum = 0;
+        for (phieuNhap pn : arr_pn) {
+            if (pn.getTongTien() != 0) {
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    public int tongPhieuNhapHuy() {
+        return tongPhieuNhap() - tongPhieuNhapNhap();
+    }
+
 }

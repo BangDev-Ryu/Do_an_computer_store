@@ -25,6 +25,13 @@ public class khachHang {
         this.dc = dc;
     }
 
+    public khachHang(String idKhach, String tenKhach, String sdt, diaChi dc) {
+        this.idKhach = idKhach;
+        this.tenKhach = tenKhach;
+        this.sdt = sdt;
+        this.dc = dc;
+    }
+
     public String getTenKhach() {
         return tenKhach;
     }
@@ -78,6 +85,6 @@ public class khachHang {
     }
 
     public String toString() {
-        return "Id: "+idKhach+" ten: "+ tenKhach+" so dien thoai: "+sdt+" dia chi "+dc;
+        return idKhach + ", " + tenKhach + ", " + sdt + ", " + dc;
     }
 }

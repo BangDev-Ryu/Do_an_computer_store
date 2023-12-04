@@ -132,7 +132,7 @@ public class dsSanPham {
             desktop desk = new desktop(id, sl);
             desk.setIdSp(desk.getIdSp().substring(2));
             System.out.println("Nhap ten san pham: ");
-            String tenDesk = sc.nextLine();
+            String tenDesk = checkLoi.checkRong();
             System.out.println("Nhap gia tien: ");
             double giaDesk = checkLoi.checkGiaTien();
             desk.setTenSp(tenDesk);
@@ -144,7 +144,7 @@ public class dsSanPham {
             laptop lap = new laptop(id, sl);
             lap.setIdSp(lap.getIdSp().substring(2));
             System.out.println("Nhap ten san pham: ");
-            String tenLap = sc.nextLine();
+            String tenLap = checkLoi.checkRong();
             System.out.println("Nhap gia tien: ");
             double giaLap = checkLoi.checkGiaTien();
             lap.setTenSp(tenLap);
@@ -283,5 +283,33 @@ public class dsSanPham {
             }
         }
         System.out.println("+------------------------------------------------------+");
+    }
+
+    public int tongSanPham() {
+        int sum = 0;
+        for (sanPham sp : arr_sp) {
+            sum += sp.getSoLuong();
+        }
+        return sum;
+    }
+
+    public int tongDesktop() {
+        int sum = 0;
+        for (sanPham sp : arr_sp) {
+            if (sp instanceof desktop) {
+                sum += sp.getSoLuong();
+            }
+        }
+        return sum;
+    }
+
+    public int tongLaptop() {
+        int sum = 0;
+        for (sanPham sp : arr_sp) {
+            if (sp instanceof laptop) {
+                sum += sp.getSoLuong();
+            }
+        }
+        return sum;
     }
 }

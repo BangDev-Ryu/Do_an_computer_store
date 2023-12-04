@@ -17,6 +17,13 @@ public class hoaDon {
         cntIdHD++;
     }
 
+    public hoaDon(String idHoaDon, String idKhach, date ngayMua, Double tongTien) {
+        this.idHoaDon = idHoaDon;
+        this.idKhach = idKhach;
+        this.ngayMua = ngayMua;
+        this.tongTien = tongTien;
+    }
+
     public String getIdHoaDon() {
         return idHoaDon;
     }
@@ -69,5 +76,10 @@ public class hoaDon {
         System.out.format(khach_format, idKhach);
         System.out.println("+----------------------+");
 
+    }
+
+    @Override
+    public String toString() {
+        return idHoaDon + ", " + idKhach + ", " + ngayMua + ", " + tongTien;
     }
 }
