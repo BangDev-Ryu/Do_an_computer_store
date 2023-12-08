@@ -14,6 +14,11 @@ public class menu implements IMenu {
     dsBaoHanh menuBH = new dsBaoHanh();
     dsthongke menuTK = new dsthongke();
 
+    public void clrscr() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
     // Menu san pham
     public void menuSanPham_2() {
         System.out.println("Nhap id san pham ban muon tim: ");
@@ -71,6 +76,7 @@ public class menu implements IMenu {
     }
 
     public void menuSanPham() {
+        clrscr();
         int choice;
 
         do {
@@ -103,20 +109,10 @@ public class menu implements IMenu {
                         System.out.println("Danh sach dang khong rong!");
                     break;
                 case 4:
-                    try {
-                        menuSP.arr_sp = xuLyFile.readSanPham(menuSP.arr_sp);
-                        System.out.println("Doc file thanh cong!");
-                    } catch (IOException e) {
-                        System.out.println(e);
-                    }
+                    menuSP.arr_sp = xuLyFile.readSanPham(menuSP.arr_sp);
                     break;
                 case 5:
-                    try {
-                        xuLyFile.writeSanPham(menuSP.arr_sp);
-                        System.out.println("Ghi file thanh cong!");
-                    } catch (IOException ex) {
-                        System.out.println(ex);
-                    }
+                    xuLyFile.writeSanPham(menuSP.arr_sp);
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -126,6 +122,7 @@ public class menu implements IMenu {
                     break;
             }
         } while (choice != 0);
+        clrscr();
     }
 
     // Menu khach hang
@@ -211,6 +208,7 @@ public class menu implements IMenu {
     }
 
     public void menuKhachHang() {
+        clrscr();
         int choice;
 
         do {
@@ -246,20 +244,10 @@ public class menu implements IMenu {
                         System.out.println("Danh sach khong rong!");
                     break;
                 case 5:
-                    try {
-                        menuKH.arr_kh = xuLyFile.readKhachHang(menuKH.arr_kh);
-                        System.out.println("Doc file thanh cong!");
-                    } catch (IOException e) {
-                        System.out.println(e);
-                    }
+                    menuKH.arr_kh = xuLyFile.readKhachHang(menuKH.arr_kh);
                     break;
                 case 6:
-                    try {
-                        xuLyFile.writeKhachHang(menuKH.arr_kh);
-                        System.out.println("Ghi file thanh cong!");
-                    } catch (IOException ex) {
-                        System.out.println(ex);
-                    }
+                    xuLyFile.writeKhachHang(menuKH.arr_kh);
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -269,6 +257,7 @@ public class menu implements IMenu {
                     break;
             }
         } while (choice != 0);
+        clrscr();
     }
 
     // Menu chi tiet hoa don
@@ -443,6 +432,7 @@ public class menu implements IMenu {
     }
 
     public void menuHoaDon() {
+        clrscr();
         int choice;
 
         do {
@@ -471,20 +461,10 @@ public class menu implements IMenu {
                     menuHoaDon_3();
                     break;
                 case 4:
-                    try {
-                        menuHD.arr_hd = xuLyFile.readHoaDon(menuHD.arr_hd);
-                        System.out.println("Doc file thanh cong!");
-                    } catch (IOException e) {
-                        System.out.println(e);
-                    }
+                    menuHD.arr_hd = xuLyFile.readHoaDon(menuHD.arr_hd);
                     break;
                 case 5:
-                    try {
-                        xuLyFile.writeHoaDon(menuHD.arr_hd);
-                        System.out.println("Ghi file thanh cong!");
-                    } catch (IOException ex) {
-                        System.out.println(ex);
-                    }
+                    xuLyFile.writeHoaDon(menuHD.arr_hd);
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -494,7 +474,7 @@ public class menu implements IMenu {
                     break;
             }
         } while (choice != 0);
-
+        clrscr();
     }
 
     // Menu chi tiet phieu nhap
@@ -630,6 +610,7 @@ public class menu implements IMenu {
     }
 
     public void menuPhieuNhap() {
+        clrscr();
         int choice;
 
         do {
@@ -658,20 +639,10 @@ public class menu implements IMenu {
                     menuPhieuNhap_3();
                     break;
                 case 4:
-                    try {
-                        menuPN.arr_pn = xuLyFile.readPhieuNhap(menuPN.arr_pn);
-                        System.out.println("Doc file thanh cong!");
-                    } catch (IOException e) {
-                        System.out.println(e);
-                    }
+                    menuPN.arr_pn = xuLyFile.readPhieuNhap(menuPN.arr_pn);
                     break;
                 case 5:
-                    try {
-                        xuLyFile.writePhieuNhap(menuPN.arr_pn);
-                        System.out.println("Ghi file thanh cong!");
-                    } catch (IOException ex) {
-                        System.out.println(ex);
-                    }
+                    xuLyFile.writePhieuNhap(menuPN.arr_pn);
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -681,6 +652,7 @@ public class menu implements IMenu {
                     break;
             }
         } while (choice != 0);
+        clrscr();
     }
 
     // Menu nha cung cap
@@ -734,6 +706,7 @@ public class menu implements IMenu {
     }
 
     public void menuNhaCungCap() {
+        clrscr();
         int choice;
 
         do {
@@ -769,20 +742,10 @@ public class menu implements IMenu {
                         System.out.println("Danh sach khong rong!");
                     break;
                 case 5:
-                    try {
-                        menuNCC.dsnhacungcap = xuLyFile.readNhaCungCap(menuNCC.dsnhacungcap);
-                        System.out.println("Doc file thanh cong!");
-                    } catch (IOException e) {
-                        System.out.println(e);
-                    }
+                    menuNCC.dsnhacungcap = xuLyFile.readNhaCungCap(menuNCC.dsnhacungcap);
                     break;
                 case 6:
-                    try {
-                        xuLyFile.writeNhaCungCap(menuNCC.dsnhacungcap);
-                        System.out.println("Ghi file thanh cong!");
-                    } catch (IOException ex) {
-                        System.out.println(ex);
-                    }
+                    xuLyFile.writeNhaCungCap(menuNCC.dsnhacungcap);
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -792,10 +755,12 @@ public class menu implements IMenu {
                     break;
             }
         } while (choice != 0);
+        clrscr();
     }
 
     // Menu thong ke
     public void thongKe() {
+        clrscr();
         int choice;
         do {
             System.out.println("+----------------------------------------------+");
@@ -843,10 +808,12 @@ public class menu implements IMenu {
             }
 
         } while (choice != 0);
+        clrscr();
     }
 
     // Menu main
     public void menuMain() {
+        clrscr();
         int choice;
 
         do {
@@ -893,5 +860,6 @@ public class menu implements IMenu {
             }
 
         } while (choice != 0);
+        clrscr();
     }
 }
