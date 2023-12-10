@@ -1,5 +1,5 @@
-KH001, Vo Kim Bang, 0666999333, 666, Nguyen Trai, Q5, Tp HCM
-KH002, Nguyen Hoang Anh, 0222222222, 22, Tran Hung Dao, Q1, Tp HCM
-KH003, Nguyen Tran Cong Hau, 0123456789, 45, CMT 8, Q3, Tp HCM
-KH004, Dang Tieu Long, 0987654321, 91, Pham Ngu Lao, Q2, Tp HCM
-KH005, Nguyen Trong Phuc, 0246813579, 73, Ham Nghi, Q11, Tp HCM
+KH001, Vo Kim Bang, 0666999333, 666, Nguyen Trai, 5, Tp HCM
+KH002, Nguyen Hoang Anh, 0222222222, 22, Tran Hung Dao, 1, Tp HCM
+KH003, Nguyen Tran Cong Hau, 0123456789, 45, CMT 8, 3, Tp HCM
+KH004, Dang Tieu Long, 0987654321, 91, Pham Ngu Lao, 2, Tp HCM
+KH005, Nguyen Trong Phuc, 0246813579, 73, Ham Nghi, 11, Tp HCM

@@ -61,10 +61,7 @@ public class thongke {
     }
 
     public void nhap() {
-        System.out.println("Nhap thang:");
-        d.setThang(sc.nextInt());
-        System.out.println("Nhap nam:");
-        d.setNam(sc.nextInt());
+        d.nhapThangNam();
     }
 
     @Override
@@ -73,5 +70,4 @@ public class thongke {
                 + soluongsanphamban + ", soluongphhieunhap=" + soluongphhieunhap + ", soluonghoadon=" + soluonghoadon
                 + "]";
     }
-
 }

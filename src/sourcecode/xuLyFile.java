@@ -10,10 +10,13 @@ public class xuLyFile {
     private static String khachHangFilePath = "src/sourcefile/khachHang.txt";
     private static String nhaCungCapFilePath = "src/sourcefile/nhaCungCap.txt";
     private static String hoaDonFilePath = "src/sourcefile/hoaDon.txt";
+    private static String chiTietHoaDonFilePath = "src/sourcefile/chiTietHoaDon.txt";
     private static String phieuNhapFilePath = "src/sourcefile/phieuNhap.txt";
+    private static String chiTietPhieuNhapFilePath = "src/sourcefile/chiTietPhieuNhap.txt";
 
     public static ArrayList<sanPham> readSanPham(ArrayList<sanPham> arr) {
         try (BufferedReader reader = new BufferedReader(new FileReader(sanPhamFilePath))) {
+            arr.clear();
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(", ");
@@ -44,6 +47,7 @@ public class xuLyFile {
 
     public static ArrayList<khachHang> readKhachHang(ArrayList<khachHang> arr) {
         try (BufferedReader reader = new BufferedReader(new FileReader(khachHangFilePath))) {
+            arr.clear();
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(", ");
@@ -69,6 +73,7 @@ public class xuLyFile {
 
     public static ArrayList<nhaCungCap> readNhaCungCap(ArrayList<nhaCungCap> arr) {
         try (BufferedReader reader = new BufferedReader(new FileReader(nhaCungCapFilePath))) {
+            arr.clear();
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(", ");
@@ -94,6 +99,7 @@ public class xuLyFile {
 
     public static ArrayList<hoaDon> readHoaDon(ArrayList<hoaDon> arr) {
         try (BufferedReader reader = new BufferedReader(new FileReader(hoaDonFilePath))) {
+            arr.clear();
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split("[, -]+");
@@ -117,11 +123,38 @@ public class xuLyFile {
         }
     }
 
-    public static ArrayList<phieuNhap> readPhieuNhap(ArrayList<phieuNhap> arr){
-        try (BufferedReader reader = new BufferedReader(new FileReader(phieuNhapFilePath))) {
+    public static ArrayList<chiTietHoaDon> readChiTietHoaDon(ArrayList<chiTietHoaDon> arr) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(chiTietHoaDonFilePath))) {
+            arr.clear();
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(", ");
+                arr.add(new chiTietHoaDon(parts[0], parts[1], Integer.parseInt(parts[2]), parts[3], Double.parseDouble(parts[4])));
+            }
+            return arr;
+        } catch (IOException ex) {
+            System.out.println(ex);
+            return arr;
+        }
+    }
+
+    public static void writeChiTietHoaDon(ArrayList<chiTietHoaDon> arr) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(chiTietHoaDonFilePath))) {
+            for (chiTietHoaDon cthd : arr) {
+                writer.write(cthd.toString());
+                writer.write("\n");
+            }
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+    }
+
+    public static ArrayList<phieuNhap> readPhieuNhap(ArrayList<phieuNhap> arr){
+        try (BufferedReader reader = new BufferedReader(new FileReader(phieuNhapFilePath))) {
+            arr.clear();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split("[, -]+");
                 arr.add(new phieuNhap(parts[0], parts[1], new date(Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4])), Double.parseDouble(parts[5])));
             }
             return arr;
@@ -135,6 +168,32 @@ public class xuLyFile {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(phieuNhapFilePath))) {
             for (phieuNhap pn : arr) {
                 writer.write(pn.toString());
+                writer.write("\n");
+            }
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+    }
+
+    public static ArrayList<chiTietPhieuNhap> readChiTietPhieuNhap(ArrayList<chiTietPhieuNhap> arr) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(chiTietPhieuNhapFilePath))) {
+            arr.clear();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(", ");
+                arr.add(new chiTietPhieuNhap(parts[0], parts[1], Integer.parseInt(parts[2]), Double.parseDouble(parts[3])));
+            }
+            return arr;
+        } catch (IOException ex) {
+            System.out.println(ex);
+            return arr;
+        }
+    }
+
+    public static void writeChiTietPhieuNhap(ArrayList<chiTietPhieuNhap> arr) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(chiTietPhieuNhapFilePath))) {
+            for (chiTietPhieuNhap ctpn : arr) {
+                writer.write(ctpn.toString());
                 writer.write("\n");
             }
         } catch (IOException ex) {

@@ -56,6 +56,10 @@ public class hoaDon {
         this.tongTien = tongTien;
     }
 
+    public static void giamIdHD() {
+        cntIdHD--;
+    }
+
     public void nhapHD() {
         // se them phan check xem khach hang nhap vao co ton tai chua
         // neu chua ton tai goi ham nhap thong tin khach

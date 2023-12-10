@@ -60,6 +60,10 @@ public class phieuNhap {
         this.tongTien = tongTien;
     }
 
+    public static void giamIdPN() {
+        cntIdPN--;
+    }
+
     public void nhapPN() {
         System.out.println("Nhap ngay nhap phieu nhap: ");
         ngaynhap.nhap();

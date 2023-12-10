@@ -59,13 +59,13 @@ public class diaChi {
         tenTinh = checkLoi.checkDiaChi();
     }
     public void xuat(){
-        System.out.println(soNha+", "+tenDuong+", Q"+tenQuan+", "+tenTinh);
+        System.out.println(soNha+", "+tenDuong+", "+tenQuan+", "+tenTinh);
     }
     @Override
     public String toString() {
         return 
             soNha + ", " +
-            tenDuong + ", Q" +
+            tenDuong + ", " +
             tenQuan + ", " +
             tenTinh;
     }

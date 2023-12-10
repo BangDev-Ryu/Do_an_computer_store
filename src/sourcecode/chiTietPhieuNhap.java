@@ -68,6 +68,6 @@ public class chiTietPhieuNhap {
 
     @Override
     public String toString() {
-        return "idSp=" + idSp + ", soLuong=" + soLuong + ", giaTien=" + giaTien;
+        return idPhieu + ", " + idSp + ", " + soLuong + ", " + giaTien;
     }
 }

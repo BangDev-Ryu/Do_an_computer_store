@@ -96,6 +96,24 @@ public class date {
         } while (ktngay(ngay, thang) == 0);
     }
 
+    public void nhapThangNam() {
+        do {
+            System.out.println("Nhap nam:");
+            nam = checkLoi.checkSoNguyen();
+            if (ktnam(nam) == 0) {
+                System.out.println("Nam qua tre hoac qua som!");
+            }
+        } while (ktnam(nam) == 0);
+
+        do {
+            System.out.println("Nhap thang:");
+            thang = checkLoi.checkSoNguyen();
+            if (ktthang(thang) == 0) {
+                System.out.println("Thang khong hop le!");
+            }
+        } while (ktthang(thang) == 0);
+    }
+
     public void xuat() {
         System.out.println(ngay + "-" + thang + "-" + nam);
     }

@@ -19,6 +19,29 @@ public class menu implements IMenu {
         System.out.flush();
     }
 
+    public void updateFile() {
+        xuLyFile.writeSanPham(menuSP.arr_sp);
+        menuSP.arr_sp = xuLyFile.readSanPham(menuSP.arr_sp);
+
+        xuLyFile.writeKhachHang(menuKH.arr_kh);
+        menuKH.arr_kh = xuLyFile.readKhachHang(menuKH.arr_kh);
+
+        xuLyFile.writeNhaCungCap(menuNCC.dsnhacungcap);
+        menuNCC.dsnhacungcap = xuLyFile.readNhaCungCap(menuNCC.dsnhacungcap);
+
+        xuLyFile.writeHoaDon(menuHD.arr_hd);
+        menuHD.arr_hd = xuLyFile.readHoaDon(menuHD.arr_hd);
+
+        xuLyFile.writeChiTietHoaDon(menuCTHD.arr_cthd);
+        menuCTHD.arr_cthd = xuLyFile.readChiTietHoaDon(menuCTHD.arr_cthd);
+
+        xuLyFile.writePhieuNhap(menuPN.arr_pn);
+        menuPN.arr_pn = xuLyFile.readPhieuNhap(menuPN.arr_pn);
+
+        xuLyFile.writeChiTietPhieuNhap(menuCTPN.arr_ctpn);
+        menuCTPN.arr_ctpn = xuLyFile.readChiTietPhieuNhap(menuCTPN.arr_ctpn);
+    }
+
     // Menu san pham
     public void menuSanPham_2() {
         System.out.println("Nhap id san pham ban muon tim: ");
@@ -77,6 +100,7 @@ public class menu implements IMenu {
 
     public void menuSanPham() {
         clrscr();
+        updateFile();
         int choice;
 
         do {
@@ -86,8 +110,6 @@ public class menu implements IMenu {
             System.out.println("|1. Xem danh sach san pham. |");
             System.out.println("|2. Tim san pham.           |");
             System.out.println("|3. Tao danh sach co san.   |");
-            System.out.println("|4. Doc file san pham.      |");
-            System.out.println("|5. Ghi file san pham.      |");
             System.out.println("|0. Thoat chuong trinh.     |");
             System.out.println("+---------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
@@ -108,12 +130,6 @@ public class menu implements IMenu {
                     } else
                         System.out.println("Danh sach dang khong rong!");
                     break;
-                case 4:
-                    menuSP.arr_sp = xuLyFile.readSanPham(menuSP.arr_sp);
-                    break;
-                case 5:
-                    xuLyFile.writeSanPham(menuSP.arr_sp);
-                    break;
                 case 0:
                     System.out.println("Exit...");
                     break;
@@ -122,6 +138,7 @@ public class menu implements IMenu {
                     break;
             }
         } while (choice != 0);
+        updateFile();
         clrscr();
     }
 
@@ -209,6 +226,7 @@ public class menu implements IMenu {
 
     public void menuKhachHang() {
         clrscr();
+        updateFile();
         int choice;
 
         do {
@@ -219,8 +237,6 @@ public class menu implements IMenu {
             System.out.println("|2. Tim khach hang.           |");
             System.out.println("|3. Them khach hang.          |");
             System.out.println("|4. Tao san khach hang.       |");
-            System.out.println("|5. Doc file khach hang.      |");
-            System.out.println("|6. Ghi file khach hang.      |");
             System.out.println("|0. Thoat chuong trinh.       |");
             System.out.println("+-----------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
@@ -243,12 +259,6 @@ public class menu implements IMenu {
                     } else
                         System.out.println("Danh sach khong rong!");
                     break;
-                case 5:
-                    menuKH.arr_kh = xuLyFile.readKhachHang(menuKH.arr_kh);
-                    break;
-                case 6:
-                    xuLyFile.writeKhachHang(menuKH.arr_kh);
-                    break;
                 case 0:
                     System.out.println("Exit...");
                     break;
@@ -257,6 +267,7 @@ public class menu implements IMenu {
                     break;
             }
         } while (choice != 0);
+        updateFile();
         clrscr();
     }
 
@@ -354,6 +365,7 @@ public class menu implements IMenu {
         tmp.nhapHD();
         if (!menuKH.tonTaiKH(tmp.getIdKhach())) {
             System.out.println("Khach hang khong ton tai, vui long them khach hang truoc!");
+            tmp.giamIdHD();
             System.out.println("===================================================");
             return;
         }
@@ -415,7 +427,7 @@ public class menu implements IMenu {
                     System.out.println("+--------------------+----------+----------+--------------+--------------+");
 
                     choice = 0;
-                    menuTK.tangsoluongphieunhap(menuHD.getLastHD().getNgayMua().getThang(),
+                    menuTK.tangsoluonghoadon(menuHD.getLastHD().getNgayMua().getThang(),
                             menuHD.getLastHD().getNgayMua().getNam());
                     break;
                 case 2:
@@ -433,6 +445,7 @@ public class menu implements IMenu {
 
     public void menuHoaDon() {
         clrscr();
+        updateFile();
         int choice;
 
         do {
@@ -442,8 +455,6 @@ public class menu implements IMenu {
             System.out.println("|1. Xem danh sach hoa don.    |");
             System.out.println("|2. Tim hoa don.              |");
             System.out.println("|3. Tao hoa don.              |");
-            System.out.println("|4. Doc file hoa don.         |");
-            System.out.println("|5. Ghi file hoa don.         |");
             System.out.println("|0. Thoat chuong trinh.       |");
             System.out.println("+-----------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
@@ -460,12 +471,6 @@ public class menu implements IMenu {
                 case 3:
                     menuHoaDon_3();
                     break;
-                case 4:
-                    menuHD.arr_hd = xuLyFile.readHoaDon(menuHD.arr_hd);
-                    break;
-                case 5:
-                    xuLyFile.writeHoaDon(menuHD.arr_hd);
-                    break;
                 case 0:
                     System.out.println("Exit...");
                     break;
@@ -474,6 +479,7 @@ public class menu implements IMenu {
                     break;
             }
         } while (choice != 0);
+        updateFile();
         clrscr();
     }
 
@@ -533,6 +539,7 @@ public class menu implements IMenu {
         tmp.nhapPN();
         if (!menuNCC.tonTaiNCC(tmp.getIdncc())) {
             System.out.println("Nha cung cap khong ton tai, vui long them nha cung cap truoc!");
+            tmp.giamIdPN();
             System.out.println("===================================================");
             return;
         }
@@ -585,7 +592,7 @@ public class menu implements IMenu {
                     System.out.println("+--------------------+----------+--------------+--------------+");
 
                     choice = 0;
-                    menuTK.tangsoluonghoadon(menuPN.getLastPN().getNgaynhap().getThang(),
+                    menuTK.tangsoluongphieunhap(menuPN.getLastPN().getNgaynhap().getThang(),
                             menuPN.getLastPN().getNgaynhap().getNam());
                     break;
                 case 2:
@@ -611,6 +618,7 @@ public class menu implements IMenu {
 
     public void menuPhieuNhap() {
         clrscr();
+        updateFile();
         int choice;
 
         do {
@@ -620,8 +628,6 @@ public class menu implements IMenu {
             System.out.println("|1. Xem danh sach phieu nhap. |");
             System.out.println("|2. Tim phieu nhap.           |");
             System.out.println("|3. Tao phieu nhap.           |");
-            System.out.println("|4. Doc file phieu nhap.      |");
-            System.out.println("|5. Ghi file phieu nhap.      |");
             System.out.println("|0. Thoat chuong trinh.       |");
             System.out.println("+-----------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
@@ -638,12 +644,6 @@ public class menu implements IMenu {
                 case 3:
                     menuPhieuNhap_3();
                     break;
-                case 4:
-                    menuPN.arr_pn = xuLyFile.readPhieuNhap(menuPN.arr_pn);
-                    break;
-                case 5:
-                    xuLyFile.writePhieuNhap(menuPN.arr_pn);
-                    break;
                 case 0:
                     System.out.println("Exit...");
                     break;
@@ -652,6 +652,7 @@ public class menu implements IMenu {
                     break;
             }
         } while (choice != 0);
+        updateFile();
         clrscr();
     }
 
@@ -707,6 +708,7 @@ public class menu implements IMenu {
 
     public void menuNhaCungCap() {
         clrscr();
+        updateFile();
         int choice;
 
         do {
@@ -717,8 +719,6 @@ public class menu implements IMenu {
             System.out.println("|2. Tim nha cung cap.         |");
             System.out.println("|3. Them nha cung cap.        |");
             System.out.println("|4. Tao san nha cung cap.     |");
-            System.out.println("|5. Doc file nha cung cap.    |");
-            System.out.println("|6. Ghi file nha cung cap.    |");
             System.out.println("|0. Thoat chuong trinh.       |");
             System.out.println("+-----------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
@@ -741,12 +741,6 @@ public class menu implements IMenu {
                     } else
                         System.out.println("Danh sach khong rong!");
                     break;
-                case 5:
-                    menuNCC.dsnhacungcap = xuLyFile.readNhaCungCap(menuNCC.dsnhacungcap);
-                    break;
-                case 6:
-                    xuLyFile.writeNhaCungCap(menuNCC.dsnhacungcap);
-                    break;
                 case 0:
                     System.out.println("Exit...");
                     break;
@@ -755,6 +749,7 @@ public class menu implements IMenu {
                     break;
             }
         } while (choice != 0);
+        updateFile();
         clrscr();
     }
 
@@ -776,16 +771,15 @@ public class menu implements IMenu {
 
             switch (choice) {
                 case 1:
-                    System.out.println("Tong so luong san pham hien co la:" + menuSP.tongSanPham());
+                    System.out.println("Tong so luong san pham hien co la: " + menuSP.tongSanPham());
                     System.out.println("Trong do:");
-                    System.out.println("So luong desktop la:" + menuSP.tongDesktop());
-                    System.out.println("So luong laptop la:" + menuSP.tongLaptop());
+                    System.out.println("So luong desktop la: " + menuSP.tongDesktop());
+                    System.out.println("So luong laptop la: " + menuSP.tongLaptop());
                     break;
                 case 2:
                     thongke tk = new thongke();
                     tk.nhap();
                     menuTK.xuatDSTK(tk.getD().getThang(), tk.getD().getNam());
-
                     break;
                 case 3:
                     menuHoaDon();
@@ -814,6 +808,7 @@ public class menu implements IMenu {
     // Menu main
     public void menuMain() {
         clrscr();
+        updateFile();
         int choice;
 
         do {
@@ -860,6 +855,7 @@ public class menu implements IMenu {
             }
 
         } while (choice != 0);
+        updateFile();
         clrscr();
     }
 }

@@ -13,10 +13,11 @@ public class chiTietHoaDon {
 
     }
 
-    public chiTietHoaDon(String idHoaDon, String idSp, int soLuong, double giaTien) {
+    public chiTietHoaDon(String idHoaDon, String idSp, int soLuong, String idBH, double giaTien) {
         this.idHoaDon = idHoaDon;
         this.idSp = idSp;
         this.soLuong = soLuong;
+        this.idBH = idBH;
         this.giaTien = giaTien;
     }
     
@@ -74,5 +75,10 @@ public class chiTietHoaDon {
     public void xuatCTHD() {
         String cthd_format = "| %-18s | %-8s | %-12.2f | %-12.2f | %n";
         System.out.format(cthd_format, idSp, soLuong, giaTien, getThanhtien());
+    }
+
+    @Override
+    public String toString() {
+        return idHoaDon + ", " + idSp + ", " + soLuong + ", " + idBH + ", " + giaTien;
     }
 }
