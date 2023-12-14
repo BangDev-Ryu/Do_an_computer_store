@@ -7,9 +7,7 @@ public class dsBaoHanh {
     ArrayList<baoHanh> arr_bh = new ArrayList<baoHanh>();
 
     public dsBaoHanh() {
-        arr_bh.add(new baoHanh("36T", 3));
-        arr_bh.add(new baoHanh("24T", 2));
-        arr_bh.add(new baoHanh("12T", 1));
+        
     }
     
     public void nhapds() {

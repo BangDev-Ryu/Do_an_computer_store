@@ -8,17 +8,19 @@ public class chiTietHoaDon {
     private int soLuong;
     private String idBH;
     private double giaTien;
+    private double thanhTien;
 
     public chiTietHoaDon() {
 
     }
 
-    public chiTietHoaDon(String idHoaDon, String idSp, int soLuong, String idBH, double giaTien) {
+    public chiTietHoaDon(String idHoaDon, String idSp, int soLuong, String idBH, double giaTien, double thanhTien) {
         this.idHoaDon = idHoaDon;
         this.idSp = idSp;
         this.soLuong = soLuong;
         this.idBH = idBH;
         this.giaTien = giaTien;
+        this.thanhTien = thanhTien;
     }
     
     public String getIdHoaDon() {
@@ -61,8 +63,12 @@ public class chiTietHoaDon {
         this.giaTien = giaTien;
     }
 
+    public void setThanhTien(double thanhTien) {
+        this.thanhTien = thanhTien;
+    }
+
     public double getThanhtien() {
-        return giaTien*soLuong;
+        return thanhTien;
     }
     
     public void nhapCTHD(){
@@ -79,6 +85,6 @@ public class chiTietHoaDon {
 
     @Override
     public String toString() {
-        return idHoaDon + ", " + idSp + ", " + soLuong + ", " + idBH + ", " + giaTien;
+        return idHoaDon + ", " + idSp + ", " + soLuong + ", " + idBH + ", " + giaTien + ", " + thanhTien;
     }
 }

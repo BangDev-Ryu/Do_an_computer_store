@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class phieuNhap {
-    private String idphieu;
+    private String idPhieu;
     private String idncc;
     private date ngaynhap = new date();
     private double tongTien;
@@ -13,27 +13,27 @@ public class phieuNhap {
     public phieuNhap() {
         String cnt;
         if (cntIdPN < 10)
-            idphieu = "PN00" + cntIdPN;
+            idPhieu = "PN00" + cntIdPN;
         else if (cntIdPN < 100)
-            idphieu = "PN0" + cntIdPN;
+            idPhieu = "PN0" + cntIdPN;
         else
-            idphieu = "PN" + cntIdPN;
+            idPhieu = "PN" + cntIdPN;
         cntIdPN++;
     }
 
-    public phieuNhap(String idphieu, String idncc, date ngaynhap, double tongTien) {
-        this.idphieu = idphieu;
+    public phieuNhap(String idPhieu, String idncc, date ngaynhap, double tongTien) {
+        this.idPhieu = idPhieu;
         this.idncc = idncc;
         this.ngaynhap = ngaynhap;
         this.tongTien = tongTien;
     }
 
-    public String getIdphieu() {
-        return idphieu;
+    public String getIdPhieu() {
+        return idPhieu;
     }
 
-    public void setIdphieu(String idphieu) {
-        this.idphieu = idphieu;
+    public void setIdphieu(String idPhieu) {
+        this.idPhieu = idPhieu;
     }
 
     public date getNgaynhap() {
@@ -77,7 +77,7 @@ public class phieuNhap {
         String nhacungcap_format = "| ID nha cung cap: %-9s |%n";
 
         System.out.println("+----------------------------+");
-        System.out.format(mapn_format, idphieu);
+        System.out.format(mapn_format, idPhieu);
         System.out.format(date_format, ngaynhap);
         System.out.format(nhacungcap_format, idncc);
         System.out.println("+----------------------------+");
@@ -86,6 +86,6 @@ public class phieuNhap {
 
     @Override
     public String toString() {
-        return idphieu + ", " + idncc + ", " + ngaynhap + ", " + tongTien;
+        return idPhieu + ", " + idncc + ", " + ngaynhap + ", " + tongTien;
     }
 }

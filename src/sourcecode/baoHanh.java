@@ -7,6 +7,7 @@ public class baoHanh {
     private String idCTHD;
     private date ngayMua = new date();
     private date ngayKt = new date();
+    private int phi;
     private int tgBh;
 
     public baoHanh() {
@@ -18,11 +19,12 @@ public class baoHanh {
         this.tgBh = tgBh;
     }
 
-    public baoHanh(String idBH, String idCTHD ,date ngayMua, date ngayKt, int tgBh) {
+    public baoHanh(String idBH, String idCTHD ,date ngayMua, date ngayKt, int phi, int tgBh) {
         this.idBH = idBH;
         this.idCTHD = idCTHD;
         this.ngayMua = ngayMua;
         this.ngayKt = ngayKt;
+        this.phi = phi;
         this.tgBh = tgBh;
     }
 
@@ -30,7 +32,7 @@ public class baoHanh {
         return idBH;
     }
 
-    public String getIdCTBH() {
+    public String getIdCTHD() {
         return idCTHD;
     }
 
@@ -56,6 +58,14 @@ public class baoHanh {
 
     public void setIdCTHD(String id) {
         idCTHD = id;
+    }
+
+    public int getPhi() {
+        return phi;
+    }
+
+    public void setPhi(int phi) {
+        this.phi = phi;
     }
 
     public int getTgBh() {
@@ -102,7 +112,7 @@ public class baoHanh {
     
     @Override
     public String toString() {
-        return "baoHanh{" + "idBH=" + idBH + ", ngayMua=" + ngayMua + ", ngayKt=" + ngayKt + '}';
+        return idBH + ", " + idCTHD + ", " + ngayMua + ", " + ngayKt + ", " + phi + ", " + tgBh;
     }
     
     public void xuatBH(){

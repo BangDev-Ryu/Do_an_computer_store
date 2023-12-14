@@ -14,15 +14,15 @@ public class dsPhieuNhap {
 
     public void timPN() {
         System.out.print("Nhap id phieu nhap can tim: ");
-        String id_tim = sc.nextLine();
+        String id_tim = checkLoi.checkIdPhieuNhap();
 
         for (phieuNhap pn : arr_pn) {
-            if (pn.getIdphieu().equals(id_tim)) {
+            if (pn.getIdPhieu().equals(id_tim)) {
                 pn.xuatPN();
                 return;
             }
         }
-        System.out.println("Ma hoa don can tim khong ton tai!");
+        System.out.println("Ma phieu nhap can tim khong ton tai!");
     }
 
     public void xuatDSPN() {
@@ -32,7 +32,7 @@ public class dsPhieuNhap {
 
         String pn_format = "| %-13s | %-17s | %-12s | %n";
         for (phieuNhap pn : arr_pn) {
-            System.out.format(pn_format, pn.getIdphieu(), pn.getIdncc(), pn.getNgaynhap());
+            System.out.format(pn_format, pn.getIdPhieu(), pn.getIdncc(), pn.getNgaynhap());
         }
         System.out.println("+--------------------------------------------------+");
     }
@@ -53,6 +53,15 @@ public class dsPhieuNhap {
             }
         }
         return sum;
+    }
+
+    public date timDate(String id) {
+        for (phieuNhap pn : arr_pn) {
+            if (pn.getIdPhieu().equals(id)) {
+                return pn.getNgaynhap();
+            }
+        }
+        return new date();
     }
 
     public int tongPhieuNhapHuy() {

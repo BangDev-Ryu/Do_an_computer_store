@@ -45,6 +45,15 @@ public class dsHoaDon {
         return arr_hd.size();
     }
 
+    public date timDate(String id) {
+        for (hoaDon hd : arr_hd) {
+            if (hd.getIdHoaDon().equals(id)) {
+                return hd.getNgayMua();
+            }
+        }
+        return new date();
+    }
+
     public int tongHoaDonBan() {
         int sum = 0;
         for (hoaDon hd : arr_hd) {

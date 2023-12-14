@@ -13,6 +13,7 @@ public class xuLyFile {
     private static String chiTietHoaDonFilePath = "src/sourcefile/chiTietHoaDon.txt";
     private static String phieuNhapFilePath = "src/sourcefile/phieuNhap.txt";
     private static String chiTietPhieuNhapFilePath = "src/sourcefile/chiTietPhieuNhap.txt";
+    private static String baoHanhFilePath = "src/sourcefile/baoHanh.txt";
 
     public static ArrayList<sanPham> readSanPham(ArrayList<sanPham> arr) {
         try (BufferedReader reader = new BufferedReader(new FileReader(sanPhamFilePath))) {
@@ -129,7 +130,7 @@ public class xuLyFile {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(", ");
-                arr.add(new chiTietHoaDon(parts[0], parts[1], Integer.parseInt(parts[2]), parts[3], Double.parseDouble(parts[4])));
+                arr.add(new chiTietHoaDon(parts[0], parts[1], Integer.parseInt(parts[2]), parts[3], Double.parseDouble(parts[4]), Double.parseDouble(parts[5])));
             }
             return arr;
         } catch (IOException ex) {
@@ -194,6 +195,35 @@ public class xuLyFile {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(chiTietPhieuNhapFilePath))) {
             for (chiTietPhieuNhap ctpn : arr) {
                 writer.write(ctpn.toString());
+                writer.write("\n");
+            }
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+    }
+
+    public static ArrayList<baoHanh> readBaoHanh(ArrayList<baoHanh> arr) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(phieuNhapFilePath))) {
+            arr.clear();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split("[, -]+");
+                arr.add(new baoHanh(parts[0], parts[1], 
+                    new date(Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4])), 
+                    new date(Integer.parseInt(parts[5]), Integer.parseInt(parts[6]), Integer.parseInt(parts[7])),
+                    Integer.parseInt(parts[8]), Integer.parseInt(parts[9])));
+            }
+            return arr;
+        } catch (IOException ex) {
+            System.out.println(ex);
+            return arr;
+        }
+    }
+
+    public static void writeBaoHanh(ArrayList<baoHanh> arr) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(baoHanhFilePath))) {
+            for (baoHanh bh : arr) {
+                writer.write(bh.toString());
                 writer.write("\n");
             }
         } catch (IOException ex) {

@@ -40,6 +40,9 @@ public class menu implements IMenu {
 
         xuLyFile.writeChiTietPhieuNhap(menuCTPN.arr_ctpn);
         menuCTPN.arr_ctpn = xuLyFile.readChiTietPhieuNhap(menuCTPN.arr_ctpn);
+
+        xuLyFile.writeBaoHanh(menuBH.arr_bh);
+        menuBH.arr_bh = xuLyFile.readBaoHanh(menuBH.arr_bh);
     }
 
     // Menu san pham
@@ -144,19 +147,19 @@ public class menu implements IMenu {
 
     // Menu khach hang
     public void sanPhamDaMua(String id) {
-        String spdm_format = "| %-8s | %-18s | %-17s | %n";
+        String spdm_format = "| %-8s | %-18s | %-17s | %-17s |%n";
         for (chiTietHoaDon cthd : menuCTHD.arr_cthd) {
             if (cthd.getIdHoaDon().equals(id)) {
                 System.out.format(spdm_format, cthd.getIdHoaDon(), menuSP.getTenSanPham(cthd.getIdSp()),
-                        menuBH.kThucBaoHanh(cthd.getIdBH(), menuHD.getLastHD().getNgayMua()));
+                        menuHD.timDate(id), menuBH.kThucBaoHanh(cthd.getIdBH(), menuHD.timDate(id)));
             }
         }
     }
 
     public void timHoaDonKhach(String id) {
-        System.out.println("+----------+--------------------+-------------------+");
-        System.out.println("|  ID HD   |      San pham      | Ngay het bao hanh |");
-        System.out.println("+----------+--------------------+-------------------+");
+        System.out.println("+----------+--------------------+-------------------+-------------------+");
+        System.out.println("|  ID HD   |      San pham      |     Ngay mua      | Ngay het bao hanh |");
+        System.out.println("+----------+--------------------+-------------------+-------------------+");
 
         for (hoaDon hd : menuHD.arr_hd) {
             // tim nhung hoa don co id khach hang va hoa don do chua bi huy
@@ -164,7 +167,7 @@ public class menu implements IMenu {
                 sanPhamDaMua(hd.getIdHoaDon());
             }
         }
-        System.out.println("+----------+--------------------+-------------------+");
+        System.out.println("+----------+--------------------+-------------------+-------------------+");
     }
 
     public void menuKhachHang_2() {
@@ -272,16 +275,17 @@ public class menu implements IMenu {
     }
 
     // Menu chi tiet hoa don
-    public String menuChonBaoHanh() {
+    public baoHanh menuChonBaoHanh() {
         int choice;
-        String bHanh = "";
+        baoHanh bh = new baoHanh();
+
         do {
             System.out.println("+-----------------------------+");
             System.out.println("|     Menu chon bao hanh      |");
             System.out.println("+-----------------------------+");
-            System.out.println("|1. Bao hanh 12 thang.        |");
-            System.out.println("|2. Bao hanh 24 thang.        |");
-            System.out.println("|3. Bao hanh 36 thang.        |");
+            System.out.println("|1. Bao hanh 12 thang (free). |");
+            System.out.println("|2. Bao hanh 24 thang (+3%).  |");
+            System.out.println("|3. Bao hanh 36 thang (+5%).  |");
             System.out.println("+-----------------------------+");
             System.out.print("Moi ban nhap lua chon: ");
             choice = checkLoi.checkLuaChon();
@@ -289,15 +293,21 @@ public class menu implements IMenu {
 
             switch (choice) {
                 case 1:
-                    bHanh = "12T";
+                    bh.setIdBH("12T");
+                    bh.setPhi(0);
+                    bh.setTgBh(1);
                     choice = 0;
                     break;
                 case 2:
-                    bHanh = "24T";
+                    bh.setIdBH("24T");
+                    bh.setPhi(3);
+                    bh.setTgBh(2);
                     choice = 0;
                     break;
                 case 3:
-                    bHanh = "36T";
+                    bh.setIdBH("36T");
+                    bh.setPhi(5);
+                    bh.setTgBh(3);
                     choice = 0;
                     break;
                 default:
@@ -305,7 +315,7 @@ public class menu implements IMenu {
                     break;
             }
         } while (choice != 0);
-        return bHanh;
+        return bh;
     }
 
     public void menuChiTietHoaDon() {
@@ -332,16 +342,26 @@ public class menu implements IMenu {
                         System.out.println("San pham khong ton tai hoac so luong hien co khong du!");
                         break;
                     }
-                    // lay ra gia tien cua san pham co id vua nhap
-                    tmp.setGiaTien(menuSP.getDonGia(tmp.getIdSp()));
-                    tmp.setIdBH(menuChonBaoHanh());
-
-                    // cong vao bien tong tien
-                    sumMoney += tmp.getThanhtien();
+                    // bao hanh lay duoc ma bh, phi bh, tgian bh
+                    baoHanh bHanh = menuChonBaoHanh();
+                    // gan id bao hanh cho chi tiet hoa don
+                    tmp.setIdBH(bHanh.getIdBH());
 
                     tmp.setIdHoaDon(menuHD.getLastHD().getIdHoaDon());
-                    menuCTHD.arr_cthd.add(tmp);
+                    bHanh.setIdCTHD(tmp.getIdHoaDon());
+                    bHanh.setNgayMua(menuHD.timDate(tmp.getIdHoaDon()));
+                    bHanh.setNgayKt(menuBH.kThucBaoHanh(bHanh.getIdBH(), bHanh.getNgayMua()));
+                    // lay ra gia tien cua san pham co id vua nhap
+                    tmp.setGiaTien(menuSP.getDonGia(tmp.getIdSp()));
 
+                    menuCTHD.arr_cthd.add(tmp);
+                    menuBH.arr_bh.add(bHanh);
+
+                    // cong vao bien tong tien
+                    double phiBH = tmp.getGiaTien() * bHanh.getPhi() / 100.0;
+                    double tTien = (tmp.getGiaTien() + phiBH) * tmp.getSoLuong();
+                    tmp.setThanhTien(tTien);
+                    sumMoney += tmp.getThanhtien();
                     break;
                 case 0:
                     System.out.println("Exit...");
@@ -514,7 +534,7 @@ public class menu implements IMenu {
 
                     }
                     sumMoney += tmp.getThanhtien();
-                    tmp.setIdPhieu(menuPN.getLastPN().getIdphieu());
+                    tmp.setIdPhieu(menuPN.getLastPN().getIdPhieu());
                     menuCTPN.arr_ctpn.add(tmp);
                     menuTK.tangsoluongsanphamnhap(menuPN.getLastPN().getNgaynhap().getThang(),
                             menuPN.getLastPN().getNgaynhap().getNam(), tmp.getSoLuong());
@@ -552,7 +572,7 @@ public class menu implements IMenu {
         System.out.println("|      San pham      | So luong |    Don gia   |  Thanh tien  |");
         System.out.println("+--------------------+----------+--------------+--------------+");
         for (chiTietPhieuNhap ct : menuCTPN.arr_ctpn) {
-            if (ct.getIdPhieu().equals(menuPN.getLastPN().getIdphieu())) {
+            if (ct.getIdPhieu().equals(menuPN.getLastPN().getIdPhieu())) {
                 ct.xuatCTPN();
             }
         }
@@ -583,7 +603,7 @@ public class menu implements IMenu {
                     System.out.println("+--------------------+----------+--------------+--------------+");
                     for (chiTietPhieuNhap ct : menuCTPN.arr_ctpn) {
                         // vua xuat chi tiet phieu nhap vua tang so luong o danh sach san pham
-                        if (ct.getIdPhieu().equals(menuPN.getLastPN().getIdphieu())) {
+                        if (ct.getIdPhieu().equals(menuPN.getLastPN().getIdPhieu())) {
                             ct.xuatCTPN();
                         }
                     }
@@ -597,7 +617,7 @@ public class menu implements IMenu {
                     break;
                 case 2:
                     for (chiTietPhieuNhap ct : menuCTPN.arr_ctpn) {
-                        if (ct.getIdPhieu().equals(menuPN.getLastPN().getIdphieu())) {
+                        if (ct.getIdPhieu().equals(menuPN.getLastPN().getIdPhieu())) {
                             menuSP.giamSoLuongSanPham(ct.getIdSp(), ct.getSoLuong());
                             menuTK.giamsoluongsanphamnhap(menuPN.getLastPN().getNgaynhap().getThang(),
                                     menuPN.getLastPN().getNgaynhap().getNam(), ct.getSoLuong());
@@ -657,6 +677,27 @@ public class menu implements IMenu {
     }
 
     // Menu nha cung cap
+    public void sanPhamDaNhap(String id) {
+        String spdn_format = "| %-8s | %-18s | %-17s | %n";
+        for (chiTietPhieuNhap ctpn : menuCTPN.arr_ctpn) {
+            if (ctpn.getIdPhieu().equals(id)) {
+                System.out.format(spdn_format, ctpn.getIdPhieu(), menuSP.getTenSanPham(ctpn.getIdSp()), menuPN.timDate(id));
+            }
+        }
+    }
+
+    public void timPhieuNhapNCC(String id) {
+        System.out.println("+----------+--------------------+-------------------+");
+        System.out.println("|  ID PN   |      San pham      |     Ngay nhap     |");
+        System.out.println("+----------+--------------------+-------------------+");
+        for (phieuNhap pn : menuPN.arr_pn) {
+            if (pn.getIdncc().equals(id) && pn.getTongTien() > 0) {
+                sanPhamDaNhap(pn.getIdPhieu());
+            }
+        }
+        System.out.println("+----------+--------------------+-------------------+");
+    }
+
     public void menuNhaCungCap_2() {
         System.out.println("Nhap id nha cung cap can tim: ");
         String id = checkLoi.checkIdNhaCungCap();
@@ -677,7 +718,8 @@ public class menu implements IMenu {
             System.out.println("+---------------------------+");
             System.out.println("|1. Thay doi ten.           |");
             System.out.println("|2. Thay doi so dien thoai. |");
-            System.out.println("|3. Xoa nha cung cap        |");
+            System.out.println("|3. Xoa nha cung cap.       |");
+            System.out.println("|4. Xem san pham da nhap.   |");
             System.out.println("|0. Thoat chuong trinh.     |");
             System.out.println("+---------------------------+");
             System.out.println("Moi ban nhap lua chon: ");
@@ -695,6 +737,9 @@ public class menu implements IMenu {
                     menuNCC.xoancc(id);
                     System.out.println("Da xoa nha cung cap!");
                     choice = 0;
+                    break;
+                case 4:
+                    timPhieuNhapNCC(id);
                     break;
                 case 0:
                     System.out.println("Exit...");

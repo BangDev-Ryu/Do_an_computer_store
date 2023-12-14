@@ -77,7 +77,7 @@ public class checkLoi {
         String input;
         while (true) {
             input = sc.nextLine();
-            input = input.toUpperCase();
+            // input = input.toUpperCase();
             if (input.matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,6}$")) {
                 return input;
             } else {
