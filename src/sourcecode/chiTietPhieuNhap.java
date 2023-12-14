@@ -5,17 +5,19 @@ public class chiTietPhieuNhap {
     private String idSp;
     private int soLuong;
     private double giaTien;
+    private double thanhTien;
     Scanner sc = new Scanner(System.in);
 
     public chiTietPhieuNhap() {
 
     }
 
-    public chiTietPhieuNhap(String idPhieu, String idSp, int soLuong, double giaTien) {
+    public chiTietPhieuNhap(String idPhieu, String idSp, int soLuong, double giaTien, double thanhTien) {
         this.idPhieu = idPhieu;
         this.idSp = idSp;
         this.soLuong = soLuong;
         this.giaTien = giaTien;
+        this.thanhTien = thanhTien;
     }
 
     public void setIdPhieu(String idPhieu) {
@@ -50,8 +52,12 @@ public class chiTietPhieuNhap {
         this.giaTien = giaTien;
     }
 
+    public void setThanhTien(double thanhTien) {
+        this.thanhTien = thanhTien;
+    }
+
     public double getThanhtien() {
-        return giaTien * soLuong;
+        return thanhTien;
     }
 
     public void nhapCTPN() {
@@ -68,6 +74,6 @@ public class chiTietPhieuNhap {
 
     @Override
     public String toString() {
-        return idPhieu + ", " + idSp + ", " + soLuong + ", " + giaTien;
+        return idPhieu + ", " + idSp + ", " + soLuong + ", " + giaTien + ", " + thanhTien;
     }
 }

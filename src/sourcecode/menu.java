@@ -533,6 +533,8 @@ public class menu implements IMenu {
                         tmp.setGiaTien(menuSP.getDonGia(tmp.getIdSp()));
 
                     }
+                    double tTien = tmp.getGiaTien() * tmp.getSoLuong();
+                    tmp.setThanhTien(tTien);
                     sumMoney += tmp.getThanhtien();
                     tmp.setIdPhieu(menuPN.getLastPN().getIdPhieu());
                     menuCTPN.arr_ctpn.add(tmp);
@@ -825,18 +827,6 @@ public class menu implements IMenu {
                     thongke tk = new thongke();
                     tk.nhap();
                     menuTK.xuatDSTK(tk.getD().getThang(), tk.getD().getNam());
-                    break;
-                case 3:
-                    menuHoaDon();
-                    break;
-                case 4:
-                    menuPhieuNhap();
-                    break;
-                case 5:
-                    menuNhaCungCap();
-                    break;
-                case 6:
-                    thongKe();
                     break;
                 case 0:
                     System.out.println("Exit...");

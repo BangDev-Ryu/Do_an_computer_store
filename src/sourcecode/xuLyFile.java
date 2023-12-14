@@ -182,7 +182,7 @@ public class xuLyFile {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(", ");
-                arr.add(new chiTietPhieuNhap(parts[0], parts[1], Integer.parseInt(parts[2]), Double.parseDouble(parts[3])));
+                arr.add(new chiTietPhieuNhap(parts[0], parts[1], Integer.parseInt(parts[2]), Double.parseDouble(parts[3]), Double.parseDouble(parts[4])));
             }
             return arr;
         } catch (IOException ex) {
@@ -203,7 +203,7 @@ public class xuLyFile {
     }
 
     public static ArrayList<baoHanh> readBaoHanh(ArrayList<baoHanh> arr) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(phieuNhapFilePath))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(baoHanhFilePath))) {
             arr.clear();
             String line;
             while ((line = reader.readLine()) != null) {
